@@ -36,3 +36,9 @@
 - Statistics
 
 - Parsing of nutrition values from known sites.
+
+##Used Gems
+
+- Twitter Bootstrap
+- Prawn
+- Ransack
