@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   
-  get 'recipes/recipes', as: 'recipes'
+  devise_for :users  
+  get 'recipes' => 'recipes#list'
   
   get 'recipes/new' => 'recipes#new'
   
-  post 'recipes/recipes' => 'recipes#create'
+  post 'recipes' => 'recipes#create'
   
-  root 'recipes#recipes'
+  root 'recipes#list'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
