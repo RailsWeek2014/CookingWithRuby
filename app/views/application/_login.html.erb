@@ -3,6 +3,6 @@
     <h3 class="panel-title">Login</h3>
   </div>
   <div class="panel-body">
-     <%= if(current_user) then current_user.email else "unregistriert" end%>
+     <%= if(user_signed_in?) then link_to current_user.email, edit_user_registration_path else "unregistriert" end%>
   </div>
 </div>
