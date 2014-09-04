@@ -1,9 +1,34 @@
 class RecipesController < ApplicationController
+  def index
+    redirect_to recipes_list_path
+  end
+  
   def list
+    unless current_user
+      @recipes = Recipe.where(:range ["public"])
+    else
+      @recipes = Recipe.where("range in ('registrated', 'public') or user_id = #{ current_user.id }")
+    end
     @recipes = Recipe.all
   end
   
+  def specific_list
+    @user = User.find(params[:id])
+    unless current_user
+      @recipes = @user.recipes.where(range: ["public"])
+    else
+      unless current_user.id.to_s == params[:id]
+        @recipes = @user.recipes.where(range: ["public", "registrated"])
+      else
+         @recipes = @user.recipes.all
+      end 
+    end    
+  end
+  
   def new
+    unless current_user
+      redirect_to new_user_session_path
+    end
     @recipe = Recipe.new
   end
   
@@ -15,6 +40,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new recipe_params
     
     if @recipe.save
+      current_user.recipes << @recipe
       redirect_to recipes_path
     else
       render action: 'new'
