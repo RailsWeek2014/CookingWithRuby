@@ -5,5 +5,15 @@
   <li>
     <%= link_to t('new_recipe'), recipes_new_path %>
   </li>
+  <li/>
+  <li>
+    <%= link_to t('sign_up'), new_user_registration_path %>
+  </li>
+  <li>
+    <%= link_to t('sign_in'), new_user_session_path %>
+  </li>
+  <li>
+    <%= link_to t('log_off'), destroy_user_session_path, method: :delete %>
+  </li>
 <!--      <span class="badge pull-right">3</span>-->
 </ul>
