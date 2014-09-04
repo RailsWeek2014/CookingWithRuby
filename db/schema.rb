@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140904114206) do
     t.string   "picture"
     t.string   "sex"
     t.datetime "birth_date"
-    t.float    "weight"
+    t.integer  "weight"
     t.string   "role"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
