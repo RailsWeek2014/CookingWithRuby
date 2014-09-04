@@ -8,14 +8,28 @@
 
   <div>
   <%= f.text_field :name %></div>
+
+  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+    <%= f.password_field :password, hide_label: true, autocomplete: "off" %></div>
+
+  <div>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
   
   <div>
-  <%= f.label :bith_date %></div>
-  <div class='input-group date' id='datetimepicker5'>
-	<input type='text' name='birth_date' class="form-control" data-date-format="YYYY-MM-DD"/>
-    <span class="input-group-addon">
-      <span class="glyphicon glyphicon-calendar"></span>
-    </span>
+    <%= f.form_group :sex do %>
+      <%= f.radio_button :sex, 'm', label: "Mann", inline: true, checked: true %>
+      <%= f.radio_button :sex, 'f', label: "Frau", inline: true %>
+    <% end %>
+  </div>
+  
+  <div>
+  <%= f.label :bith_date %>
+    <div class='input-group date' id='datetimepicker5'>
+	  <input type='text' name='user[birth_date]' class="form-control" data-date-format="YYYY-MM-DD" placeholder="1900-12-25"/>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
   </div>
   <script type="text/javascript">
 	$(function () {
@@ -25,11 +39,9 @@
 	});
   </script>
 
-  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-    <%= f.password_field :password, hide_label: true, autocomplete: "off" %></div>
-
   <div>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    <%= f.number_field :weight %>
+  </div>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
