@@ -1,4 +1,6 @@
-<h2>Detail zum Favoriten</h2>
+<h2>Detail zum Rezept</h2>
+<%= link_to t("delete"), @recipe, data: { confirm: "#{@recipe.name} wirklich löschen?" }, method: :delete %>
+<%= link_to t("change"), edit_recipe_path(@recipe) %>
 <p>
 	<div class="well">
 	    <br/>
