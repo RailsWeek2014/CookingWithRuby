@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class RecipesControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get recipes" do
+    get :recipes
+    assert_response :success
+  end
+
 end
