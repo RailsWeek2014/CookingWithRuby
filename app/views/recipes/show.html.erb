@@ -1,4 +1,14 @@
 <h2>Detail zum Favoriten</h2>
 <p>
-<%= render @recipe%>
+	<div class="well">
+	    <br/>
+	    <% img = @recipe.pictures.first || "/assets/no_image.png"%>
+	    <img src="<%= img %>" class="img-rounded" style="float: left; width: auto; height: 150px;" />
+	  	<div>
+	  		<h3><%= @recipe.name%> <small>(<%= @recipe.prep_time %> min)</small></h3>
+	  		<br/>
+	  		<%= @recipe.instructions %> 
+	  	</div>
+	</div>
 </p>
+<p><%= back_to_list %></p>
