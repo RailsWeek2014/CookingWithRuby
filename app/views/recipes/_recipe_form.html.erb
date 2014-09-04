@@ -10,10 +10,10 @@
 </p>
 <p>
 	<p>
-		<%= f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Range" }, help: "Choose who should be able to see the recipe" do %>
-			<%= f.radio_button :range, 0, label: "Public", checked: true, inline: true %>
-			<%= f.radio_button :range, 1, label: "Private", inline: true %>
-			<%= f.radio_button :range, 2, label: "Only intern visible", inline: true %>
+		<%= f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Visible for: " }, help: "Choose who should be able to see the recipe" do %>
+			<%= f.radio_button :range, "public", label: t('all'), inline: true %>
+			<%= f.radio_button :range, "retistrated", label: t('only_registrated_user'), inline: true %>
+			<%= f.radio_button :range, "private", label: t('only_me'), checked: true, inline: true %>
 		<% end %>
 	</p>
 	<%= f.submit%>

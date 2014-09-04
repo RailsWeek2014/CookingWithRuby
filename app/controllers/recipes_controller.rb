@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  def recipes
+  def list
     @recipes = Recipe.all
   end
   
@@ -19,6 +19,6 @@ class RecipesController < ApplicationController
   
   private
     def recipe_params
-      params.require( 'recipe' ).permit( 'name', 'prep_time')
+      params.require( 'recipe' ).permit( 'name', 'instructions', 'prep_time', 'range')
     end
 end
