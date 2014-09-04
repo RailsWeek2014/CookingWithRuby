@@ -1,6 +1,12 @@
-<li>
-	<img src="/assets/no_image.png" />
-	<div>		
-		<h3><%= recipe.name %> <%= recipe.prep_time %> min</h3>
+<li style="list-style-type: none">
+  <div>
+    <br/>
+    <% img = recipe.pictures.first || "/assets/no_image.png"%>
+    <img src="<%= img %>" class="img-rounded" style="float: left; width: auto; height: 150px;">
+  	<div style="padding-left: 20px">
+  		<h3><%= recipe.name %> <small>(<%= recipe.prep_time %> min)</small></h3>
+  		<br/>
+  		<%= recipe.instructions %> 
+  	</div>
 	</div>
 </li>

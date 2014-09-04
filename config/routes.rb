@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  devise_for :users  
+  devise_for :users 
+  
   get 'recipes' => 'recipes#list'
   
   get 'recipes/new' => 'recipes#new'
