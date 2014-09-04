@@ -32,6 +32,7 @@ class RecipesController < ApplicationController
   end
   
   def delete
+    
   end
   
   def edit
