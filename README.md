@@ -40,5 +40,9 @@
 ##Used Gems
 
 - Twitter Bootstrap
+- Rails Bootstrap Forms
 - Prawn
 - Ransack
+
+- Better Errors
+- Binding of Caller
