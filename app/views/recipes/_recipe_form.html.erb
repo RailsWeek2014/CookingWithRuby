@@ -10,12 +10,27 @@
 </p>
 <p>
 	<p>
-		<%= f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Visible for: " }, help: "Choose who should be able to see the recipe" do %>
-			<%= f.radio_button :range, "public", label: t('all'), inline: true %>
-			<%= f.radio_button :range, "retistrated", label: t('only_registrated_user'), inline: true %>
-			<%= f.radio_button :range, "private", label: t('only_me'), checked: true, inline: true %>
+		<% checked = [false, false, false] %>
+		<% isdisabled = true %>
+		<% help_text = ""%>
+		<% case :range %>
+			<% when "public" %>
+				<% checked[0] = true %>
+			<% when "registrated" %>
+				<% checked[1] = true %>
+			<% when "public" %>
+				<% checked[2] = true %>
+			<% else %>
+				<% checked[2] = true %>
+				<% isdisabled = false %>
+				<% help_text = "Choose who should be able to see the recipe"%>
 		<% end %>
-	</p>
-	<%= f.submit%>
+		<%= f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Visible for: " }, help: help_text do %>
+			<%= f.radio_button :range, "public", label: t('all'), checked: checked[0], inline: true, disabled: isdisabled %>
+			<%= f.radio_button :range, "retistrated", label: t('only_registrated_user'), checked: checked[1], inline: true, disabled: isdisabled %>
+			<%= f.radio_button :range, "private", label: t('only_me'), inline: true, checked: checked[2], disabled: isdisabled %>
+		<%end%>
+</p>
+	<%= f.submit class: "btn btn-success"%>
 </p>
 <% end %>

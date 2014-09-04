@@ -8,8 +8,12 @@
   </head>
   <body>
     <%= render 'navbar'%>
-    <div class="col-sm-2" style="background-color: blue"></div>
-    <div class="col-sm-10">
+    <div class="col-sm-2">
+      <%= render 'login'%>
+      <br/>
+      <%= render 'navigation'%>
+    </div>
+    <div class="col-sm-9">
     <%= yield %>
     </div>
   </body>
