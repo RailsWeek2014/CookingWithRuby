@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20140904114206) do
   create_table "recipes", force: true do |t|
     t.integer  "prep_time"
     t.string   "name"
-    t.text     "instructions"
-    t.integer  "food_value"
+    t.string   "instructions"
+    t.string   "food_value"
+    t.string   "integer"
     t.string   "range"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

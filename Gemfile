@@ -44,6 +44,7 @@ gem 'devise-two-factor'
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
+gem 'bootstrap3-datetimepicker-rails'
 
 gem 'better_errors'
 gem 'binding_of_caller'
