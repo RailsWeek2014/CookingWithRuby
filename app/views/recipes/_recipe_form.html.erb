@@ -1,13 +1,21 @@
-<%= form_for( @recipe ) do |f| %>
+<%= bootstrap_form_for( @recipe, layout: :horizontal) do |f| %>
 <p>
-	<%= f.label :name%>
-	<%= f.text_field :name%>
+	<%= f.text_field :name, control_col: "col-sm-5"%>
 </p>
 <p>
-	<%= f.label :prep_time%>
-	<%= f.number_field :prep_time %>
+	<%= f.number_field :prep_time, control_col: "col-sm-5", placeholder: "20 Minutes" %>
 </p>
 <p>
-	<%= f.submit %>
+	<%= f.text_area :instructions, control_col: "col-sm-5", placeholder: "Please enter the introductions" %>
+</p>
+<p>
+	<p>
+		<%= f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Range" }, help: "Choose who should be able to see the recipe" do %>
+			<%= f.radio_button :range, 0, label: "Public", checked: true, inline: true %>
+			<%= f.radio_button :range, 1, label: "Private", inline: true %>
+			<%= f.radio_button :range, 2, label: "Only intern visible", inline: true %>
+		<% end %>
+	</p>
+	<%= f.submit%>
 </p>
 <% end %>

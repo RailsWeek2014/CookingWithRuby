@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   get 'recipes/recipes', as: 'recipes'
   
   get 'recipes/new' => 'recipes#new'

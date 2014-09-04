@@ -4,8 +4,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :prep_time
       t.string :name
       t.string :instructions
-      t.string :food_value
-      t.string :integer
+      t.integer :food_value
       t.string :range
 
       t.timestamps
