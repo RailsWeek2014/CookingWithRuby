@@ -43,6 +43,8 @@
 - Rails Bootstrap Forms
 - Prawn
 - Ransack
+- Devise
+- Devise-Two-Factor
 
 - Better Errors
 - Binding of Caller
