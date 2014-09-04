@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   
   root 'recipes#list'
 
-  devise_for :users  
-  get 'recipes'  => 'recipes#list'
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  get 'recipes' => 'recipes#list'
   
   get 'recipes/new' => 'recipes#new'
   get "recipes/:id/edit" => "recipes#edit"
