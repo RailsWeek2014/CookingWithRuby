@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   
+  root 'recipes#list'
+
   devise_for :users  
-  get 'recipes' => 'recipes#list'
+  get 'recipes'  => 'recipes#list'
   
   get 'recipes/new' => 'recipes#new'
+  get "recipes/:id/edit" => "recipes#edit"
+  get "recipes/:id" => "recipes#show", as: 'recipe'
   
-  post 'recipes' => 'recipes#create'
-  
-  root 'recipes#list'
+  post 'recipes' => 'recipes#create'  
+  patch "recipes/:id" => "recipes#update"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

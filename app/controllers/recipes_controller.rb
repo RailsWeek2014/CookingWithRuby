@@ -17,6 +17,23 @@ class RecipesController < ApplicationController
     end
   end
   
+  def update
+    @recipe = Recipe.find(params[:id])
+      
+    if @recipe.update_attributes(recipe_params)
+      redirect_to recipes_path
+    else
+      render action: "edit"
+    end
+  end
+  
+  def delete
+  end
+  
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+    
   private
     def recipe_params
       params.require( 'recipe' ).permit( 'name', 'instructions', 'prep_time', 'range')
