@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
+gem 'bootstrap-form'
 
 gem 'better_errors'
 gem 'binding_of_caller'
