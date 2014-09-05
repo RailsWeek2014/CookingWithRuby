@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'ingredients/new'
+
+  get 'ingredients/create'
+
   # root route
   root 'recipes#list'
 
@@ -8,7 +12,10 @@ Rails.application.routes.draw do
   # recipe routes
   get 'recipes/list/:id' => 'recipes#specific_list', as: 'own_recipes'
   get 'recipes/list'
-
+  
+  # ingredient routes
+  get 'ingredients/new'
+  
   resources 'recipes'
 #  get 'recipes' => 'recipes#list', as: 'recipes'
 #  get 'recipes/new' => 'recipes#new'
