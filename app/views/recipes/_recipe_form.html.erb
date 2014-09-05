@@ -1,18 +1,31 @@
-<%= bootstrap_form_for( @recipe, layout: :horizontal) do |f| %>
+<%= bootstrap_form_for( @recipe, layout: :horizontal) do |r_f| %>
 <p>
-	<%= f.text_field :name, control_col: "col-sm-5"%>
+	<%= r_f.text_field :name, control_col: "col-sm-5"%>
 </p>
 <p>
-	<%= f.number_field :prep_time, control_col: "col-sm-5", placeholder: "20 Minutes" %>
+	<%= r_f.number_field :prep_time, control_col: "col-sm-5", placeholder: "20 Minutes" %>
 </p>
 <p>
-	<%= f.text_area :instructions, control_col: "col-sm-5", placeholder: "Please enter the introductions" %>
+	<%= r_f.text_area :instructions, control_col: "col-sm-5", placeholder: "Please enter the introductions" %>
 </p>
 <p>
 	<p>
 		<% checked = [false, false, false] %>
 		<% isdisabled = true %>
 		<% help_text = ""%>
+		
+		
+		<%= r_f.fields_for(:quantities) do |q_f| %>
+			<%= q_f.number_field :quantity, placeholder: "5" %>
+			<%= q_f.fields_for(:units) do |u_f| %>
+			  	<%= u_f.collection_select :short_name %>
+			<% end %>
+			<%= q_f.fields_for(:incredients) do |i_f| %>
+			  	<%= i_f.collection_select :name %>
+			<% end %>
+		<% end %>
+		
+		
 		<% case @recipe.range %>
 			<% when "public" %>
 				<% checked[0] = true %>
@@ -25,13 +38,13 @@
 				<% isdisabled = false %>
 				<% help_text = "Choose who should be able to see the recipe"%>
 		<% end %>
-		<%= f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Visible for: " }, help: help_text do %>
-			<%= f.radio_button :range, "public", label: t('all'), checked: checked[0], inline: true, disabled: isdisabled %>
-			<%= f.radio_button :range, "registrated", label: t('only_registrated_user'), checked: checked[1], inline: true, disabled: isdisabled %>
-			<%= f.radio_button :range, "private", label: t('only_me'), inline: true, checked: checked[2], disabled: isdisabled %>
+		<%= r_f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Visible for: " }, help: help_text do %>
+			<%= r_f.radio_button :range, "public", label: t('all'), checked: checked[0], inline: true, disabled: isdisabled %>
+			<%= r_f.radio_button :range, "registrated", label: t('only_registrated_user'), checked: checked[1], inline: true, disabled: isdisabled %>
+			<%= r_f.radio_button :range, "private", label: t('only_me'), inline: true, checked: checked[2], disabled: isdisabled %>
 		<%end%>
 </p>
-	<%= f.submit class: "btn btn-success"%>
+	<%= r_f.submit class: "btn btn-success"%>
 	<p><%= back_to_list %></p>
 </p>
 <% end %>
