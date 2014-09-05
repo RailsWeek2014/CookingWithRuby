@@ -1,22 +1,12 @@
 <ul class="nav nav-pills nav-stacked">
-  <% if user_signed_in? %>
-  <li class="active">
-    <%= link_to t('own_recipes'), recipes_path %>
-  </li>
   <li>
     <%= link_to t('new_recipe'), new_recipe_path %>
   </li>
+  <% if user_signed_in? %>
+  <li class="active">
+    <%= link_to t('own_recipes'), own_recipes_path( current_user ) %>
+  </li>
   <li/>
-  <li>
-    <%= link_to t('log_off'), destroy_user_session_path, method: :delete %>
-  </li>
-  <% else %>
-  <li>
-    <%= link_to t('sign_up'), new_user_registration_path %>
-  </li>
-  <li>
-    <%= link_to t('sign_in'), new_user_session_path %>
-  </li>
   <% end %>
 <!--      <span class="badge pull-right">3</span>-->
 </ul>
