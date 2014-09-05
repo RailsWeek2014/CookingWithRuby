@@ -26,10 +26,12 @@ class RecipesController < ApplicationController
   end
   
   def new
-    unless current_user
+    unless user_signed_in?
       redirect_to new_user_session_path
     end
     @recipe = Recipe.new
+    @recipe.quantities.build
+    @recipe.quantities.first.build_unit
   end
   
   def show
@@ -69,6 +71,11 @@ class RecipesController < ApplicationController
     
   private
     def recipe_params
-      params.require( 'recipe' ).permit( 'name', 'instructions', 'prep_time', 'range')
+      params.require( 'recipe' ).permit( 'name', 'instructions', 'prep_time', 'range', 
+        quantities_attributes: [:id, :quantity, 
+          :unit_id,
+          :ingredient_id
+        ]
+      )
     end
 end

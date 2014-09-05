@@ -1,4 +1,4 @@
-<%= bootstrap_form_for( @recipe, layout: :horizontal) do |r_f| %>
+<%= bootstrap_nested_form_for( @recipe, layout: :horizontal) do |r_f| %>
 <p>
 	<%= r_f.text_field :name, control_col: "col-sm-5"%>
 </p>
@@ -16,14 +16,15 @@
 		
 		
 		<%= r_f.fields_for(:quantities) do |q_f| %>
-			<%= q_f.number_field :quantity, placeholder: "5" %>
-			<%= q_f.fields_for(:units) do |u_f| %>
-			  	<%= u_f.collection_select :short_name %>
-			<% end %>
-			<%= q_f.fields_for(:incredients) do |i_f| %>
-			  	<%= i_f.collection_select :name %>
-			<% end %>
+		  <%= q_f.form_group :quantities, layout: :horizontal, rows: 6, control_col: "col-sm-5" do %>
+        <%= q_f.number_field :quantity, hide_label: :true, placeholder: "5" %>
+
+        <%= q_f.select :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, hide_label: true, prompt: 'Einheit' %>
+        <%= q_f.select :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, hide_label: true, prompt: 'Zutat' %>
+      <% end%>
+      <%= r_f.link_to_remove t('less_ingredients') %>
 		<% end %>
+		<p><%= r_f.link_to_add t('more_ingredients'), :quantities %></p>
 		
 		
 		<% case @recipe.range %>

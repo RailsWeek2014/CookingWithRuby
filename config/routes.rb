@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   
+  get 'search/fuzzy'
+
+  get 'search/user'
+
+  get 'search/recipe'
+
+  get 'search/ingredient'
+
+  get 'search/cathegory'
+
   # root route
   root 'recipes#list'
 
