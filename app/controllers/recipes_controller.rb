@@ -4,25 +4,25 @@ class RecipesController < ApplicationController
   end
   
   def list
-    unless current_user
-      @recipes = Recipe.where(:range ["public"])
+    unless user_signed_in?
+      @recipes = Recipe.where(range: ["public"])
     else
-      @recipes = Recipe.where("range in ('registrated', 'public') or user_id = #{ current_user.id }")
+      @recipes = Recipe.where("range in ('registrated', 'public') or user_id = '#{ current_user.id }'")
     end
-    @recipes = Recipe.all
   end
   
   def specific_list
     @user = User.find(params[:id])
-    unless current_user
-      @recipes = @user.recipes.where(range: ["public"])
-    else
+    where = {range: ["public"]}
+    
+    if user_signed_in?
       unless current_user.id.to_s == params[:id]
-        @recipes = @user.recipes.where(range: ["public", "registrated"])
+      where = {range: ["public", "registrated"]}
       else
-         @recipes = @user.recipes.all
+      where = {range: ["public", "registrated", "private"]}
       end 
-    end    
+    end
+    @recipes = @user.recipes.where(where)    
   end
   
   def new
