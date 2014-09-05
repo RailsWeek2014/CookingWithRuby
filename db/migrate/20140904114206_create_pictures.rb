@@ -3,7 +3,7 @@ class CreatePictures < ActiveRecord::Migration
     create_table :pictures do |t|
       t.string :picture_path
 
-      t.integer :recipe_id
+      t.belongs_to :recipe, index: true
 
       t.timestamps
     end

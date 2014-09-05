@@ -3,6 +3,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       ## Custom Fields
       t.string :name
+      t.string :username
       t.string :picture
       t.string :sex
       t.datetime :birth_date
@@ -38,10 +39,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-
       t.timestamps
     end
 
+    add_index :users, :username,                unique: true
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true

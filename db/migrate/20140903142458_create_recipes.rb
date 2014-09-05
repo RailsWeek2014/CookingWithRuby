@@ -7,9 +7,11 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :food_value
       t.string :range
       
-      t.integer :user_id
-
+      t.belongs_to :user, index: true
+      
       t.timestamps
     end
+
+    add_index :recipes, :name
   end
 end
