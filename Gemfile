@@ -41,7 +41,8 @@ gem 'devise-two-factor'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem "less-rails"
+gem 'nested_form'
+gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 gem 'momentjs-rails'
