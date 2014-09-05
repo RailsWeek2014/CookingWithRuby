@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   # recipe routes
-  get 'recipes/list/:id' => 'recipes#specific_list'
+  get 'recipes/list/:id' => 'recipes#specific_list', as: 'own_recipes'
   get 'recipes/list'
 
   resources 'recipes'
