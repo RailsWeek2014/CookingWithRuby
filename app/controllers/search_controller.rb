@@ -11,6 +11,6 @@ class SearchController < ApplicationController
   def ingredient
   end
 
-  def cathegory
+  def category
   end
 end

@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'search/fuzzy'
-
-  get 'search/user'
-
-  get 'search/recipe'
-
-  get 'search/ingredient'
-
-  get 'search/cathegory'
-
   # root route
   root 'recipes#list'
 
@@ -18,7 +8,17 @@ Rails.application.routes.draw do
   # recipe routes
   get 'recipes/list/:id' => 'recipes#specific_list', as: 'own_recipes'
   get 'recipes/list'
+  
+  # ingredient routes
+  get 'ingredients/new'
 
+  #search routes
+  get 'search/fuzzy'
+  get 'search/user'
+  get 'search/recipe'
+  get 'search/ingredient'
+  get 'search/category'
+  
   resources 'recipes'
 #  get 'recipes' => 'recipes#list', as: 'recipes'
 #  get 'recipes/new' => 'recipes#new'
