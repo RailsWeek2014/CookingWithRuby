@@ -17,10 +17,11 @@
 		
 		<%= r_f.fields_for(:quantities) do |q_f| %>
 		  <%= q_f.form_group :quantities, layout: :horizontal, rows: 6, control_col: "col-sm-5" do %>
-        <%= q_f.number_field :quantity, hide_label: :true, placeholder: "5" %>
+        	<%= q_f.number_field :quantity, hide_label: :true, placeholder: "5" %>
 
         <%= q_f.select :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, hide_label: true, prompt: 'Einheit' %>
         <%= q_f.select :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, hide_label: true, prompt: 'Zutat' %>
+        <%= link_to t('new_ingredient'), "javascript:new_ingredient();", :class => "btn btn-success" %>
       <% end%>
       <%= r_f.link_to_remove t('less_ingredients') %>
 		<% end %>

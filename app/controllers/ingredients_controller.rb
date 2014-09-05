@@ -7,13 +7,18 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    @ingredient = Ingredient.new recipe_params
+    @ingredient = Ingredient.new ingredient_params
     
     if @ingredient.save
-      current_user.ingredients << @ingredient
       redirect_to recipes_path
     else
       render action: 'new'
     end
   end
+  
+  
+  private
+    def ingredient_params
+      params.require( 'ingredient' ).permit( 'name', 'kj', 'corbohydrate', 'protein', 'fat', 'roughage', 'default_quantity', 'unit_id')
+    end
 end
