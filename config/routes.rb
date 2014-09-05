@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-  
-  get 'json/ingredients'
-
   # root route
   root 'recipes#list'
 
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
   # recipe routes
   get 'recipes/list/:id' => 'recipes#specific_list', as: 'own_recipes'
@@ -22,6 +19,13 @@ Rails.application.routes.draw do
   get 'search/recipe'
   get 'search/ingredient'
   get 'search/category'
+  
+  #meal_plans routes
+  get 'meal_plans/list'
+  get 'meal_plans/new'
+  get 'meal_plans/create'
+  get 'meal_plans/destroy'
+  get 'meal_plans/update'
   
   #json routes
   get 'json/ingredients'

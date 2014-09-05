@@ -7,19 +7,7 @@
      	<%= link_to current_user.email, edit_user_registration_path %>
      	<%= link_to t('log_off'), destroy_user_session_path, method: :delete %>
      <% else %>
-	    <%= bootstrap_form_for(User.new, url: new_user_session_path) do |f| %>
-		<div><%= f.email_field :email, autofocus: true %></div>
-		
-		<div><%= f.password_field :password, autocomplete: "off" %></div>
-		
-		<div><%= f.check_box :remember_me, hide_label: true %></div>
-	
-		<div><%= f.submit "Log in" %></div>
-	    
-	    <%= link_to t('sign_up'), new_user_registration_path %><br />
-		<%= link_to t('forgot_your_password'), new_user_password_path %><br />
-		
-		<% end %>
+	    <%= render 'users/sessions/log_in' %>
     <% end%>
   </div>
 </div>
