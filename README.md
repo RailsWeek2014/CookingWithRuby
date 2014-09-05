@@ -40,6 +40,7 @@
 ##Used Gems
 
 - Twitter Bootstrap
+- nested form
 - Rails Bootstrap Forms
 - Prawn
 - Ransack
