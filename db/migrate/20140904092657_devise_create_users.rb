@@ -6,7 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :picture
       t.string :sex
       t.datetime :birth_date
-      t.float :weight
+      t.integer :weight
       t.string :role
       
       ## Database authenticatable

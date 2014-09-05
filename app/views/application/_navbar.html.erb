@@ -4,11 +4,11 @@
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search">
         <span class="input-group-btn">
-          <button class="btn btn-default">Advanced Search<!--<%= glyph(:search, {:tag => :span}) %>--></button>
-          <button type="submit" class="btn btn-default">Go!<!--<%= glyph(:search, {:tag => :span}) %>--></button>
+          <button class="btn btn-default"><%= t('advanced_search')%><!--<%= glyph(:search, {:tag => :span}) %>--></button>
+          <button type="submit" class="btn btn-default"><%= t('search')%><!--<%= glyph(:search, {:tag => :span}) %>--></button>
         </span>
       </div>
     </form>
-  	<a class="navbar-brand navbar-right" href="#">Cooking with Ruby</a>
+  	<a class="navbar-brand navbar-right" href="#"><%= t('cooking_with_ruby')%></a>
   </div>
 </nav>
