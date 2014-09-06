@@ -1,3 +1,7 @@
+<script>
+  var recipe_form_helper = new recipe_form();
+  recipe_form_helper.select2button();
+</script>
 <%= bootstrap_nested_form_for( @recipe, layout: :horizontal) do |r_f| %>
 <p>
 	<%= r_f.text_field :name, control_col: "col-sm-5"%>
@@ -17,11 +21,36 @@
 		
 		<%= r_f.fields_for(:quantities) do |q_f| %>
 		  <%= q_f.form_group :quantities, layout: :horizontal, rows: 6, control_col: "col-sm-5" do %>
-        	<%= q_f.number_field :quantity, hide_label: :true, placeholder: "5" %>
-
-        <%= q_f.select :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, hide_label: true, prompt: 'Einheit' %>
-        <%= q_f.select :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, hide_label: true, prompt: 'Zutat' %>
-        <%= link_to t('new_ingredient'), "javascript:new_ingredient();", :class => "btn btn-success" %>
+		    <div class="input-group">
+          <%= q_f.number_field_without_bootstrap :quantity, placeholder: "5" , class: 'form-control'%>
+          <div class="input-group-btn">
+            <div class="btn btn-group">
+              <button name="unit" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <%= t('unit')%> 
+                <span class="caret"/>
+              </button>
+              <ul name="unit" class="dropdown-menu">
+                <li><a href="#">foo</a></li>
+              </ul>
+              <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, {}, prompt: t('unit'), class: 'hide' %>
+              <%= link_to '+', "javascript:recipe_form_helper.new_unit();", :class => "btn btn-success" %>
+            </div>
+            <div class="btn btn-group">
+              <button name="ingredient" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <%= t('ingredient')%>
+                <span class="caret"/>
+              </button>
+              <ul name="ingredient" class="dropdown-menu">
+                <li></li>
+              </ul>
+              <%= q_f.select_without_bootstrap :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, {}, prompt: t('ingredient'), class: 'hide' %>
+              <%= link_to '+', "javascript:recipe_form_helper.new_ingredient();", :class => "btn btn-success" %>
+            </div>
+          </div>
+        </div>
+        <script>
+          recipe_form_helper.select2button();
+        </script>
       <% end%>
       <%= r_f.link_to_remove t('less_ingredients') %>
 		<% end %>
@@ -47,6 +76,5 @@
 		<%end%>
 </p>
 	<%= r_f.submit class: "btn btn-success"%>
-	<p><%= back_to_list %></p>
 </p>
 <% end %>

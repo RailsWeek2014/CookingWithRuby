@@ -24,3 +24,6 @@ en:
   search: "Go!"
   advanced_search: "Advanced Search"
   forgot_your_password: "Forgot your Password?"
+
+  recipe:
+    details_for: "Details for"

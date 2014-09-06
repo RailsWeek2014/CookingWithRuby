@@ -1,11 +1,10 @@
 <li style="list-style-type: none; clear: both">
-  <div class="well">
+  <div class="well" style="display: flex;">
     <br/>
     <% img = recipe.pictures.first || "/assets/no_image.png"%>
-    <img src="<%= img %>" class="img-rounded" style="float: left; width: auto; height: 150px;" />
+    <img src="<%= img %>" class="img-rounded img-thumbnail" style="width: 240px; height: 135px;" />
   	<div style="padding-left: 20px">
-  		<h3><%= link_to recipe.name, recipe_path(recipe) %> <small>(<%= recipe.prep_time %> min)</small></h3>
-  		<br/>
+  		<h4><%= link_to recipe.name, recipe_path(recipe) %> <small>(<%= recipe.prep_time %> min)</small></h4>
   		<%= recipe.instructions %> 
   	</div>
 	</div>
