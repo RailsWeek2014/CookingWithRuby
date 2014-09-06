@@ -1,16 +1,13 @@
-<h2>Details zum Rezept</h2>
+<h2><%= t('recipe.details_for')%> <%= @recipe.name%> <small>(<%= @recipe.prep_time %> min)</small></h2>
 <%= link_to t("delete"), @recipe, data: { confirm: "#{@recipe.name} wirklich löschen?" }, method: :delete %>
 <%= link_to t("change"), edit_recipe_path(@recipe) %>
 <p>
-	<div class="well">
+	<div class="well" style="display: flex;">
 	    <br/>
 	    <% img = @recipe.pictures.first || "/assets/no_image.png"%>
-	    <img src="<%= img %>" class="img-rounded" style="float: left; width: auto; height: 150px;" />
-	  	<div>
-	  		<h3><%= @recipe.name%> <small>(<%= @recipe.prep_time %> min)</small></h3>
-	  		<br/>
+	    <img src="<%= img %>" class="img-rounded img-thumbnail" style="float: left; width: auto; height: 150px;" />
+	  	<div style="margin-left: 20px">
 	  		<%= @recipe.instructions %> 
 	  	</div>
 	</div>
 </p>
-<p><%= back_to_list %></p>

@@ -1,4 +1,4 @@
-<%= bootstrap_form_for( @ingredient, url: 'javascript: post_new_ingredient();', layout: :horizontal) do |i_f| %>
+<%= bootstrap_form_for( @ingredient, url: 'javascript: recipe_form_helper.post();', layout: :horizontal) do |i_f| %>
 <p>
 	<%= i_f.text_field :name, control_col: "col-sm-5"%>
 </p>

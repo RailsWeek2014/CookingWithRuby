@@ -1,0 +1,5 @@
+<img src="<%= current_user.picture || '/assets/no_user_image.png' %>" alt="user image" class="img-circle img-thumbnail" style="width: 125px; height: 125px">
+<div class="btn-group" style="margin-top: 20px">
+  <%= link_to t('edit_user_info'), edit_user_registration_path, class: 'btn btn-xs btn-info' %>
+  <%= link_to t('log_off'), destroy_user_session_path, method: :delete, class: 'btn btn-xs btn-danger' %>
+</div>
