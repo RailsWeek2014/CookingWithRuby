@@ -14,8 +14,7 @@ class MealPlansController < ApplicationController
   def create
     @meal_plan = MealPlan.new meal_plan_params
     
-    if @meal_plan.date.future?
-      current_user.meal_plans << @meal_plan
+    if current_user.meal_plans << @meal_plan
       redirect_to meal_plans_path
     else
       render action: 'new'

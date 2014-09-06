@@ -1,0 +1,14 @@
+<tr>
+	<td><p><%= daytime %></p></td>
+	
+	<% d = @week_start %>
+	<% while d <= @week_end %>
+		<% meals = @meal_plans.where "date = '#{ d }' and daytime = '#{ daytime }'" %>
+		<% unless meals.size == 0 %>
+			<%= render meals %>
+		<%else %> 
+		  <td></td> 
+		<% end %>
+		<% d = d.tomorrow %>
+	<% end %>
+</tr>

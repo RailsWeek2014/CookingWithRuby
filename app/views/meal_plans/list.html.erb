@@ -3,41 +3,25 @@
 
 <table class="table" style="table-layout: fixed; width: 100%;">
 	<tr>
-		<th>Mo</th>
-		<th>Di</th>
-		<th>Mi</th>
-		<th>Do</th>
-		<th>Fr</th>
-		<th>Sa</th>
-		<th>So</th>
+		<th><p> </p></th>
+		<% d = @week_start %>
+		<th><%= d %><p>Mo</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Di</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Mi</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Do</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Fr</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Sa</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>So</p></th>
 	</tr>
 	
-	<tr>
-		<% d = @week_start %>
-		<% while d <= @week_end %>
-			<% meals = @meal_plans.where "date = '#{ d }' and daytime = 'breakfast'" %>
-			<% unless meals.size == 0 %>
-				<%= render meals %>
-			<%else %> 
-			  <td></td> 
-			<% end %>
-			<% d = d.tomorrow %>
-		<% end %>
-	</tr>
-	
-	<tr>
-		<% d = @week_start %>
-		<% while d <= @week_end %>
-			<%= render @meal_plans.where "date = '#{ d }' and daytime = 'lunch'" %>
-			<% d = d.tomorrow %>
-		<% end %>
-	</tr>
-	
-	<tr>
-		<% d = @week_start %>
-		<% while d <= @week_end %>
-			<%= render @meal_plans.where "date = '#{ d }' and daytime = 'dinner'" %>
-			<% d = d.tomorrow %>
-		<% end %>
-	</tr>
+	<%= render partial: 'daytime', locals: { daytime: 'breakfast' } %>
+	<%= render partial: 'daytime', locals: { daytime: 'lunch' } %>
+	<%= render partial: 'daytime', locals: { daytime: 'dinner' } %>
+
 </table>
