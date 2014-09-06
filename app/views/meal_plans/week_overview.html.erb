@@ -1,0 +1,30 @@
+<h1>MealPlans#list</h1>
+<p>Find me in app/views/meal_plans/list.html.erb</p>
+
+<table class="table" style="table-layout: fixed; width: 100%;">
+	<tr>
+		<th><p> </p></th>
+		<% d = @week_start %>
+		<th><%= d %><p>Mo</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Di</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Mi</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Do</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Fr</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Sa</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>So</p></th>
+	</tr>
+	
+	<%= render partial: 'daytime', locals: { daytime: 'breakfast' } %>
+	<%= render partial: 'daytime', locals: { daytime: 'lunch' } %>
+	<%= render partial: 'daytime', locals: { daytime: 'dinner' } %>
+
+</table>
+
+<%= link_to 'Previous', "#{ meal_plans_path }/#{ @week_start.last_week }" %>
+<%= link_to 'Next', "#{ meal_plans_path }/#{ @week_end.tomorrow }", style: 'float: right' %>

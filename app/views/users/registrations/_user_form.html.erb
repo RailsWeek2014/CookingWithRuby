@@ -20,22 +20,7 @@
     <% end %>
   </div>
   
-  <div>
-  <%= f.label :bith_date %>
-    <div class='input-group date' id='datetimepicker5'>
-	  <input type='text' name='user[birth_date]' class="form-control" data-date-format="YYYY-MM-DD" placeholder="1900-12-25"/>
-      <span class="input-group-addon">
-        <span class="glyphicon glyphicon-calendar"></span>
-      </span>
-    </div>
-  </div>
-  <script type="text/javascript">
-	$(function () {
-		$('#datetimepicker5').datetimepicker({
-			pickTime: false
-		});
-	});
-  </script>
+  <%= render partial: 'date_picker', locals: {field_name: :birth_date, :label => :birth_date, form_helper: f } %>
 
   <div>
     <%= f.number_field :weight %>
