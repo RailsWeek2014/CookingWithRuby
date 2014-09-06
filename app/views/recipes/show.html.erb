@@ -7,6 +7,17 @@
 	    <% img = @recipe.pictures.first || "/assets/no_image.png"%>
 	    <img src="<%= img %>" class="img-rounded img-thumbnail" style="float: left; width: auto; height: 150px;" />
 	  	<div style="margin-left: 20px">
+	  		<%= t("ingredients") + " for " + @recipe.number_of_portions.to_s + " " + t("persons") %> <br/>
+	  		<% quantities = @recipe.quantities %>
+	  		<% quantities.each do |quantity|%>
+	  			<div class="row">
+		  			<div class = "col-sm-2"><%= quantity.quantity.to_s %></div>
+		  			<div class = "col-sm-4"><%= quantity.unit.name %></div>
+		  			<div class = "col-sm-6"><%= quantity.ingredient.name %></div>
+	  			</div>
+  			<% end %>
+  			<br />
+  			<%= t("instructions") + ":"%><br />
 	  		<%= @recipe.instructions %> 
 	  	</div>
 	</div>
