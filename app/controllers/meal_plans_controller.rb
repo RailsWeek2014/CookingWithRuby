@@ -2,7 +2,9 @@ class MealPlansController < ApplicationController
   before_action :authenticate_user!
   
   def list
-    
+    @week_start = Date.today.beginning_of_week
+    @week_end = @week_start.end_of_week
+    @meal_plans = current_user.meal_plans.where("date <= '#{ @week_end }' and date >= '#{ @week_start }'")
   end
 
   def new

@@ -1,2 +1,43 @@
 <h1>MealPlans#list</h1>
 <p>Find me in app/views/meal_plans/list.html.erb</p>
+
+<table class="table" style="table-layout: fixed; width: 100%;">
+	<tr>
+		<th>Mo</th>
+		<th>Di</th>
+		<th>Mi</th>
+		<th>Do</th>
+		<th>Fr</th>
+		<th>Sa</th>
+		<th>So</th>
+	</tr>
+	
+	<tr>
+		<% d = @week_start %>
+		<% while d <= @week_end %>
+			<% meals = @meal_plans.where "date = '#{ d }' and daytime = 'breakfast'" %>
+			<% unless meals.size == 0 %>
+				<%= render meals %>
+			<%else %> 
+			  <td></td> 
+			<% end %>
+			<% d = d.tomorrow %>
+		<% end %>
+	</tr>
+	
+	<tr>
+		<% d = @week_start %>
+		<% while d <= @week_end %>
+			<%= render @meal_plans.where "date = '#{ d }' and daytime = 'lunch'" %>
+			<% d = d.tomorrow %>
+		<% end %>
+	</tr>
+	
+	<tr>
+		<% d = @week_start %>
+		<% while d <= @week_end %>
+			<%= render @meal_plans.where "date = '#{ d }' and daytime = 'dinner'" %>
+			<% d = d.tomorrow %>
+		<% end %>
+	</tr>
+</table>
