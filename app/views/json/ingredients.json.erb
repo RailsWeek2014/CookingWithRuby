@@ -1,11 +1,11 @@
 {
-	'ingredients' : [
+	"ingredients" : [
 	<% @ingredients.each do |ingredient| %>
 	<%= ", " unless @i == 0%>
 	<% @i += 1 %>
 		{
-			'id': <%= ingredient.id %>,
-			'name': '<%= ingredient.name %>'
+			"id": <%= ingredient.id %>,
+			"name": "<%= ingredient.name %>"
 		}
 	<% end %>	
 	] 

@@ -29,7 +29,16 @@ function post_new_ingredient() {
 }
 
 function update_ingredient() {
-	$.get('/json/ingredients/', function(json) {
+	$.getJSON('/json/ingredients/', function(json) {
 		console.log(json);
+		var selects = $("select").filter(function() {
+			return this.id.match(/recipe_quantities_attributes_.+_ingredient_id/);
+		});
+		$('option', selects).filter(function() {
+			return this.value.match(/.+/); 
+		}).remove();
+		json.ingredients.forEach (function(ingredient) {
+			selects.append('<option value="' + ingredient.id + '">' + ingredient.name + "</option>");
+		});
 	});	
 }
