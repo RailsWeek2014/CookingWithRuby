@@ -21,13 +21,14 @@ Rails.application.routes.draw do
   get 'search/category'
   
   #meal_plans routes
-  get 'meal_plans' => 'meal_plans#list'
+  get 'meal_plans' => 'meal_plans#week_overview'
+  get 'meal_plan' => 'meal_plans#week_overview'
   get 'meal_plans/new'
   get 'meal_plans/create'
   get 'meal_plans/destroy'
   get 'meal_plans/update'
+  get 'meal_plans/:date' => 'meal_plans#week_overview'
   get 'meal_plans/:id/edit' => 'meal_plans#edit'
-  get 'meal_plans/:id' => 'meal_plans#list', as: 'meal_plan'
   
   patch 'meal_plans/:id' => 'meal_plans#update'
   

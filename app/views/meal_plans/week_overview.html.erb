@@ -25,3 +25,6 @@
 	<%= render partial: 'daytime', locals: { daytime: 'dinner' } %>
 
 </table>
+
+<%= link_to 'Previous', "#{ meal_plans_path }/#{ @week_start.last_week }" %>
+<%= link_to 'Next', "#{ meal_plans_path }/#{ @week_end.tomorrow }", style: 'float: right' %>
