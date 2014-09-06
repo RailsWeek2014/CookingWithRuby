@@ -1,6 +1,6 @@
 <%= bootstrap_form_for @meal_plan do |f| %>
 	
-	<%= f.select :recipe_id, visible_recipes.collect { |r| [ r.name, r.id ] } %>
+	<%= f.select :recipe_id, visible_recipes.collect { |r| [ r.name, r.id ] }, prompt: true %>
 	
 	<%= render partial: 'date_picker', locals: {field_name: :date, :label => :date, form_helper: f } %>
 	

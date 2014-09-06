@@ -15,6 +15,14 @@ class MealPlansController < ApplicationController
   
   def new
     @meal_plan = MealPlan.new
+    
+    if params[:date]
+      @meal_plan.date = params[:date]
+    end
+    
+    if params[:daytime]
+      @meal_plan.daytime = params[:daytime]
+    end
   end
 
   def create
