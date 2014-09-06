@@ -9,7 +9,7 @@ class MealPlan < ActiveRecord::Base
   validates :recipe_id, presence: true
   
   validates :daytime, inclusion: { in: %w(breakfast lunch dinner) }
-  validates :date, uniqueness: { scope: :daytime }
+  validates :date, uniqueness: { scope: [:daytime, :user_id] }
   
   validate :date, :meal_plan_may_not_be_in_past
     
