@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
   validates :name, presence: true       
   
   has_many :recipes
+  has_many :comments
   has_many :meal_plans
 end
