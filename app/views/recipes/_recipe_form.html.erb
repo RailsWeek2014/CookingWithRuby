@@ -43,11 +43,11 @@
       <script>
         recipe_form_helper.select2button();
       </script>
+    </div>
     <% end %>
 	<% end %>
 		
 	<%= r_f.link_to_add t('more_ingredients'), :quantities, class: 'btn btn-xs btn-info'%>
-	</div>
   <%= r_f.text_area :instructions, rows: 6, placeholder: "Please enter the introductions" %>
   <% checked = [false, false, false] %>
   <% isdisabled = true %>
@@ -71,3 +71,4 @@
 	<% end %>
   <%= r_f.submit class: "btn btn-success"%>
 <% end %>
+

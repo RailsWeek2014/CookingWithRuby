@@ -6,5 +6,5 @@ class Recipe < ActiveRecord::Base
   validates :name, presence: true
   validates :instructions, presence: true
   
-  accepts_nested_attributes_for :quantities
+  accepts_nested_attributes_for :quantities, allow_destroy: true
 end
