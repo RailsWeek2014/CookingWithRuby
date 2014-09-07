@@ -10,20 +10,13 @@
 	<%= render partial: 'recipe_form_for_quantities', locals: {r_f: r_f}%>
 	
 	<%= r_f.text_area :instructions, rows: 6, placeholder: "Please enter the introductions" %>
-  <% checked = [false, false, false] %>
+  <% checked = [@recipe.range == "public", @recipe.range == "registrated", @recipe.range == "private"] %>
   <% isdisabled = true %>
   <% help_text = ""%>		
-	<% case @recipe.range %>
-		<% when "public" %>
-			<% checked[0] = true %>
-		<% when "registrated" %>
-			<% checked[1] = true %>
-		<% when "public" %>
-			<% checked[2] = true %>
-		<% else %>
-			<% checked[2] = true %>
-			<% isdisabled = false %>
-			<% help_text = "Choose who should be able to see the recipe"%>
+	<% unless checked[0] || checked[1] || checked[2] %>
+		<% checked[2] = true %>
+		<% isdisabled = false %>
+		<% help_text = "Choose who should be able to see the recipe"%>
 	<% end %>
 	<%= r_f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Visible for: " }, help: help_text do %>
 		<%= r_f.radio_button :range, "public", label: t('all'), checked: checked[0], inline: true, disabled: isdisabled %>
