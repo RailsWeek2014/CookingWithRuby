@@ -1,7 +1,18 @@
 class JsonController < ApplicationController
   
   def ingredients
-    @ingredients = Ingredient.all
+    @type = "ingredient"
+    @list = Ingredient.all
     @i = 0
+
+    render 'list'
+  end
+  
+  def categories
+    @type = "category"
+    @list = Category.all
+    @i = 0
+    
+    render 'list'
   end
 end

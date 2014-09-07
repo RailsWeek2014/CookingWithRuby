@@ -13,9 +13,9 @@ function recipe_form() {
 		create('/ingredients/');
 	};
 
-//	self.new_category = function() {
-//		create('/categories/');
-//	};
+	self.new_category = function() {
+		create('/categories/');
+	};
 
 //	self.new_unit = function() {
 //		create('/unit/');
@@ -60,7 +60,7 @@ function recipe_form() {
 			});	
 		} else {
 			var selects = $("select").filter(function() {
-				return this.id.match("recipe_quantities_attributes_.+_"+type+"_id");
+				return this.id.match("recipe_.*_attributes_.+_"+type+"_id");
 			});
 			$('option', selects).filter(function() {
 				return this.value.match(".+"); 

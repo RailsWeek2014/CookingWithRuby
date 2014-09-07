@@ -1,10 +1,10 @@
 <div class="modal" id="modal" index="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
-   <div class="modal-dialog">
+   <div class="modal-dialog <% if defined? size %> modal-<%= size %><% end %>">
      <div class="modal-content">
 
        <div class="modal-header">
          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-         <h4 class="modal-title" id="myModalLabel"><%= @headline || t('unknown') %></h4>
+         <h4 class="modal-title" id="myModalLabel"><% if defined? headline %><%= headline %><% else %><%= t('unknown') %><%  end %></h4>
        </div>
        <div class="modal-body">
         	<%= yield%>
