@@ -1,0 +1,4 @@
+<div class="well well-sm">
+  <%= render partial: 'comments/comment_text', locals: {comment: comment} %>
+  <%= render partial: 'comments/answers', locals: {comment: comment, depth: 1}%>
+</div>

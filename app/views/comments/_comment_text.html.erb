@@ -1,0 +1,4 @@
+<div class="comment">
+  <div class=""name="from"><% unless comment.user == nil %><%= comment.user.name%><% else %><%= 'Deleted' %><% end %></div>
+  <%= comment.message %>
+</div>

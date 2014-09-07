@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'comment/new'
+
+  get 'comment/create'
+
+  get 'comment/edit'
+
+  get 'comment/list'
+
   # root route
   root 'recipes#list'
 
