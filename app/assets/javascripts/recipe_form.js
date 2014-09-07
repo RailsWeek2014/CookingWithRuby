@@ -13,6 +13,10 @@ function recipe_form() {
 		create('/ingredients/');
 	};
 
+//	self.new_category = function() {
+//		create('/categories/');
+//	};
+
 //	self.new_unit = function() {
 //		create('/unit/');
 //	};
@@ -72,7 +76,7 @@ function recipe_form() {
 	
 	self.select2button = function(name) {
 		if(name === undefined) {
-			var types = ['ingredient', 'unit'];
+			var types = ['ingredient', 'unit', 'category'];
 			types.forEach(function(type) {
 				self.select2button(type);
 			});

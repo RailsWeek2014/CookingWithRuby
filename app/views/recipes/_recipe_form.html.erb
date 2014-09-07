@@ -4,7 +4,9 @@
 </script>
 <%= bootstrap_nested_form_for( @recipe, label_col: "col-sm-2", control_col: "col-sm-8", layout: :horizontal) do |r_f| %>
   <%= r_f.text_field :name%>
-  <%= r_f.select :category_id, Category.all.collect { |i| [i.name, i.id]}, {}, prompt: t('category') %>
+  
+  <%= render partial: 'recipe_form_for_categories', locals: {r_f: r_f}%>
+
 	<%= r_f.number_field :prep_time, placeholder: "20 Minutes" %>
 	<%= r_f.number_field :number_of_portions, placeholder: "2" %>
 	
