@@ -9,7 +9,6 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :number_of_portions
       
       t.belongs_to :user, index: true
-      t.belongs_to :category, index: false
       
       t.timestamps
     end

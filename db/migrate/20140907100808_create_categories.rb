@@ -4,7 +4,12 @@ class CreateCategories < ActiveRecord::Migration
       t.string :name
 
       t.timestamps
+      
     end
     
+    create_table :categories_recipes, id: false do |t|
+      t.belongs_to :category
+      t.belongs_to :recipe
+    end
   end
 end
