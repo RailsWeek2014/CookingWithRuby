@@ -1,0 +1,13 @@
+{
+  "type" : "<%= @type %>",
+	"entries" : [
+	<% @list.each do |entry| %>
+	<%= ", " unless @i == 0%>
+	<% @i += 1 %>
+		{
+			"id": <%= entry.id %>,
+			"name": "<%= entry.name %>"
+		}
+	<% end %>	
+	] 
+}

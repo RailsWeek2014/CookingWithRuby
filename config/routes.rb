@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   get 'ingredients/new'
   get 'ingredients' => 'recipes#list'
   post 'ingredients' => 'ingredients#create'
+  
+  # category routes
+  get 'categories/new'
+  get 'categories' => 'recipes#list'
+  post 'categories' => 'categories#create'
 
   #search routes
   get 'search/fuzzy'
@@ -45,6 +50,7 @@ Rails.application.routes.draw do
   
   #json routes
   get 'json/ingredients'
+  get 'json/categories'
   
   resources 'recipes'
 #  get 'recipes' => 'recipes#list', as: 'recipes'

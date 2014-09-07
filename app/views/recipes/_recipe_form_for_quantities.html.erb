@@ -1,32 +1,40 @@
-<label class="control-label col-sm-2" for="ingredients"><%= t('ingredients')%></label>
-
-<%= r_f.fields_for(:quantities) do |q_f| %>
-  <%= q_f.form_group :quantities, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-8" do %>
-    <div class="input-group col-sm-10">
-      <div class="input-group-btn">
-        <%= q_f.link_to_remove 'X', class: 'btn btn-danger' %>
-      </div>    
-      <%= q_f.number_field_without_bootstrap :quantity, placeholder: "5" , class: 'form-control col-sm-4'%>
-      
-      <div class="input-group-btn">
-        <div class="btn-group">
-          <%= render partial: "dropdown_button", locals: {name: "unit", width: "75px"} %>
-          <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, {}, prompt: t('unit'), class: 'hide' %>
+<%= r_f.form_group :quantities, layout: :horizontal, label_col: "col-sm-0", control_col: "col-sm-11" do %>
+  <label class="control-label col-sm-2" for="ingredients"><%= t('ingredients')%></label>
+  <div class="col-sm-9">
+    <%= r_f.fields_for(:quantities) do |q_f| %>
+      <div class="input-group col-sm-10" style="margin-bottom:5px">
+        <div class="input-group-btn">
+          <%= q_f.link_to_remove 'X', class: 'btn btn-danger' %>
+        </div>    
+        <%= q_f.number_field_without_bootstrap :quantity, placeholder: "5" , class: 'form-control col-sm-4'%>
+        
+        <div class="input-group-btn">
+          <div class="btn-group">
+            <%= render partial: "dropdown_button", locals: {name: "unit", width: "75px"} %>
+            <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, {}, prompt: t('unit'), class: 'hide' %>
+          </div>
+          <div class="btn-group">
+            <%= render partial: "dropdown_button", locals: {name: "ingredient", width: "125px"} %>          
+            <%= q_f.select_without_bootstrap :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, {}, prompt: t('ingredient'), class: 'hide' %>
+          </div>
         </div>
-        <%= link_to '%', "javascript:recipe_form_helper.edit_unit();", :class => "btn btn-warning" %>
-        <%= link_to '+', "javascript:recipe_form_helper.new_unit();", :class => "btn btn-success" %>
-        <div class="btn-group">
-          <%= render partial: "dropdown_button", locals: {name: "ingredient", width: "125px"} %>          
-          <%= q_f.select_without_bootstrap :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, {}, prompt: t('ingredient'), class: 'hide' %>
-        </div>
-        <%= link_to '%', "javascript:recipe_form_helper.edit_ingredient();", :class => "btn btn-warning" %>
-        <%= link_to '+', "javascript:recipe_form_helper.new_ingredient();", :class => "btn btn-success" %>
+        <script>
+          recipe_form_helper.select2button();
+        </script>
       </div>
-      <script>
-        recipe_form_helper.select2button();
-      </script>
+    <% end %>
+    <%= r_f.link_to_add '', :quantities, class: 'hide' %> <!-- Hidden anchor to create the new form part at the right position -->
+    <div class="btn-group" style="float: right; margin: 10px; 0px;">
+      <%= link_to t('more'), "javascript:$('[data-association=\"quantities\"].hide.add_nested_fields').click()", class: 'btn btn-xs btn-info'%> <!-- button to click on the hidden anchor with javascript -->
+      <%= link_to t('new'), "javascript:recipe_form_helper.new_ingredient();", :class => "btn btn-xs btn-success" %>
+      <%= link_to t('edit'), "javascript:recipe_form_helper.edit_ingredient();", :class => "btn btn-xs btn-warning" %>
+      <button class="btn btn-xs btn-default" disabled><%= t('ingredients') %></button>
     </div>
-  <% end %>
+    <div class="btn-group" style="float: right; margin: 10px; 0px;">
+      <%= link_to t('new'), "javascript:recipe_form_helper.new_unit();", :class => "btn btn-xs btn-success" %>
+      <button class="btn btn-xs btn-default" disabled><%= t('units') %></button>
+    </div>
+  </div>
+  <div style="display: none; clear:both"/>
 <% end %>
 	
-<%= r_f.link_to_add t('more_ingredients'), :quantities, class: 'btn btn-xs btn-info'%>
