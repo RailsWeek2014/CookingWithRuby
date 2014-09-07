@@ -6,49 +6,10 @@
   <%= r_f.text_field :name%>
 	<%= r_f.number_field :prep_time, placeholder: "20 Minutes" %>
 	<%= r_f.number_field :number_of_portions, placeholder: "2" %>
-  <label class="control-label col-sm-2" for="ingredients"><%= t('ingredients')%></label>
-	<%= r_f.fields_for(:quantities) do |q_f| %>
-	  <%= q_f.form_group :quantities, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-8" do %>
-	  
-	    <div class="input-group col-sm-10">
-	      <div class="input-group-btn">
-          <%= q_f.link_to_remove 'X', class: 'btn btn-danger' %>
-        </div>    
-        <%= q_f.number_field_without_bootstrap :quantity, placeholder: "5" , class: 'form-control col-sm-4'%>
-        <div class="input-group-btn">
-          <div class="btn-group">
-            <button name="unit" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:75px">
-              <%= t('unit')%><span class="caret"/>
-            </button>
-            <ul name="unit" class="dropdown-menu">
-              <li><a href="#">foo</a></li>
-            </ul>
-            <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, {}, prompt: t('unit'), class: 'hide' %>
-          </div>
-          <%= link_to '%', "javascript:recipe_form_helper.edit_unit();", :class => "btn btn-warning" %>
-          <%= link_to '+', "javascript:recipe_form_helper.new_unit();", :class => "btn btn-success" %>
-          <div class="btn-group">
-            <button name="ingredient" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:125px">
-              <%= t('ingredient')%>
-              <span class="caret"/>
-            </button>
-            <ul name="ingredient" class="dropdown-menu">
-              <li></li>
-            </ul>
-            <%= q_f.select_without_bootstrap :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, {}, prompt: t('ingredient'), class: 'hide' %>
-          </div>
-          <%= link_to '%', "javascript:recipe_form_helper.edit_ingredient();", :class => "btn btn-warning" %>
-          <%= link_to '+', "javascript:recipe_form_helper.new_ingredient();", :class => "btn btn-success" %>
-      </div>
-      <script>
-        recipe_form_helper.select2button();
-      </script>
-    </div>
-    <% end %>
-	<% end %>
-		
-	<%= r_f.link_to_add t('more_ingredients'), :quantities, class: 'btn btn-xs btn-info'%>
-  <%= r_f.text_area :instructions, rows: 6, placeholder: "Please enter the introductions" %>
+	
+	<%= render partial: 'recipe_form_for_quantities', locals: {r_f: r_f}%>
+	
+	<%= r_f.text_area :instructions, rows: 6, placeholder: "Please enter the introductions" %>
   <% checked = [false, false, false] %>
   <% isdisabled = true %>
   <% help_text = ""%>		

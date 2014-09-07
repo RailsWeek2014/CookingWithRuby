@@ -1,3 +1,5 @@
+<label class="control-label col-sm-2" for="ingredients"><%= t('ingredients')%></label>
+
 <%= r_f.fields_for(:quantities) do |q_f| %>
   <%= q_f.form_group :quantities, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-8" do %>
     <div class="input-group col-sm-10">
@@ -8,13 +10,13 @@
       
       <div class="input-group-btn">
         <div class="btn-group">
-          <%= partial: "dropdown_button", locals: {name: "unit", width: "75px"} %>
+          <%= render partial: "dropdown_button", locals: {name: "unit", width: "75px"} %>
           <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, {}, prompt: t('unit'), class: 'hide' %>
         </div>
         <%= link_to '%', "javascript:recipe_form_helper.edit_unit();", :class => "btn btn-warning" %>
         <%= link_to '+', "javascript:recipe_form_helper.new_unit();", :class => "btn btn-success" %>
         <div class="btn-group">
-          <%= partial: "dropdown_button", locals: {name: "ingredient", width: "125px"} %>          
+          <%= render partial: "dropdown_button", locals: {name: "ingredient", width: "125px"} %>          
           <%= q_f.select_without_bootstrap :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, {}, prompt: t('ingredient'), class: 'hide' %>
         </div>
         <%= link_to '%', "javascript:recipe_form_helper.edit_ingredient();", :class => "btn btn-warning" %>
