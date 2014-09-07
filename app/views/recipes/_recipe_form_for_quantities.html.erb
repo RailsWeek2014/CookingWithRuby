@@ -13,22 +13,29 @@
             <%= render partial: "dropdown_button", locals: {name: "unit", width: "75px"} %>
             <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, {}, prompt: t('unit'), class: 'hide' %>
           </div>
-          <%= link_to '%', "javascript:recipe_form_helper.edit_unit();", :class => "btn btn-warning" %>
-          <%= link_to '+', "javascript:recipe_form_helper.new_unit();", :class => "btn btn-success" %>
           <div class="btn-group">
             <%= render partial: "dropdown_button", locals: {name: "ingredient", width: "125px"} %>          
             <%= q_f.select_without_bootstrap :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, {}, prompt: t('ingredient'), class: 'hide' %>
           </div>
-          <%= link_to '%', "javascript:recipe_form_helper.edit_ingredient();", :class => "btn btn-warning" %>
-          <%= link_to '+', "javascript:recipe_form_helper.new_ingredient();", :class => "btn btn-success" %>
         </div>
         <script>
           recipe_form_helper.select2button();
         </script>
       </div>
     <% end %>
-    <%= r_f.link_to_add t('more_ingredients'), :quantities, class: 'btn btn-xs btn-info', style: "float:right; margin-bottom: 10px"%>
+    <%= r_f.link_to_add '', :quantities, class: 'hide' %> <!-- Hidden anchor to create the new form part at the right position -->
+    <div class="btn-group" style="float: right; margin: 10px; 0px;">
+      <%= link_to t('more'), "javascript:$('[data-association=\"quantities\"].hide.add_nested_fields').click()", class: 'btn btn-xs btn-info'%> <!-- button to click on the hidden anchor with javascript -->
+      <%= link_to t('new'), "javascript:recipe_form_helper.new_ingredient();", :class => "btn btn-xs btn-success" %>
+      <%= link_to t('edit'), "javascript:recipe_form_helper.edit_ingredient();", :class => "btn btn-xs btn-warning" %>
+      <button class="btn btn-xs btn-default" disabled><%= t('ingredients') %></button>
     </div>
-    <div style="display: none; clear:both"/>
+    <div class="btn-group" style="float: right; margin: 10px; 0px;">
+      <%= link_to t('new'), "javascript:recipe_form_helper.new_unit();", :class => "btn btn-xs btn-success" %>
+      <%= link_to t('edit'), "javascript:recipe_form_helper.edit_unit();", :class => "btn btn-xs btn-warning" %>
+      <button class="btn btn-xs btn-default" disabled><%= t('units') %></button>
+    </div>
+  </div>
+  <div style="display: none; clear:both"/>
 <% end %>
 	
