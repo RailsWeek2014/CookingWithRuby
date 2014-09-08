@@ -18,6 +18,6 @@ class UnitsController < ApplicationController
   
   private
     def  unit_params
-      params.require( 'unit' ).permit( 'name', 'short_name', 'conversion_factor', 'conversion_unit_id')
+      params.require( 'unit' ).permit( 'long_name', 'name', 'conversion_factor', 'conversion_unit_id')
     end
 end

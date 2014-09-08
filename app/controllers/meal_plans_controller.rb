@@ -1,4 +1,5 @@
 require 'prawn'
+require 'open-uri'
 
 class MealPlansController < ApplicationController
   before_action :authenticate_user!
@@ -96,11 +97,20 @@ class MealPlansController < ApplicationController
       pdf.start_new_page
       
       pdf.grid([0, 0], [2, 2]).bounding_box do
-#        pdf.image ActionController::Base.helpers.image_path( r.pictures.first || "no_image.png" ), fit: [pdf.bounds.width, pdf.bounds.height]
-        pdf.image "app/assets/images/no_image.png", fit: [pdf.bounds.width, pdf.bounds.height]
+        picture = r.pictures.first
+        if picture  
+          path = picture.picture_path 
+        else 
+          path = "app/assets/images/no_image.png"
+        end
+        
+        pdf.image open( path ), fit: [pdf.bounds.width, pdf.bounds.height]
       end
       
       pdf.grid([0, 3], [2, 5]).bounding_box do
+        pdf.text "<u>#{r.name}</u>", size: 16, inline_format: true
+        pdf.move_down 5
+        
         r.quantities.each do |q|
           pdf.text "#{ q.quantity }#{ q.unit.short_name } #{ q.ingredient.name }", overflow: :truncate
         end
@@ -115,9 +125,11 @@ class MealPlansController < ApplicationController
       end
     end
     
-    pdf.render_file "test.pdf"
+    send_data pdf.render,
+        :filename => "#{current_user.name}_shop_list.pdf",
+        :type => "application/pdf"
     
-    render action: "ingredient_requirements"
+#    render action: "ingredient_requirements"
   end
   
   private

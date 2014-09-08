@@ -1,0 +1,28 @@
+<% rand_id = Random.rand(100000..100000000).to_s%>
+<%= form_for(@comment, url: 'javascript:comment_helper.post("'+rand_id+'");') do |c_f| %>
+  <div class="comment" style="display: flex; margin-bottom: 10px" id="<%= rand_id %>">
+    <%= c_f.hidden_field(:id)%>
+    <%= c_f.hidden_field(:recipe_id)%>
+    <%= c_f.hidden_field(:answer_to_id)%>
+    <% user = current_user %>
+    <% has_user = user != nil %>
+    <img src="<% if has_user && user.picture %><%= user.picture %><% else %> <%= '/assets/no_user_image.png'%><% end %>" alt="user image" class="img-circle img-thumbnail" style="width: 50px; height: 50px; margin-right: 10px" />
+    <div class="text" style="display: flex; flex-direction: column" >
+      <div class="info" style="font-weight: bold;">
+        <%= user.name %>
+        <%= t('comment.at')%><%= " " + DateTime.now.to_formatted_s(:short) %>
+      </div>
+      <div class="message">
+        <%= c_f.text_area(:message, rows: 4, class: 'form-control') %>
+      </div>
+      <div class="btn-group">
+        <%= c_f.submit 'save', class: "btn btn-xs btn-success" %>
+        <%= link_to t('discard'), "remove_form", class: "btn btn-xs btn-danger" %>
+        <button class="btn btn-xs btn-default" disabled><%= t('comment') %></button>
+      </div>
+    </div>
+  </div>
+<% end %>
+<script>
+    comment_helper.link_buttons();
+</script>
