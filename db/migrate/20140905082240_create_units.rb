@@ -3,6 +3,8 @@ class CreateUnits < ActiveRecord::Migration
     create_table :units do |t|
       t.string :name
       t.string :short_name
+      t.integer :conversion_factor
+      t.references :conversion_unit
             
       t.timestamps
     end

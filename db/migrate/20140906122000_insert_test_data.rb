@@ -1,13 +1,11 @@
 class InsertTestData < ActiveRecord::Migration
   def change
-    User.create name: "Test User", username: "test_user", picture: nil, sex: "m",
-      birth_date: nil, weight: nil, role: nil, email: "test@awesome.test",
-      encrypted_password: "$2a$10$/i0WxBVrJhpD078lXbk3De/CtK.AulQsRgVMH.PVszdfRESRmATWu"
+    User.create name: "Test User", username: "test_user", picture: nil, sex: "m", birth_date: nil, weight: nil, role: nil, email: "test@awesome.com", encrypted_password: "$2a$10$/i0WxBVrJhpD078lXbk3De/CtK.AulQsRgVMH.PVszdfRESRmATWu"
     
     Ingredient.create name: "Wasser"
     Ingredient.create name: "Zucker"
     
-    Unit.create name: "Liter", short_name: "l"
+    Unit.create name: "Milliliter", short_name: "ml"
     Unit.create name: "Gramm", short_name: "g"
     
     Recipe.create name: "Heißes Zuckerwasser", prep_time: 15, 
