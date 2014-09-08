@@ -1,4 +1,5 @@
 require 'prawn'
+require 'open-uri'
 
 class MealPlansController < ApplicationController
   before_action :authenticate_user!
@@ -96,10 +97,14 @@ class MealPlansController < ApplicationController
       pdf.start_new_page
       
       pdf.grid([0, 0], [2, 2]).bounding_box do
-#        pdf.image ActionController::Base.helpers.image_path( r.pictures.first || "no_image.png" ), fit: [pdf.bounds.width, pdf.bounds.height]
-        #TODO Echtes Bild laden
-        #pdf.image r.pictures.first.picture_path || "app/assets/images/no_image.png", fit: [pdf.bounds.width, pdf.bounds.height]
-        pdf.image "app/assets/images/no_image.png", fit: [pdf.bounds.width, pdf.bounds.height]
+        picture = r.pictures.first
+        if picture  
+          path = picture.picture_path 
+        else 
+          path = "app/assets/images/no_image.png"
+        end
+        
+        pdf.image open( path ), fit: [pdf.bounds.width, pdf.bounds.height]
       end
       
       pdf.grid([0, 3], [2, 5]).bounding_box do
