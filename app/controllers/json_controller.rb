@@ -15,4 +15,12 @@ class JsonController < ApplicationController
     
     render 'list'
   end
+
+  def units
+    @type = "unit"
+    @list = Unit.all
+    @i = 0
+    
+    render 'list'
+  end
 end

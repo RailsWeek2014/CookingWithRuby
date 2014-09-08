@@ -1,0 +1,7 @@
+<%= bootstrap_form_for( @unit, url: 'javascript: recipe_form_helper.post();', layout: :horizontal) do |i_f| %>
+  	<%= i_f.text_field :name, control_col: "col-sm-5"%>
+    <%= i_f.text_field :short_name, control_col: "col-sm-5"%>
+    <%= i_f.text_field :conversion_factor, control_col: "col-sm-5"%>
+    <%= i_f.select :conversion_unit_id, Unit.where(conversion_unit_id: nil).collect { |u| [u.short_name, u.id]}, {}, prompt: t('unit') %>
+  <%= i_f.submit class: "btn btn-success"%>
+<% end %>
