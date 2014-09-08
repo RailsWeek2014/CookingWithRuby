@@ -1,8 +1,8 @@
 <% if comment.answers.count > 0 %>
   <div class="col-sm-offset-<%= depth %>">
     <% comment.answers.each do |answer|%>
-      <%= render partial: 'comments/answer', locals: {answer:answer, is_answer_to:comment} %>
-      <%= render partial: 'comments/answers', locals: {comment: answer, depth: depth + 1}%>
+      <%= render partial: 'comments/answer', locals: {answer:answer} %>
+      <%= render partial: 'comments/answers', locals: {comment: answer, depth: depth}%>
     <% end %>
   </div>
 <% end %>

@@ -60,6 +60,9 @@ Rails.application.routes.draw do
   get 'json/categories'
   get 'json/ingredients'
   
+  #comments routes
+  delete 'comments/:id' => 'comments#destroy'
+  
   resources 'recipes'
 #  get 'recipes' => 'recipes#list', as: 'recipes'
 #  get 'recipes/new' => 'recipes#new'

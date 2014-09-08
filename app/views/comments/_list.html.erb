@@ -1,2 +1,16 @@
-<h4>Comments</h4>
-<%= render @comments.where(answer_to_id: nil) %>
+<script>
+  var comment_helper = new Comments();
+  
+</script>
+<div name="comments" id="<%= @recipe.id%>">
+  <h4>Comments</h4>
+  <%= render @comments.where(answer_to_id: nil) %>
+  
+  <div class="btn-group" style="margin-top: 10px">
+    <%= link_to t('new'), "create", class: 'btn btn-success'%> <!-- button to click on the hidden anchor with javascript -->
+    <button class="btn btn-default" disabled><%= t('comment') %></button>
+  </div>
+</div>
+<script>
+  comment_helper.link_buttons();
+</script>

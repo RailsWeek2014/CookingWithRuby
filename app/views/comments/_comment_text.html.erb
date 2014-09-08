@@ -1,4 +1,22 @@
-<div class="comment">
-  <div class=""name="from"><% unless comment.user == nil %><%= comment.user.name%><% else %><%= 'Deleted' %><% end %></div>
-  <%= comment.message %>
+<div class="comment" style="display: flex; margin-bottom: 10px" id="<%= comment.id.to_s %>">
+  <% user = comment.user %>
+  <% has_user = user != nil %>
+  <img src="<% if has_user && user.picture %><%= user.picture %><% else %> <%= '/assets/no_user_image.png'%><% end %>" alt="user image" class="img-circle img-thumbnail" style="width: 50px; height: 50px; margin-right: 10px" />
+  <div class="text" style="display: flex; flex-direction: column" >
+    <div class="info" style="font-weight: bold;">
+      <% unless comment.user == nil %><%= comment.user.name%><% else %><%= 'Unknown' %><% end %>
+      <%= t('comment.at')%><% unless comment.updated_at == nil %><%= " " + comment.updated_at.to_formatted_s(:short) %><% end %>
+    </div>
+    <div class="message">
+      <%= comment.message %>    
+    </div>
+    <div class="btn-group">
+      <%= link_to t('answer'), "answer", class: 'btn btn-xs btn-info'%> <!-- button to click on the hidden anchor with javascript -->
+      <% if comment.answers.count == 0 %> 
+        <%= link_to t('edit'), "edit", :class => "btn btn-xs btn-warning" %>
+        <%= link_to t('delete'), "remove", :class => "btn btn-xs btn-danger" %>
+      <% end %>
+      <button class="btn btn-xs btn-default" disabled><%= t('comment') %></button>
+    </div>
+  </div>
 </div>
