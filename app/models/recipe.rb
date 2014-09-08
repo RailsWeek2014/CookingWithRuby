@@ -5,6 +5,8 @@ class Recipe < ActiveRecord::Base
   has_many :comments
   has_many :recipe_categories
   has_many :categories, through: :recipe_categories
+  has_many :cookbook_entries
+  has_many :cookbooks, through: :cookbook_entries
   
   validates :name, presence: true
   validates :instructions, presence: true
