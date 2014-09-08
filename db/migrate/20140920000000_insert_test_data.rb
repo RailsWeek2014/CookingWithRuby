@@ -5,8 +5,8 @@ class InsertTestData < ActiveRecord::Migration
     Ingredient.create name: "Wasser"
     Ingredient.create name: "Zucker"
     
-    Unit.create name: "Milliliter", short_name: "ml"
-    Unit.create name: "Gramm", short_name: "g"
+    Unit.create long_name: "Milliliter", name: "ml"
+    Unit.create long_name: "Gramm", name: "g"
     
     Recipe.create name: "Heißes Zuckerwasser", prep_time: 15, 
       instructions: "Wasser zum Kochen bringen & Zucker einrühren",

@@ -11,7 +11,7 @@
         <div class="input-group-btn">
           <div class="btn-group">
             <%= render partial: "dropdown_button", locals: {name: "unit", width: "75px"} %>
-            <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, {}, prompt: 'unit', class: 'hide' %>
+            <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.name, u.id]}, {}, prompt: 'unit', class: 'hide' %>
           </div>
           <div class="btn-group">
             <%= render partial: "dropdown_button", locals: {name: "ingredient", width: "125px"} %>          
