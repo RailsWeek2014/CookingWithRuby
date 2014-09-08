@@ -1,0 +1,8 @@
+<%= bootstrap_nested_form_for( @cookbook_entry, url: 'javascript: recipe_helper.post();', layout: :horizontal) do |ce_f| %>
+  <%= ce_f.select :cookbook_id, current_user.cookbooks.all.collect { |c| [c.name, c.id]}, {}%>
+  
+  <% ce_f.fields_for :cookbook do |c_f| %>
+    <%= c_f.text_field :name %>
+  <% end %>
+  <%= ce_f.submit class: "btn btn-success"%>
+<% end %>

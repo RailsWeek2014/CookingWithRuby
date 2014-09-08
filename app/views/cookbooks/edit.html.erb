@@ -1,0 +1,8 @@
+<%= bootstrap_form_for( @cookbook) do |cb_f| %>
+  <div class="input-group">
+    <%= cb_f.text_field_without_bootstrap :name, class:"form-control"%>
+    <div class="input-group-btn">
+      <%= cb_f.submit class: "btn btn-success"%>
+    </div>
+  </div>
+<% end %>

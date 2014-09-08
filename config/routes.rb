@@ -30,6 +30,17 @@ Rails.application.routes.draw do
   get 'units/new'
   get 'units' => 'recipes#list'
   post 'units' => 'units#create'
+  
+  # cookbook routes
+  get 'cookbooks/add'
+  get 'cookbooks/new'
+  get 'cookbooks/list', as: "cookbook_list"
+  get 'cookbooks/:id/edit'=> "cookbooks#edit"
+  get 'cookbooks/:id'=> "cookbooks#show", as: "cookbook"
+  get 'cookbooks' => "cookbooks#list", as: "cookbooks"
+  post 'cookbooks' => 'cookbooks#create'
+  patch "cookbooks/:id" => "cookbooks#update"
+  delete "cookbooks/:id" => "cookbooks#destroy"
 
   #search routes
   get 'search/fuzzy'
