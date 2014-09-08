@@ -108,6 +108,9 @@ class MealPlansController < ApplicationController
       end
       
       pdf.grid([0, 3], [2, 5]).bounding_box do
+        pdf.text "<u>#{r.name}</u>", size: 16, inline_format: true
+        pdf.move_down 5
+        
         r.quantities.each do |q|
           pdf.text "#{ q.quantity }#{ q.unit.short_name } #{ q.ingredient.name }", overflow: :truncate
         end
