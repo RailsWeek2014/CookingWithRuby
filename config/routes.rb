@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get 'meal_plans/:date' => 'meal_plans#week_overview', as: 'meal_plans_week'
   get 'meal_plans/:id/edit' => 'meal_plans#edit', as: 'edit_meal_plan'
   get 'meal_plans/ingredient_requirements/:date' => 'meal_plans#ingredient_requirements', as: 'ingredient_requirement'
+  get 'meal_plans/ingredient_requirements_pdf/:date' => 'meal_plans#ingredient_requirements_pdf'
   
   patch 'meal_plans/:id' => 'meal_plans#update'
   

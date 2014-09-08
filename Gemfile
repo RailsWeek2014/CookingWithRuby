@@ -41,6 +41,7 @@ gem 'devise-two-factor'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'prawn'
 gem 'nested_form'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
