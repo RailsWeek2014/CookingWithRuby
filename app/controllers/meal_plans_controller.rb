@@ -97,6 +97,8 @@ class MealPlansController < ApplicationController
       
       pdf.grid([0, 0], [2, 2]).bounding_box do
 #        pdf.image ActionController::Base.helpers.image_path( r.pictures.first || "no_image.png" ), fit: [pdf.bounds.width, pdf.bounds.height]
+        #TODO Echtes Bild laden
+        #pdf.image r.pictures.first.picture_path || "app/assets/images/no_image.png", fit: [pdf.bounds.width, pdf.bounds.height]
         pdf.image "app/assets/images/no_image.png", fit: [pdf.bounds.width, pdf.bounds.height]
       end
       
@@ -115,9 +117,11 @@ class MealPlansController < ApplicationController
       end
     end
     
-    pdf.render_file "test.pdf"
+    send_data pdf.render,
+        :filename => "#{current_user.name}_shop_list.pdf",
+        :type => "application/pdf"
     
-    render action: "ingredient_requirements"
+#    render action: "ingredient_requirements"
   end
   
   private

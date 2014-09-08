@@ -1,3 +1,5 @@
 <% @quantities.each do |q|%>
 	<p><%= q.join " " %></p>
 <% end %>
+
+<%= link_to 'export PDF', ingredient_requirement_pdf_path( @week_start.to_s ) %>
