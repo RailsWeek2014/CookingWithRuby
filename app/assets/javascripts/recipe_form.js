@@ -17,9 +17,9 @@ function recipe_form() {
 		create('/categories/');
 	};
 
-//	self.new_unit = function() {
-//		create('/unit/');
-//	};
+	self.new_unit = function() {
+		create('/units/');
+	};
 
 	function create(path) {
 		var window = null;

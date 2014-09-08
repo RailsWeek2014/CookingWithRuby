@@ -15,8 +15,11 @@ class InsertTestData < ActiveRecord::Migration
     Quantity.create quantity: 1.0, unit_id: 1, ingredient_id: 1, recipe_id: 1
     Quantity.create quantity: 100.0, unit_id: 2, ingredient_id: 2, recipe_id: 1
     
-    Recipe.create name: "Registrated Test", prep_time: 1, instructions: "", range: "registrated"
-    Recipe.create name: "Private Test", prep_time: 1, instructions: "", range: "private"
-    Recipe.create name: "Public Test", prep_time: 1, instructions: "", range: "public"
+    Recipe.create name: "Registrated Test", prep_time: 1, instructions: "a", range: "registrated"
+    Recipe.create name: "Private Test", prep_time: 1, instructions: "b", range: "private"
+    Recipe.create name: "Public Test", prep_time: 1, instructions: "c", range: "public"
+
+    Category.create name: "Kuchen"
+    Category.create name: "KeinKuchen"
   end
 end

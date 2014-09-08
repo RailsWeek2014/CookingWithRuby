@@ -7,7 +7,7 @@
   
   <%= render partial: 'recipe_form_for_categories', locals: {r_f: r_f}%>
 
-	<%= r_f.number_field :prep_time, placeholder: "20 Minutes" %>
+	<%= r_f.number_field :prep_time, append: t("minutes"), placeholder: "20" %>
 	<%= r_f.number_field :number_of_portions, placeholder: "2" %>
 	
 	<%= render partial: 'recipe_form_for_quantities', locals: {r_f: r_f}%>
