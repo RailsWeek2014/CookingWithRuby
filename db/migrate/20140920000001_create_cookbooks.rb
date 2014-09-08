@@ -3,7 +3,7 @@ class CreateCookbooks < ActiveRecord::Migration
     create_table :cookbooks do |t|
       t.string :name
 
-      belongs_to :user
+      t.belongs_to :user
       t.timestamps
     end
     
