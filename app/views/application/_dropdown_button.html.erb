@@ -1,0 +1,8 @@
+<button name="<%= name%>" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" 
+  <%if(defined? width) %>style="width:<%= width%>" <% end %>>
+  <%= t(name)%>
+  <span class="caret"/>
+</button>
+<ul name="<%= name%>" class="dropdown-menu">
+  <li></li>
+</ul>

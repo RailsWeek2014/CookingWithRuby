@@ -4,70 +4,29 @@
 </script>
 <%= bootstrap_nested_form_for( @recipe, label_col: "col-sm-2", control_col: "col-sm-8", layout: :horizontal) do |r_f| %>
   <%= r_f.text_field :name%>
+  
+  <%= render partial: 'recipe_form_for_categories', locals: {r_f: r_f}%>
+
 	<%= r_f.number_field :prep_time, placeholder: "20 Minutes" %>
 	<%= r_f.number_field :number_of_portions, placeholder: "2" %>
-  <label class="control-label col-sm-2" for="ingredients"><%= t('ingredients')%></label>
-	<%= r_f.fields_for(:quantities) do |q_f| %>
-	  <%= q_f.form_group :quantities, layout: :horizontal, label_col: "col-sm-3", control_col: "col-sm-8" do %>
-	  
-	    <div class="input-group col-sm-10">
-	      <div class="input-group-btn">
-          <%= r_f.link_to_remove 'X', class: 'btn btn-danger' %>
-        </div>    
-        <%= q_f.number_field_without_bootstrap :quantity, placeholder: "5" , class: 'form-control col-sm-4'%>
-        <div class="input-group-btn">
-          <div class="btn-group">
-            <button name="unit" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:75px">
-              <%= t('unit')%><span class="caret"/>
-            </button>
-            <ul name="unit" class="dropdown-menu">
-              <li><a href="#">foo</a></li>
-            </ul>
-            <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, {}, prompt: t('unit'), class: 'hide' %>
-          </div>
-          <%= link_to '%', "javascript:recipe_form_helper.edit_unit();", :class => "btn btn-warning" %>
-          <%= link_to '+', "javascript:recipe_form_helper.new_unit();", :class => "btn btn-success" %>
-          <div class="btn-group">
-            <button name="ingredient" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width:125px">
-              <%= t('ingredient')%>
-              <span class="caret"/>
-            </button>
-            <ul name="ingredient" class="dropdown-menu">
-              <li></li>
-            </ul>
-            <%= q_f.select_without_bootstrap :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, {}, prompt: t('ingredient'), class: 'hide' %>
-          </div>
-          <%= link_to '%', "javascript:recipe_form_helper.edit_ingredient();", :class => "btn btn-warning" %>
-          <%= link_to '+', "javascript:recipe_form_helper.new_ingredient();", :class => "btn btn-success" %>
-      </div>
-      <script>
-        recipe_form_helper.select2button();
-      </script>
-    </div>
-    <% end %>
-	<% end %>
-		
-	<%= r_f.link_to_add t('more_ingredients'), :quantities, class: 'btn btn-xs btn-info'%>
+	
+	<%= render partial: 'recipe_form_for_quantities', locals: {r_f: r_f}%>
+	
   <%= r_f.text_area :instructions, rows: 6, placeholder: "Please enter the introductions" %>
-  <% checked = [false, false, false] %>
-  <% isdisabled = true %>
+  <% checked = [@recipe.range == "public", @recipe.range == "registrated", @recipe.range == "private"] %>
+  <% isdisabled = [@recipe.range == "public", @recipe.range == "public" || @recipe.range == "registrated", @recipe.range == "public" || @recipe.range == "registrated" || @recipe.range == "private" ] %>
   <% help_text = ""%>		
-	<% case @recipe.range %>
-		<% when "public" %>
-			<% checked[0] = true %>
-		<% when "registrated" %>
-			<% checked[1] = true %>
-		<% when "public" %>
-			<% checked[2] = true %>
-		<% else %>
-			<% checked[2] = true %>
-			<% isdisabled = false %>
-			<% help_text = "Choose who should be able to see the recipe"%>
+	<% unless checked[0] || checked[1] || checked[2] %>
+		<% checked[2] = true %>
+		<% isdisabled = [false, false, false] %>
 	<% end %>
+	<% unless isdisabled[0] && isdisabled[1] && isdisabled[2]%>
+	   <% help_text = "Choose who should be able to see the recipe. Notice: When you decide to make your recipe accessable to others, you can't undo it!"%>
+  <% end %>
 	<%= r_f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Visible for: " }, help: help_text do %>
-		<%= r_f.radio_button :range, "public", label: t('all'), checked: checked[0], inline: true, disabled: isdisabled %>
-		<%= r_f.radio_button :range, "registrated", label: t('only_registrated_user'), checked: checked[1], inline: true, disabled: isdisabled %>
-		<%= r_f.radio_button :range, "private", label: t('only_me'), inline: true, checked: checked[2], disabled: isdisabled %>
+		<%= r_f.radio_button :range, "public", label: t('all'), checked: checked[0], inline: true, disabled: isdisabled[0] %>
+		<%= r_f.radio_button :range, "registrated", label: t('only_registrated_user'), checked: checked[1], inline: true, disabled: isdisabled[1] %>
+		<%= r_f.radio_button :range, "private", label: t('only_me'), inline: true, checked: checked[2], disabled: isdisabled[2] %>
 	<% end %>
   <%= r_f.submit class: "btn btn-success"%>
 <% end %>
