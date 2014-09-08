@@ -62,11 +62,10 @@ Rails.application.routes.draw do
   
   #comments routes
   get 'comments/new/:id' => 'comments#new'
-  get 'comments/edit/:id' => 'comments#edit'
   get 'comments/answer_to/:id' => 'comments#answer'
+  get 'comments/:id/edit' => 'comments#edit'
   
   post 'comments' => 'comments#create'
-  post 'comments/answer' => 'comments#createAnswer'
   patch 'comments/:id' => 'comments#update'
   delete 'comments/:id' => 'comments#destroy'
   

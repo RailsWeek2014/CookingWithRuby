@@ -1,7 +1,3 @@
-/**
- * New node file
- */
-
 function recipe_form() {
 	var self = this;
 	var modal = undefined;
