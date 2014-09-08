@@ -1,6 +1,8 @@
 <h2><%= t('recipe.details_for')%> <%= @recipe.name%> <small>(<%= @recipe.prep_time %> min)</small></h2>
-<%= link_to t("delete"), @recipe, data: { confirm: "#{@recipe.name} wirklich löschen?" }, method: :delete %>
-<%= link_to t("change"), edit_recipe_path(@recipe) %>
+<% if user_signed_in? && current_user.id == @recipe.user_id%>
+  <%= link_to t("delete"), @recipe, data: { confirm: "#{@recipe.name} wirklich löschen?" }, method: :delete %>
+  <%= link_to t("change"), edit_recipe_path(@recipe) %>
+<% end %>
 <div class="well" style="display: flex;">
     <br/>
     <% img = @recipe.pictures.first || "/assets/no_image.png"%>
