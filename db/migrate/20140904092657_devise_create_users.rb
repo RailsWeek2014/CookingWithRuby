@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :sex
       t.date :birth_date
       t.integer :weight
-      t.string :role
+      t.string :role, default: "u"
       
       ## Database authenticatable
       t.string :email,              null: false, default: ""
