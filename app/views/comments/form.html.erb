@@ -13,7 +13,7 @@
         <%= t('comment.at')%><%= " " + DateTime.now.to_formatted_s(:short) %>
       </div>
       <div class="message">
-        <%= c_f.text_area(:message, rows: 4) %>
+        <%= c_f.text_area(:message, rows: 4, class: 'form-control') %>
       </div>
       <div class="btn-group">
         <%= c_f.submit 'save', class: "btn btn-xs btn-success" %>

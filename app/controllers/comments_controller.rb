@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     @comment.recipe_id = params[:id]
       
-    render 'form'
+    render 'form', layout: false
   end
 
   def edit
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
       redirect_to new_user_session_path
     end
     @comment = Comment.find(params[:id])
-    render 'form'
+    render 'form', layout: false
   end
 
   def answer
@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     @comment.answer_to_id = params[:id]
     @comment.recipe_id = Comment.find(params[:id]).recipe_id
     
-    render 'form'
+    render 'form', layout: false
   end
 
   def create

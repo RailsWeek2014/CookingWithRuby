@@ -71,35 +71,37 @@ function recipe_form() {
 	};
 	
 	self.select2button = function(name) {
-		if(name === undefined) {
-			var types = ['ingredient', 'unit', 'category'];
-			types.forEach(function(type) {
-				self.select2button(type);
+		var btn = $('button[name="' + name + '"]').first();
+		var select = btn.siblings('select');
+		var ul = btn.siblings('ul');
+		ul.empty();
+		$('option', select).each(function() {
+			var option = $(this);
+			var li = $('<li>' + option.text() + '</li>');
+			li.click(function() {
+				option.attr('selected',true);
+				option.siblings().attr('selected', false);
+				btn.text(option.text() + ' ');
+				btn.append('<span class="caret"/>');
 			});
-		} else {
-			var btn = $('button[name="' + name + '"]').first();
-			var select = btn.siblings('select');
-			var ul = btn.siblings('ul');
-			var name = select.prop('name');
-			ul.attr('name', name);
-			btn.prop('name', name);
-			
-			ul.empty();
-			$('option', select).each(function() {
-				var option = $(this);
-				var li = $('<li>' + option.text() + '</li>');
-				li.click(function() {
-					option.attr('selected',true);
-					option.siblings().attr('selected', false);
-					btn.text(option.text() + ' ');
-					btn.append('<span class="caret"/>');
-				});
-				if(option.attr('selected')) {
-					btn.text(option.text() + ' ');
-					btn.append('<span class="caret"/>');
-				}
-				ul.append(li);
-			});			
-		}
+			if(option.attr('selected')) {
+				btn.text(option.text() + ' ');
+				btn.append('<span class="caret"/>');
+			}
+			ul.append(li);
+		});			
+	};
+	
+	self.initSelects = function(type) {
+		var btn = $('button[name="' + type + '"]').first();
+		var select = btn.siblings('select');
+		var ul = btn.siblings('ul');
+		var name = select.prop('name');
+		ul.attr('name', name);
+		btn.prop('name', name);
+		if(list[type] !== undefined)
+			self.update(false, type);
+		else
+			self.select2button(name);
 	};
 }

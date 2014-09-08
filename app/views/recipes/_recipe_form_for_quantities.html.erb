@@ -11,15 +11,16 @@
         <div class="input-group-btn">
           <div class="btn-group">
             <%= render partial: "dropdown_button", locals: {name: "unit", width: "75px"} %>
-            <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, {}, prompt: t('unit'), class: 'hide' %>
+            <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, {}, prompt: 'unit', class: 'hide' %>
           </div>
           <div class="btn-group">
             <%= render partial: "dropdown_button", locals: {name: "ingredient", width: "125px"} %>          
-            <%= q_f.select_without_bootstrap :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, {}, prompt: t('ingredient'), class: 'hide' %>
+            <%= q_f.select_without_bootstrap :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, {}, prompt: 'ingredient', class: 'hide' %>
           </div>
         </div>
         <script>
-          recipe_form_helper.select2button();
+          recipe_form_helper.initSelects('unit');
+          recipe_form_helper.initSelects('ingredient');
         </script>
       </div>
     <% end %>
@@ -35,6 +36,6 @@
       <button class="btn btn-xs btn-default" disabled><%= t('units') %></button>
     </div>
   </div>
-  <div style="display: none; clear:both"/>
+  <div style="display: none; clear:both"></div>
 <% end %>
 	
