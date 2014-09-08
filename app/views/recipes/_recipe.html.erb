@@ -1,7 +1,8 @@
 <li style="list-style-type: none; clear: both">
   <div class="well" style="display: flex;">
     <br/>
-    <% img = recipe.pictures.first || "/assets/no_image.png"%>
+    <% p = recipe.pictures.first %>
+    <% if p then img = p.picture_path else img = "/assets/no_image.png" end %>
     <img src="<%= img %>" class="img-rounded img-thumbnail" style="width: 240px; height: 135px;" />
   	<div style="padding-left: 20px">
   		<h4><%= link_to recipe.name, recipe_path(recipe) %> <small>(<%= recipe.prep_time %> min)</small></h4>
