@@ -26,5 +26,11 @@
 
 </table>
 
-<%= link_to 'Previous', "#{ meal_plans_path }/#{ @week_start.last_week }" %>
+<%= link_to 'Previous', meal_plans_week_path( @week_start.last_week.to_s ) %>
+<%= link_to 'Calculate Ingredients needed.', ingredient_requirement_path( @week_start.to_s ) %>
+<%= link_to 'Next', meal_plans_week_path( @week_end.tomorrow.to_s ), style: 'float: right' %>
+
+<!--<%= link_to 'Previous', "#{ meal_plans_path }/#{ @week_start.last_week }" %>
+<%= link_to 'Calculate Ingredients needed.', "#{ ingredient_requirement_path ( @week_start ) }" %>
 <%= link_to 'Next', "#{ meal_plans_path }/#{ @week_end.tomorrow }", style: 'float: right' %>
+-->

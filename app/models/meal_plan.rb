@@ -2,6 +2,8 @@ class MealPlan < ActiveRecord::Base
   belongs_to :user
   belongs_to :recipe
   
+  has_many :quantities, through: :recipe
+  
   validates :date, presence: true
   validates :daytime, presence: true
   

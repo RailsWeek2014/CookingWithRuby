@@ -1,0 +1,3 @@
+<% @quantities.each do | key, value |%>
+	<p><%= "#{value} #{Ingredient.find( key ).name}" %></p>
+<% end %>
