@@ -31,8 +31,17 @@ class CookbooksController < ApplicationController
       redirect_to new_user_session_path
     end
     @cookbook_entry = Cookbook_Entry.new
-    
-    @cookbook_entry.cookbooks  << Cookbook.new
+    @recipe_id = params[:id]
+    render layout: 'modal', locals: {headline: 'add_to_cookbook'}
+  end
+  
+  def add_cookbook_entry
+    @cookbook_entry = Cookbook_Entry.new cookbook_entry_params
+    if @cookbook_entry.save
+      render text: "ok"
+    else
+      render text: "nok"
+    end
   end
   
   def destroy
@@ -62,5 +71,9 @@ class CookbooksController < ApplicationController
   private
     def cookbook_params
       params.require( 'cookbook' ).permit( 'name')
+    end
+
+    def cookbook_entry_params
+      params.require( 'cookbook_entry' ).permit('recipe_id', 'cookbook_id')
     end
 end

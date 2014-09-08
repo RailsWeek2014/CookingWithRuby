@@ -5,18 +5,11 @@ function recipe() {
 	var modal_path = undefined;
 		
 	self.add_to_cookbooks = function() {
-		create('/cookbooks/');
-	};
-
-	function create(path) {
-		var window = null;
-		$.get(path + 'add', function(html) {
+		$.get(window.location.pathname + '/add_to_cookbook', function(html) {
 			modal = $(html);
-			modal_path = path;
 			$('button.close', modal).click(function() {
 				modal.fadeOut(function() {
 					modal.remove();
-					modal_path = undefined;
 					modal = undefined;
 				});
 			});
@@ -28,8 +21,7 @@ function recipe() {
 
 	self.post = function() {
 		var form_data = $('form', modal).serializeArray();
-		$.post(modal_path, form_data, function() {
-			self.update(true);
+		$.post('/cookbooks/add', form_data, function() {
 			$('button.close', modal).click();
 		});
 	};
