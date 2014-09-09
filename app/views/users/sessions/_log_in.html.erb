@@ -7,10 +7,10 @@
 	
 	<div class="btn-group">
 	  <%= f.submit "Log in", class: "btn btn-xs btn-success" %>
-    <%= link_to t('sign_up'), new_user_registration_path, class: "btn btn-xs btn-info" %>
+    <%= link_to t('login.sign_up'), new_user_registration_path, class: "btn btn-xs btn-info" %>
   </div>
   <br />  
   <br />  
-  <%= link_to t('forgot_your_password'), new_user_password_path, class: "btn btn-xs btn-danger" %>
+  <%= link_to t('login.forgot_your_password'), new_user_password_path, class: "btn btn-xs btn-danger" %>
 	
 <% end %>

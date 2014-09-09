@@ -24,9 +24,9 @@
 	   <% help_text = "Choose who should be able to see the recipe. Notice: When you decide to make your recipe accessable to others, you can't undo it!"%>
   <% end %>
 	<%= r_f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Visible for: " }, help: help_text do %>
-		<%= r_f.radio_button :range, "public", label: t('all'), checked: checked[0], inline: true, disabled: isdisabled[0] %>
-		<%= r_f.radio_button :range, "registrated", label: t('only_registrated_user'), checked: checked[1], inline: true, disabled: isdisabled[1] %>
-		<%= r_f.radio_button :range, "private", label: t('only_me'), inline: true, checked: checked[2], disabled: isdisabled[2] %>
+		<%= r_f.radio_button :range, "public", label: t('recipe.all'), checked: checked[0], inline: true, disabled: isdisabled[0] %>
+		<%= r_f.radio_button :range, "registrated", label: t('recipe.only_registrated_user'), checked: checked[1], inline: true, disabled: isdisabled[1] %>
+		<%= r_f.radio_button :range, "private", label: t('recipe.only_me'), inline: true, checked: checked[2], disabled: isdisabled[2] %>
 	<% end %>
   <%= r_f.submit class: "btn btn-success"%>
 <% end %>
