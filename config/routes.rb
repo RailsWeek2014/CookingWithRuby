@@ -53,7 +53,6 @@ Rails.application.routes.draw do
   
   #meal_plans routes
   get 'meal_plans/' => 'meal_plans#week_overview'
-  get 'meal_plan/' => 'meal_plans#week_overview'
   get 'meal_plans/new/' => 'meal_plans#new'
   get 'meal_plans/new/:date/:daytime' => 'meal_plans#new', as: 'new_meal_plan'
   get 'meal_plans/create'
@@ -64,7 +63,7 @@ Rails.application.routes.draw do
   get 'meal_plans/ingredient_requirements/:date' => 'meal_plans#ingredient_requirements', as: 'ingredient_requirement'
   get 'meal_plans/ingredient_requirements_pdf/:date' => 'meal_plans#ingredient_requirements_pdf', as: 'ingredient_requirement_pdf'
   
-  patch 'meal_plans/:id' => 'meal_plans#update'
+  patch 'meal_plan/:id' => 'meal_plans#update', as: 'meal_plan'
   
   post 'meal_plans' => 'meal_plans#create'
   

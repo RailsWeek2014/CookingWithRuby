@@ -1,14 +1,8 @@
 class UnitsController < ApplicationController
   def new
-    unless current_user
-      redirect_to new_user_session_path
-    end
-    @unit = Unit.new
   end
     
   def create
-    @unit = Unit.new unit_params
-    
     if @unit.save
       redirect_to recipes_path
     else
