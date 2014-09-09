@@ -38,17 +38,41 @@ de:
     own_recipes: "Eigene Rezepte"
     
   cookbook:
-    my_cookbooks: "Meine Kochbuecher"
+    my_cookbooks: "Meine Kochbücher"
+    cookbooks_of: "Kochbücher von"
+    edit: "editiere"
+    remove: "lösche"
+    new: "Neues Kochbuch"
+    recipes_in: "Rezepte in: "
 
   meal_plan:
     plan_your_meals: "Essensplaner"
     
   comment:
-    at: ""
+    at: "am"
     answer: "antworten auf"
     edit: "editiere"
-    delete: "loesche"
+    delete: "lösche"
     comment: "Kommentar"
     new: "Neuer"
     discard: "verwerfe"
     save: "speichere"
+    
+  category:
+    new_category: "Neue Kategorie"
+    categories: "Kategorien"
+    category: "Kategorie"
+    more: "weitere"
+    new: "neue"
+    
+  ingredient:
+    new_ingredient: "Neue Zutat"
+    ingredients: "Zutaten"
+    more: "weitere"
+    new: "neue"
+    edit: "ändere"
+    
+  unit:
+    new_unit: "Neue Einheit"
+    unit: "Einheit"
+    new: "Neue"

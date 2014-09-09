@@ -39,6 +39,11 @@ en:
     
   cookbook:
     my_cookbooks: "My Cookbooks"
+    cookbooks_of: "Cookbooks of "
+    edit: "edit"
+    remove: "remove"
+    new: "new"
+    recipes_in: "Recipes in: "
       
   meal_plan:
     plan_your_meals: "Plan Your Meals"
@@ -53,4 +58,22 @@ en:
     discard: "discard"
     save: "save"
 
+  category:
+    new_category: "New Category"
+    categories: "Categories"
+    category: "Category"
+    more: "More"
+    new: "New"
+    
+  ingredient:
+    new_ingredient: "New Ingredient"
+    ingredients: "Ingredients"
+    more: "more"
+    new: "new"
+    edit: "edit"
+  
+  unit: 
+    new_unit: "new unit"
+    unit: "unit"
+    new: "new"
 

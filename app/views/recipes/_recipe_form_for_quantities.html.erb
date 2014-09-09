@@ -1,5 +1,5 @@
 <%= r_f.form_group :quantities, layout: :horizontal, label_col: "col-sm-0", control_col: "col-sm-11" do %>
-  <label class="control-label col-sm-2" for="ingredients"><%= t('ingredients')%></label>
+  <label class="control-label col-sm-2" for="ingredients"><%= t('ingredient.ingredients')%></label>
   <div class="col-sm-9">
     <%= r_f.fields_for(:quantities) do |q_f| %>
       <div class="input-group col-sm-10" style="margin-bottom:5px">
@@ -26,14 +26,14 @@
     <% end %>
     <%= r_f.link_to_add '', :quantities, class: 'hide' %> <!-- Hidden anchor to create the new form part at the right position -->
     <div class="btn-group" style="float: right; margin: 10px; 0px;">
-      <%= link_to t('more'), "javascript:$('[data-association=\"quantities\"].hide.add_nested_fields').click()", class: 'btn btn-xs btn-info'%> <!-- button to click on the hidden anchor with javascript -->
-      <%= link_to t('new'), "javascript:recipe_form_helper.new_ingredient();", :class => "btn btn-xs btn-success" %>
-      <%= link_to t('edit'), "javascript:recipe_form_helper.edit_ingredient();", :class => "btn btn-xs btn-warning" %>
-      <button class="btn btn-xs btn-default" disabled><%= t('ingredients') %></button>
+      <%= link_to t('ingredient.more'), "javascript:$('[data-association=\"quantities\"].hide.add_nested_fields').click()", class: 'btn btn-xs btn-info'%> <!-- button to click on the hidden anchor with javascript -->
+      <%= link_to t('ingredient.new'), "javascript:recipe_form_helper.new_ingredient();", :class => "btn btn-xs btn-success" %>
+      <%= link_to t('ingredient.edit'), "javascript:recipe_form_helper.edit_ingredient();", :class => "btn btn-xs btn-warning" %>
+      <button class="btn btn-xs btn-default" disabled><%= t('ingredient.ingredients') %></button>
     </div>
     <div class="btn-group" style="float: right; margin: 10px; 0px;">
-      <%= link_to t('new'), "javascript:recipe_form_helper.new_unit();", :class => "btn btn-xs btn-success" %>
-      <button class="btn btn-xs btn-default" disabled><%= t('units') %></button>
+      <%= link_to t('unit.new'), "javascript:recipe_form_helper.new_unit();", :class => "btn btn-xs btn-success" %>
+      <button class="btn btn-xs btn-default" disabled><%= t('unit.unit') %></button>
     </div>
   </div>
   <div style="display: none; clear:both"></div>
