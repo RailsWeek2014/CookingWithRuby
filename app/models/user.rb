@@ -14,28 +14,22 @@ class User < ActiveRecord::Base
   
   def self.from_omniauth(auth)
     y auth
-    where(provider: auth.provider, id: auth.uid).first_or_create do |user|
-        user.email = auth.info.email
-        password = Devise.friendly_token[0,20]
-        user.password = password
-        user.password_confirmation = password
+    
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email || "no@email." + auth.provider
+        
+        user.password = Devise.friendly_token[0,20]
         user.name = auth.info.name   # assuming the user model has a name
         user.username = auth.info.nickname   # assuming the user model has a name
+        user.picture = auth.info.image
     end
   end
   
-  def self.register_omniauth(auth)
-    user = User.new
-    user.provider = auth['provider']
-    user.uid = auth['uid']
-    user.email = auth['info']['email']
-    password = Devise.friendly_token[0,20]
-    user.password = password
-    user.password_confirmation = password
-    user.name = auth['info']['name']   # assuming the user model has a name
-    user.username = auth['info']['nickname']   # assuming the user model has a name
-    user.picture = auth['info']['image'] # assuming the user model has an image
-    
-    return user  
-  end   
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["omniauth.auth"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
 end
