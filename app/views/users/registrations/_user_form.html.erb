@@ -18,8 +18,8 @@
   
   <div>
     <%= f.form_group :sex do %>
-      <%= f.radio_button :sex, 'm', label: "Mann", inline: true, checked: true %>
-      <%= f.radio_button :sex, 'f', label: "Frau", inline: true %>
+      <%= f.radio_button :sex, 'm', label: t('male'), inline: true, checked: true %>
+      <%= f.radio_button :sex, 'f', label: t('female'), inline: true %>
     <% end %>
   </div>
   
@@ -29,5 +29,5 @@
     <%= f.number_field :weight %>
   </div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit t('login.sign_up') %></div>
 <% end %>
