@@ -41,14 +41,13 @@ class Ability
           can :destroy, Recipe, user_id: user.id
           can :specific_list, Recipe
           
-          can :manage, MealPlan
-          
           can :manage, Category
           
           can :manage, Comment
           cannot :destroy, Comment
           can :destroy, Comment, user_id: user.id
           
+          cannot :edit, Comment
           can :edit, Comment, user_id: user.id
           
           can :manage, User, id: user.id
@@ -58,9 +57,11 @@ class Ability
           can :manage, Ingredient
           cannot :destroy, Ingredient
           
-          can :manage, MealPlan
+          can :manage, MealPlan, user_id: user.id
           
           can :manage, Unit
+          
+          can :manage, ActivityPlan, user_id: user.id
         
         when 'm'
         when 'a'

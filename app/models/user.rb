@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :meal_plans
   has_many :cookbooks
+  has_many :activity_plans
   
   def self.from_omniauth(auth)
     y auth
