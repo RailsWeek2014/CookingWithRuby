@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   # root route
   root 'recipes#list'
 
-  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
-
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', 
+    omniauth_callbacks: 'users/omniauth_callbacks' }
+    
   # recipe routes
   get 'recipes/:id/add_to_cookbook' => 'cookbooks#add'
   get 'recipes/list/:id' => 'recipes#specific_list', as: 'own_recipes'
