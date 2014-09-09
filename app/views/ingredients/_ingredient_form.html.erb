@@ -19,7 +19,7 @@
 </p>
 <p>
 	<%= i_f.number_field :default_quantity, control_col: "col-sm-5", placeholder: "2040 KJ" %>
-	<%= i_f.select :unit_id, Unit.all.collect { |u| [u.short_name, u.id]}, hide_label: true, prompt: 'Einheit' %>
+	<%= i_f.select :unit_id, Unit.all.collect { |u| [u.name, u.id]}, hide_label: true, prompt: 'Einheit' %>
 </p>
 
 	<%= i_f.submit class: "btn btn-success"%>

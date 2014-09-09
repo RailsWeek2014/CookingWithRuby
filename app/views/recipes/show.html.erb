@@ -1,10 +1,16 @@
+<script>
+  var recipe_helper = new recipe();
+</script>
+
 <h2><%= t('recipe.details_for')%> <%= @recipe.name%> <small>(<%= @recipe.prep_time %> min)</small></h2>
 <% if user_signed_in?%>
-  <%if current_user.id == @recipe.user_id%>
-    <%= link_to t("delete"), @recipe, data: { confirm: "#{@recipe.name} wirklich löschen?" }, method: :delete %>
+  <% if current_user.id == @recipe.user_id%>
+    <% if(@recipe.range == "private")%>
+      <%= link_to t("delete"), @recipe, data: { confirm: "#{@recipe.name} wirklich löschen?" }, method: :delete %>
+    <% end%>
     <%= link_to t("change"), edit_recipe_path(@recipe) %>
-   <% end %>
-   <%= link_to t("add_to_cookbook") %>
+  <% end %>
+  <%= link_to t("add_to_cookbook"), 'javascript:recipe_helper.add_to_cookbooks();' %>
 <% end %>
 <div class="well" style="display: flex;">
     <br/>

@@ -50,25 +50,13 @@ class MealPlansController < ApplicationController
   def ingredient_requirements
     update_meal_plans_of_week
     
-    #Vorsicht bösartiger Datenbankzugriff voraus
-    @quantities = @meal_plans
-                          .joins( :recipe )
-                          .joins( :quantities )
-                          .joins( "inner join ingredients on ingredients.id = quantities.ingredient_id" )
-                          .joins( "inner join units on units.id = quantities.unit_id" )
-                          .group( "ingredients.name", "quantities.unit_id" )
-                          .pluck( "sum( quantity )", :short_name, "ingredients.name" )
-  
-#    recipe_ids = @meal_plans.collect &:recipe_id 
-#    @recipes = Recipe.where ["id in (?)", recipe_ids]
-#    @quantities = Quantity.where ["recipe_id in (?)", recipe_ids]
+    @quantities = @meal_plans.first.quantities
     
-#    <% @quantities.group(:ingredient_id, :unit_id).pluck("sum(quantity)", :unit_id, :ingredient_id).each do |q|%>
-#      <p><%= "#{q[0]}#{Unit.find( q[1] ).short_name} #{Ingredient.find( q[2] ).name}" %></p>
-#    <% end %>
-                        
-#    @recipes = Recipe.all.where "id in( #{ @meal_plans.collect do |m| m.recipe_id end } )"
-#    @quantities = @meal_plans.joins( :recipe ).joins( :quantities ).group( :ingredient_id ).sum( :quantity )
+    @meal_plans.each do |m|
+      @quantities.merge m.quantities
+    end
+    
+    @quantities = @quantities.group( :unit_id, :ingredient_id ).sum :quantity
   end
     
   def ingredient_requirements_pdf
@@ -76,21 +64,21 @@ class MealPlansController < ApplicationController
     
     recipe_ids = @meal_plans.collect &:recipe_id 
     @recipes = Recipe.where ["id in (?)", recipe_ids]
-      
-    #Vorsicht bösartiger Datenbankzugriff voraus
-    @quantities = @meal_plans
-                          .joins( :recipe )
-                          .joins( :quantities )
-                          .joins( "inner join ingredients on ingredients.id = quantities.ingredient_id" )
-                          .joins( "inner join units on units.id = quantities.unit_id" )
-                          .group( "ingredients.name", "quantities.unit_id" )
-                          .pluck( "sum( quantity )", :short_name, "ingredients.name" )
+
+    @quantities = @meal_plans.first.quantities
+        
+    @meal_plans.each do |m|
+      @quantities.merge m.quantities
+    end
     
+    @quantities = @quantities.group( :unit_id, :ingredient_id ).sum :quantity
+                          
     pdf = Prawn::Document.new 
     pdf.define_grid( columns: 6, rows: 10, gutter:10 )
     
-    @quantities.each do |q|
-      pdf.text "• #{q.join " "}"
+    @quantities.each do |key, value|
+      q = Quantity.find key
+      pdf.text "• #{value}#{q[0].unit.name} #{q[0].ingredient.name}"
     end
     
     @recipes.each do |r|
@@ -112,7 +100,7 @@ class MealPlansController < ApplicationController
         pdf.move_down 5
         
         r.quantities.each do |q|
-          pdf.text "#{ q.quantity }#{ q.unit.short_name } #{ q.ingredient.name }", overflow: :truncate
+          pdf.text "#{ q.quantity }#{ q.unit.name } #{ q.ingredient.name }", overflow: :truncate
         end
       end
       

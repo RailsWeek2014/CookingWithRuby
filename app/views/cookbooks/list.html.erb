@@ -1,0 +1,27 @@
+<script>
+  var cookbook_form_helper = new Cookbook();
+</script>
+<h2><%= t('cookbooks_of')%> <%= current_user.name%></h2>
+<div>
+  <% i = 0 %>
+  <table class="table table-striped table-hover" style="table-layout: fixed">
+    <%@cookbooks.each_with_index do |cb, index|%>
+      <% i = index %>
+      <tr>
+        <td style="width: 50px">
+          <%= index+1 %>
+        </td>
+        <td id="<%= cb.id.to_s %>" name="bookname">
+          <%= cb.name%>
+        </td>
+        <td style="text-align: right" style="width: 100px">
+          <div class="btn-group">
+            <%= link_to t('edit'), "javascript:cookbook_form_helper.edit("+ cb.id.to_s + ");", :class => "btn btn-xs btn-warning" %>
+            <%= link_to t('remove'), cb, data: { confirm: "#{cb.name} wirklich löschen?" }, method: :delete, :class => "btn btn-xs btn-danger" %>
+          </div>  
+        </td>
+      </tr>
+    <%end%>
+  </table>
+  <%= link_to t('new'), "javascript:cookbook_form_helper.newEntry();", :class => "btn btn-xs btn-success" %>
+</div>
