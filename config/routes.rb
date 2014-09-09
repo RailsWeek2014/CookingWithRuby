@@ -56,8 +56,7 @@ Rails.application.routes.draw do
   get 'meal_plans/' => 'meal_plans#week_overview'
   get 'meal_plans/new/' => 'meal_plans#new'
   get 'meal_plans/new/:date/:daytime' => 'meal_plans#new', as: 'new_meal_plan'
-  get 'meal_plans/create'
-  get 'meal_plans/destroy'
+  post 'meal_plans/create'
   get 'meal_plans/update'
   get 'meal_plans/:date' => 'meal_plans#week_overview', as: 'meal_plans_week'
   get 'meal_plans/:id/edit' => 'meal_plans#edit', as: 'edit_meal_plan'
@@ -67,6 +66,19 @@ Rails.application.routes.draw do
   patch 'meal_plan/:id' => 'meal_plans#update', as: 'meal_plan'
   
   post 'meal_plans' => 'meal_plans#create'
+  
+  delete 'meal_plans/:id' => 'meal_plans#destroy', as: 'delete_meal_plan'
+  
+  #activity routes
+  get 'activity_plans/new'
+  get 'activity_plans/overview'
+  post 'activity_plans/create'
+  
+  get 'activity_plans/:id/edit' => 'activity_plans#edit'
+
+  delete 'activity_plans/:id' => 'activity_plans#destroy'
+
+  patch 'activity_plans/:id' => 'activity_plans#update'
   
   #json routes
   get 'json/units'

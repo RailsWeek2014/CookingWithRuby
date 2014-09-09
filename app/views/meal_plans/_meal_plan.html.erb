@@ -1,5 +1,9 @@
 <td>
 	<%= link_to edit_meal_plan_path( meal_plan ) do %>
-			<p><%= meal_plan.recipe.name %></p>
+		<p><%= meal_plan.recipe.name %></p>
+	<% end %>
+	
+	<%= link_to delete_meal_plan_path(meal_plan), method: :delete do %>
+		<p>remove</p>
 	<% end %>
 </td>
