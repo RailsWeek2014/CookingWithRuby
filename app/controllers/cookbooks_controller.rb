@@ -68,6 +68,11 @@ class CookbooksController < ApplicationController
     end
   end
   
+  def show
+    @cookbook = Cookbook.find(params[:id])
+    @bookmark_entries = @cookbook.cookbook_Entries
+  end
+  
   private
     def cookbook_params
       params.require( 'cookbook' ).permit( 'name')

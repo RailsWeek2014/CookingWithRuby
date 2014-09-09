@@ -1,4 +1,4 @@
-class Cookbook_Entry < ActiveRecord::Base
+class CookbookEntry < ActiveRecord::Base
   belongs_to :cookbook
   belongs_to :recipe
 
