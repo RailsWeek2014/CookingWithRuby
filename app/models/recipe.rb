@@ -1,8 +1,8 @@
 class Recipe < ActiveRecord::Base
   belongs_to :user
-  has_many :pictures
-  has_many :quantities
-  has_many :comments
+  has_many :pictures, :dependent => :destroy
+  has_many :quantities, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   has_many :recipe_categories
   has_many :categories, through: :recipe_categories
   has_many :cookbook_entries
