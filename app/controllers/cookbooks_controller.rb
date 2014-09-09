@@ -30,13 +30,13 @@ class CookbooksController < ApplicationController
     unless current_user
       redirect_to new_user_session_path
     end
-    @cookbook_entry = Cookbook_Entry.new
+    @cookbook_entry = CookbookEntry.new
     @recipe_id = params[:id]
     render layout: 'modal', locals: {headline: 'add_to_cookbook'}
   end
   
   def add_cookbook_entry
-    @cookbook_entry = Cookbook_Entry.new cookbook_entry_params
+    @cookbook_entry = CookbookEntry.new cookbook_entry_params
     if @cookbook_entry.save
       render text: "ok"
     else
@@ -66,6 +66,12 @@ class CookbooksController < ApplicationController
     else
       redirect_to cookbook_list_path
     end
+  end
+  
+  def show
+    @cookbook = Cookbook.find(params[:id])
+    @cookbook_entries = @cookbook.cookbook_entries
+    @recipes = @cookbook_entries.collect &:recipe    
   end
   
   private
