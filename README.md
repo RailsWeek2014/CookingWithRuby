@@ -46,6 +46,15 @@
 - Ransack
 - Devise
 - Devise-Two-Factor
+- omniauth
+- omniauth-facebook
+- omniauth-twitter
+- omniauth-openid
+- omniauth-google-oauth2
+- omniauth-github
+- omniauth-yahoo
+
+- cancancan
 
 - Better Errors
 - Binding of Caller
