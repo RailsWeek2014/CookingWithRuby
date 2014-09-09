@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 password = "12345678"
 
-u1 = User.create name: "Test User", username: "test_user", picture: nil, sex: "m", birth_date: nil, weight: nil, role: nil, email: "test@awesome.com", password: password, password_confirmation: password
+u1 = User.create name: "Test User", username: "test_user", picture: nil, sex: "m", birth_date: nil, weight: nil, role: 'u', email: "test@awesome.com", password: password, password_confirmation: password
     
 iw = Ingredient.create name: "Wasser"
 iz = Ingredient.create name: "Zucker"
