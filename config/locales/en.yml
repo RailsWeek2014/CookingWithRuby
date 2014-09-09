@@ -20,10 +20,26 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  cooking_with_ruby: "Cooking with Ruby"
-  search: "Go!"
   advanced_search: "Advanced Search"
+  cooking_with_ruby: "Cooking with Ruby"
   forgot_your_password: "Forgot your Password?"
+  search: "Go!"
+  sign_up: "Sign up!"
+
+  application:
+    advanced_search: "advanced search"
+    unknown: "unknown"
+    welcome: "welcome"
+    search: "search"
 
   recipe:
     details_for: "Details for"
+    new_recipe: "New Recipe"
+    own_recipes: "Own Recipes"
+    
+  cookbook:
+    my_cookbooks: "My Cookbooks"
+      
+  meal_plan:
+    plan_your_meals: "Plan Your Meals"
+

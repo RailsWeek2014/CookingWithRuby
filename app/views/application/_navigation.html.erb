@@ -1,16 +1,16 @@
 <ul class="nav nav-pills nav-stacked">
   <li>
-    <%= link_to t('new_recipe'), new_recipe_path %>
+    <%= link_to t('recipe.new_recipe'), new_recipe_path %>
   </li>
   <% if user_signed_in? %>
   <li class="active">
-    <%= link_to t('own_recipes'), own_recipes_path( current_user ) %>
+    <%= link_to t('recipe.own_recipes'), own_recipes_path( current_user ) %>
   </li>
   <li>
-    <%= link_to t('my_cookbooks'), "/cookbooks/list" %>
+    <%= link_to t('cookbook.my_cookbooks'), "/cookbooks/list" %>
   </li>
   <li>
-    <%= link_to t('plan_your_meals'), meal_plans_path %>
+    <%= link_to t('meal_plan.plan_your_meals'), meal_plans_path %>
   </li>
   <li/>
   <% end %>
