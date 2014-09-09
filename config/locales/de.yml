@@ -25,6 +25,9 @@ de:
   forgot_your_password: "Passwort vergessen?"
   search: "Los!"
   sign_up: "Registrieren!"
+  edit_user_info: "Userinfo ändern"
+  male: "männlich"
+  female: "weiblich"
   
   application:
     advanced_search: "Erweiterte Suche"
@@ -36,6 +39,11 @@ de:
     details_for: "Details für"
     new_recipe: "Neues Rezept"
     own_recipes: "Eigene Rezepte"
+    all: "alle"
+    only_registrated_user: "nur angemeldete Benutzer"
+    only_me: "nur für mich"
+    list_of_all_recipes: "Alle Rezepte"
+    list_of_recipes_from: "Rezepte von"
     
   cookbook:
     my_cookbooks: "Meine Kochbücher"
@@ -68,6 +76,7 @@ de:
   ingredient:
     new_ingredient: "Neue Zutat"
     ingredients: "Zutaten"
+    ingredient: "Zutat"
     more: "weitere"
     new: "neue"
     edit: "ändere"
@@ -76,3 +85,9 @@ de:
     new_unit: "Neue Einheit"
     unit: "Einheit"
     new: "Neue"
+    
+  login:
+    sign_up: "Anmelden"
+    forgot_your_password: "Passwort vergessen?"
+    log_off: "Abmelden"
+    login: "Anmeldung"

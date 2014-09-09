@@ -10,11 +10,11 @@
         
         <div class="input-group-btn">
           <div class="btn-group">
-            <%= render partial: "dropdown_button", locals: {name: "unit", width: "75px"} %>
+            <%= render partial: "dropdown_button", locals: {name: t("unit.unit"), width: "75px"} %>
             <%= q_f.select_without_bootstrap :unit_id, Unit.all.collect { |u| [u.name, u.id]}, {}, prompt: 'unit', class: 'hide' %>
           </div>
           <div class="btn-group">
-            <%= render partial: "dropdown_button", locals: {name: "ingredient", width: "125px"} %>          
+            <%= render partial: "dropdown_button", locals: {name: t("ingredient.ingredient"), width: "125px"} %>          
             <%= q_f.select_without_bootstrap :ingredient_id, Ingredient.all.collect { |i| [i.name, i.id]}, {}, prompt: 'ingredient', class: 'hide' %>
           </div>
         </div>
