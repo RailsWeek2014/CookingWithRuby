@@ -1,5 +1,6 @@
-<% @quantities.each do |q|%>
-	<p><%= q.join " " %></p>
+<% @quantities.each do |key, value|%>
+	<% q = Quantity.find( key )%>
+	<p><%= "#{value}#{q[0].unit.name} #{q[0].ingredient.name}" %></p>
 <% end %>
 
 <%= link_to 'export PDF', ingredient_requirement_pdf_path( @week_start.to_s ) %>
