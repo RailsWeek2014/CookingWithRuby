@@ -42,3 +42,13 @@ de:
 
   meal_plan:
     plan_your_meals: "Essensplaner"
+    
+  comment:
+    at: ""
+    answer: "antworten auf"
+    edit: "editiere"
+    delete: "loesche"
+    comment: "Kommentar"
+    new: "Neuer"
+    discard: "verwerfe"
+    save: "speichere"

@@ -16,9 +16,9 @@
         <%= c_f.text_area(:message, rows: 4, class: 'form-control') %>
       </div>
       <div class="btn-group">
-        <%= c_f.submit 'save', class: "btn btn-xs btn-success" %>
-        <%= link_to t('discard'), "remove_form", class: "btn btn-xs btn-danger" %>
-        <button class="btn btn-xs btn-default" disabled><%= t('comment') %></button>
+        <%= c_f.submit t('comment.save'), class: "btn btn-xs btn-success" %>
+        <%= link_to t('comment.discard'), "remove_form", class: "btn btn-xs btn-danger" %>
+        <button class="btn btn-xs btn-default" disabled><%= t('comment.comment') %></button>
       </div>
     </div>
   </div>

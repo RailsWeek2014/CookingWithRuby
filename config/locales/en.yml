@@ -42,4 +42,15 @@ en:
       
   meal_plan:
     plan_your_meals: "Plan Your Meals"
+    
+  comment:
+    at: "at"
+    answer: "answer"
+    edit: "edit"
+    delete: "delete"
+    comment: "comment"
+    new: "new"
+    discard: "discard"
+    save: "save"
+
 
