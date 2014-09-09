@@ -29,6 +29,16 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'devise-two-factor'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-openid'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
+gem 'omniauth-yahoo'
+
+gem 'cancancan'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
