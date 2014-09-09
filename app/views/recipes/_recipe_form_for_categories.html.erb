@@ -1,19 +1,19 @@
-<%= r_f.form_group :recipe_categories, layout: :horizontal, label_col: "col-sm-0", control_col: "col-sm-11" do %>
+<%= r_f.form_group :categories, layout: :horizontal, label_col: "col-sm-0", control_col: "col-sm-11" do %>
   <label class="control-label col-sm-2" for="categories"><%= t('categories')%></label>
   <div class="col-sm-9">
-    <%= r_f.fields_for(:recipe_categories, style: "float: left") do |c_f| %>
+    <%= r_f.fields_for(:categories, style: "float: left") do |c_f| %>
       <div class="btn-group" style="margin-bottom:5px">
         <%= c_f.link_to_remove 'X', class: 'btn btn-danger' %>
         <%= render partial: "dropdown_button", locals: {name: "category"} %>
-        <%= c_f.select_without_bootstrap :category_id, Category.all.collect { |c| [c.name, c.id]}, {}, prompt: t('category'), class: 'hide' %>
+        <%= c_f.select_without_bootstrap :id, Category.all.collect { |c| [c.name, c.id]}, {}, prompt: t('category'), class: 'hide' %>
       </div>
       <script>
-           recipe_form_helper.initSelects('category');
-     </script>
+        recipe_form_helper.initSelects('category');
+      </script>
     <% end %>
-    <%= r_f.link_to_add '', :recipe_categories, class: 'hide'%> <!-- Hidden anchor to create the new form part at the right position -->
+    <%= r_f.link_to_add '', :categories, class: 'hide'%> <!-- Hidden anchor to create the new form part at the right position -->
      <div class="btn-group" style="float: right; margin: 10px; 0px;">
-      <%= link_to t('more'), "javascript:$('[data-association=\"recipe_categories\"].hide.add_nested_fields').click()", class: 'btn btn-xs btn-info'%> <!-- button to click on the hidden anchor with javascript -->
+      <%= link_to t('more'), "javascript:$('[data-association=\"categories\"].hide.add_nested_fields').click()", class: 'btn btn-xs btn-info'%> <!-- button to click on the hidden anchor with javascript -->
       <%= link_to t('new'), "javascript:recipe_form_helper.new_category();", :class => "btn btn-xs btn-success" %>
       <button class="btn btn-xs btn-default" disabled><%= t('categories') %></button>
     </div>
