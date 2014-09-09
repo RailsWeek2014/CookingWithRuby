@@ -7,8 +7,8 @@
   <%= render @comments.where(answer_to_id: nil) %>
   
   <div class="btn-group" style="margin-top: 10px">
-    <%= link_to t('new'), "create", class: 'btn btn-success'%> <!-- button to click on the hidden anchor with javascript -->
-    <button class="btn btn-default" disabled><%= t('comment') %></button>
+    <%= link_to t('comment.new'), "create", class: 'btn btn-success'%> <!-- button to click on the hidden anchor with javascript -->
+    <button class="btn btn-default" disabled><%= t('comment.comment') %></button>
   </div>
 </div>
 <script>

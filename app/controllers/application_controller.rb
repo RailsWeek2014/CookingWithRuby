@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :set_locale
+  
+  load_and_authorize_resource unless: :devise_controller?
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 
   def set_locale
     logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"

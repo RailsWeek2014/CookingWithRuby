@@ -2,15 +2,12 @@ require 'prawn'
 require 'open-uri'
 
 class MealPlansController < ApplicationController
-  before_action :authenticate_user!
   
   def week_overview
     update_meal_plans_of_week
   end
   
   def new
-    @meal_plan = MealPlan.new
-    
     if params[:date]
       @meal_plan.date = params[:date]
     end
@@ -21,8 +18,6 @@ class MealPlansController < ApplicationController
   end
 
   def create
-    @meal_plan = MealPlan.new meal_plan_params
-    
     if current_user.meal_plans << @meal_plan
       redirect_to meal_plans_path
     else
@@ -31,15 +26,14 @@ class MealPlansController < ApplicationController
   end
 
   def destroy
+    @meal_plan.destroy
   end
 
   def edit
-    @meal_plan = MealPlan.find(params[:id])
+    
   end
   
   def update
-    @meal_plan = MealPlan.find(params[:id])
-          
     if @meal_plan.update_attributes(meal_plan_params)
       redirect_to meal_plans_path
     else
@@ -57,6 +51,7 @@ class MealPlansController < ApplicationController
     end
     
     @quantities = @quantities.group( :unit_id, :ingredient_id ).sum :quantity
+    @counts = @meal_plans.group( :recipe_id ).count
   end
     
   def ingredient_requirements_pdf
@@ -72,13 +67,14 @@ class MealPlansController < ApplicationController
     end
     
     @quantities = @quantities.group( :unit_id, :ingredient_id ).sum :quantity
-                          
+    @counts = @meal_plans.group( :recipe_id ).count
+           
     pdf = Prawn::Document.new 
     pdf.define_grid( columns: 6, rows: 10, gutter:10 )
     
     @quantities.each do |key, value|
-      q = Quantity.find key
-      pdf.text "• #{value}#{q[0].unit.name} #{q[0].ingredient.name}"
+      q = Quantity.find( key )[0]
+      pdf.text "• #{value * @counts[q.recipe_id]}#{q.unit.name} #{q.ingredient.name}"
     end
     
     @recipes.each do |r|

@@ -1,4 +1,5 @@
 class JsonController < ApplicationController
+  skip_load_and_authorize_resource
   
   def ingredients
     @type = "ingredient"

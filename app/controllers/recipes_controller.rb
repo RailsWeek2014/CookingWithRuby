@@ -4,11 +4,11 @@ class RecipesController < ApplicationController
   end
   
   def list
-    unless user_signed_in?
-      @recipes = Recipe.where(range: ["public"])
-    else
-      @recipes = Recipe.where("range in ('registrated', 'public') or user_id = '#{ current_user.id }'")
-    end
+#    unless user_signed_in?
+#      @recipes = Recipe.where(range: ["public"])
+#    else
+#      @recipes = Recipe.where("range in ('registrated', 'public') or user_id = '#{ current_user.id }'")
+#    end
   end
   
   def specific_list
@@ -26,20 +26,20 @@ class RecipesController < ApplicationController
   end
   
   def new
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
-    @recipe = Recipe.new
+#    unless user_signed_in?
+#      redirect_to new_user_session_path
+#    end
+#    @recipe = Recipe.new
     @recipe.quantities.build
     @recipe.quantities.first.build_unit
   end
   
   def show
-    @recipe = Recipe.find(params[:id])
+#    @recipe = Recipe.find(params[:id])
   end
   
   def create
-    @recipe = Recipe.new recipe_params
+#    @recipe = Recipe.new recipe_params
     
     if @recipe.save
       current_user.recipes << @recipe
@@ -50,7 +50,7 @@ class RecipesController < ApplicationController
   end
   
   def update
-    @recipe = Recipe.find(params[:id])
+#    @recipe = Recipe.find(params[:id])
       
     if @recipe.update_attributes(recipe_params)
       redirect_to recipes_path
@@ -60,17 +60,13 @@ class RecipesController < ApplicationController
   end
   
   def destroy
-    @recipe = Recipe.find(params[:id])
-    if(user_signed_in?)
-      if(current_user.id == @recipe.user_id)
-        @recipe.destroy
-      end
-    end
+    @recipe.destroy
+   
     redirect_to recipes_url
   end
   
   def edit
-    @recipe = Recipe.find(params[:id])
+#    @recipe = Recipe.find(params[:id])
   end
     
   private

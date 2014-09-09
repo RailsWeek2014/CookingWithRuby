@@ -11,12 +11,16 @@
       <%= comment.message %>    
     </div>
     <div class="btn-group">
-      <%= link_to t('answer'), "answer", class: 'btn btn-xs btn-info'%> <!-- button to click on the hidden anchor with javascript -->
+      <%= link_to t('comment.answer'), "answer", class: 'btn btn-xs btn-info'%> <!-- button to click on the hidden anchor with javascript -->
       <% if comment.answers.count == 0 %> 
-        <%= link_to t('edit'), "edit", :class => "btn btn-xs btn-warning" %>
-        <%= link_to t('delete'), "remove", :class => "btn btn-xs btn-danger" %>
+        <% if can? :edit, comment %>
+        	<%= link_to t('comment.edit'), "edit", :class => "btn btn-xs btn-warning" %>
+      	<% end %>
+      	<% if can? :destroy, comment %>
+        	<%= link_to t('comment.delete'), "remove", :class => "btn btn-xs btn-danger" %>
+      	<% end %>
       <% end %>
-      <button class="btn btn-xs btn-default" disabled><%= t('comment') %></button>
+      <button class="btn btn-xs btn-default" disabled><%= t('comment.comment') %></button>
     </div>
   </div>
 </div>

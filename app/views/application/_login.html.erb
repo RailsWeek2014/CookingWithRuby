@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <h3 class="panel-title">
       <% if user_signed_in? %>
-        <%= t('welcome') + ', ' + current_user.name %>
+        <%= t('application.welcome') + ', ' + current_user.name %>
       <% else %>
         Login
       <% end %>

@@ -1,14 +1,9 @@
 class IngredientsController < ApplicationController
   def new
-    unless current_user
-      redirect_to new_user_session_path
-    end
-    @ingredient = Ingredient.new
+    
   end
 
   def create
-    @ingredient = Ingredient.new ingredient_params
-    
     if @ingredient.save
       redirect_to recipes_path
     else

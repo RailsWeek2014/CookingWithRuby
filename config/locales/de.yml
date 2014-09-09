@@ -20,11 +20,35 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 de:
-  search: "Los!"
   advanced_search: "Erweiterte Suche"
+  cooking_with_ruby: "Cooking with Ruby"
   forgot_your_password: "Passwort vergessen?"
+  search: "Los!"
   sign_up: "Registrieren!"
   
+  application:
+    advanced_search: "Erweiterte Suche"
+    unknown: "ubekannt"
+    welcome: "Willkommen"
+    search: "Suche"
   
   recipe:
     details_for: "Details für"
+    new_recipe: "Neues Rezept"
+    own_recipes: "Eigene Rezepte"
+    
+  cookbook:
+    my_cookbooks: "Meine Kochbuecher"
+
+  meal_plan:
+    plan_your_meals: "Essensplaner"
+    
+  comment:
+    at: ""
+    answer: "antworten auf"
+    edit: "editiere"
+    delete: "loesche"
+    comment: "Kommentar"
+    new: "Neuer"
+    discard: "verwerfe"
+    save: "speichere"
