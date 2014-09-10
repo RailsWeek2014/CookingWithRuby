@@ -122,3 +122,6 @@ en:
     log_off: "Sign off"
     login: "Login"
     
+  user:
+    weight_unit: "kg"
+    height_unit: "m" 

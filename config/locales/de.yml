@@ -122,4 +122,6 @@ de:
     log_off: "Abmelden"
     login: "Anmeldung"
     
-    
+  user:
+    weight_unit: "kg"
+    height_unit: "m" 

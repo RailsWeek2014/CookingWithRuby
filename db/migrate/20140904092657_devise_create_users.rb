@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :sex
       t.date :birth_date
       t.integer :weight
+      t.float :height
       t.string :role, default: "u"
       
       ## Database authenticatable
