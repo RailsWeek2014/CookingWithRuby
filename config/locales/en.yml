@@ -62,6 +62,7 @@ en:
     visibile_for: "Visibility"
     delete_popup: "Do you really want to delete '%{recipe}'?"
     prep_time_unit: "min"
+    autor: "author"
 
   cookbook:
     my_cookbooks: "My Cookbooks"

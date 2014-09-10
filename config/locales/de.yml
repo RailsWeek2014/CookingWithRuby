@@ -62,6 +62,7 @@ de:
     visibile_for: "Sichtbarkeit"
     delete_popup: "Soll '%{recipe}' wirklich gelöscht werden?"
     prep_time_unit: "Min"
+    autor: "Autor"
    
   cookbook:
     my_cookbooks: "Meine Kochbücher"
