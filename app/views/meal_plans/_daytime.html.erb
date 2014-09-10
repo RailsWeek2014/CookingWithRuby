@@ -1,5 +1,5 @@
 <tr>
-	<td><p><%= daytime %></p></td>
+	<td><p><%= header %></p></td>
 	<% d = @week_start %>
 	<% while d <= @week_end %>
 		<% meal = @meal_plans.where "date = '#{ d }' and daytime = '#{ daytime }'" %>
@@ -7,7 +7,7 @@
 			<p><%= render meal %></p>
 		<%else %> 
 		  <td>
-		  	<%= link_to 'Mahlzeit planen', new_meal_plan_path( d.to_s, daytime ) %>
+		  	<%= link_to t('meal_plan.plan_meal'), new_meal_plan_path( d.to_s, daytime ) %>
 		  </td>
 		<% end %>
 		<% d = d.tomorrow %>

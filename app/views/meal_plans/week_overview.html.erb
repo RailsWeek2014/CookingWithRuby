@@ -1,34 +1,33 @@
-<h1>MealPlans#list</h1>
-<p>Find me in app/views/meal_plans/list.html.erb</p>
+<h1><%= t('meal_plan.week_overview_header')%></h1>
 
 <table class="table" style="table-layout: fixed; width: 100%;">
 	<tr>
 		<th><p> </p></th>
 		<% d = @week_start %>
-		<th><%= d %><p>Mo</p></th>
+		<th><%= d %><p><%= t('weekdays_short.monday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>Di</p></th>
+		<th><%= d %><p><%= t('weekdays_short.tuesday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>Mi</p></th>
+		<th><%= d %><p><%= t('weekdays_short.wednesday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>Do</p></th>
+		<th><%= d %><p><%= t('weekdays_short.thursday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>Fr</p></th>
+		<th><%= d %><p><%= t('weekdays_short.friday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>Sa</p></th>
+		<th><%= d %><p><%= t('weekdays_short.saturday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>So</p></th>
+		<th><%= d %><p><%= t('weekdays_short.sunday')%></p></th>
 	</tr>
 	
-	<%= render partial: 'daytime', locals: { daytime: 'breakfast' } %>
-	<%= render partial: 'daytime', locals: { daytime: 'lunch' } %>
-	<%= render partial: 'daytime', locals: { daytime: 'dinner' } %>
+	<%= render partial: 'daytime', locals: { daytime: 'breakfast', header: t('meal_plan.breakfast') } %>
+	<%= render partial: 'daytime', locals: { daytime: 'lunch', header: t('meal_plan.lunch') } %>
+	<%= render partial: 'daytime', locals: { daytime: 'dinner', header: t('meal_plan.dinner') } %>
 
 </table>
 
-<%= link_to 'Previous', meal_plans_week_path( @week_start.last_week.to_s ) %>
-<%= link_to 'Calculate Ingredients needed.', ingredient_requirement_path( @week_start.to_s ) %>
-<%= link_to 'Next', meal_plans_week_path( @week_end.tomorrow.to_s ), style: 'float: right' %>
+<%= link_to t('meal_plan.previous'), meal_plans_week_path( @week_start.last_week.to_s ) %>
+<%= link_to t('meal_plan.calculate_ingredients'), ingredient_requirement_path( @week_start.to_s ) %>
+<%= link_to t('meal_plan.next'), meal_plans_week_path( @week_end.tomorrow.to_s ), style: 'float: right' %>
 
 <!--<%= link_to 'Previous', "#{ meal_plans_path }/#{ @week_start.last_week }" %>
 <%= link_to 'Calculate Ingredients needed.', "#{ ingredient_requirement_path ( @week_start ) }" %>

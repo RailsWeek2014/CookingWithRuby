@@ -2,7 +2,7 @@
 
 ## Features
 - multilingual app (german, english)
-- user administration:
+- user administration: -ok
   - login - ok (omniauth - ok, 2-factor-authentication)
   - admin area - ok
 - collection of recipes:
@@ -12,17 +12,17 @@
     (rating, preparation time, ...)
   - insert new recipe - ok
     (description, ingredients, nutrients, picture(s))
-  - valuation function for recipe
+  - valuation function for recipe -ok
 - Food-planner
   - meals for the next week - ok
   - activities today
   - show required & consumed nutrients (if the user wants it)
 - Generate shopping list from planner - ok
   - export: pdf - ok
-- create your own cookbook
+- create your own cookbook -ok
   - own recipes - ok
   - favorites - ok
-- Sharing recipes with others
+- Sharing recipes with others (shifted)
 
 ## Optional Features
 - Generated shopping list as email

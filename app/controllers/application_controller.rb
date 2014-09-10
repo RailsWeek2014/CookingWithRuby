@@ -13,12 +13,16 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
-#    begin
-      I18n.locale = 'de'#extract_locale_from_accept_language_header
-#    rescue I18n::InvalidLocale => e
-#      I18n.locale = I18n.default_locale
-#    end
-    
+    unless(cookies[:lang].nil? || cookies[:lang].length != 2)
+      I18n.locale = cookies[:lang]
+    else
+      begin
+        I18n.locale = extract_locale_from_accept_language_header
+      rescue I18n::InvalidLocale => e
+        I18n.locale = I18n.default_locale
+      end
+    end
+      
     logger.debug "* Locale set to '#{I18n.locale}'"
   end
    

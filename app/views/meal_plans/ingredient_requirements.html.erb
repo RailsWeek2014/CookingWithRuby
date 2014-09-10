@@ -3,4 +3,4 @@
 	<p><%= "#{value * @counts[q.recipe_id]}#{q.unit.name} #{q.ingredient.name}" %></p>
 <% end %>
 
-<%= link_to 'export PDF', ingredient_requirement_pdf_path( @week_start.to_s ) %>
+<%= link_to t('meal_plan.export_as_pdf'), ingredient_requirement_pdf_path( @week_start.to_s ) %>
