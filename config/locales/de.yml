@@ -39,6 +39,14 @@ de:
     unknown: "ubekannt"
     welcome: "Willkommen"
     search: "Suche"
+    
+  activity_plans:
+    previous: "Nächste Woche"
+    next: "Vorherige Woche"
+    
+  activity:
+    name: "Name"
+    kj: "kJ"  
   
   recipe:
     details_for: "Details für"
