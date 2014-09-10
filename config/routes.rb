@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'activities/new'
-  post 'activities'
-
   get 'comment/new'
 
   get 'comment/create'
@@ -74,17 +71,21 @@ Rails.application.routes.draw do
   
   delete 'meal_plans/:id' => 'meal_plans#destroy', as: 'delete_meal_plan'
   
-  #activity routes
+  #activity_plans routes
   get 'activity_plans/new'
   get 'activity_plans/overview'
   get 'activity_plans/:date' => 'activity_plans#overview', as: 'activity_plans_week'
-  post 'activity_plans/create'
+  post 'activity_plans' => 'activity_plans#create'
   
   get 'activity_plans/:id/edit' => 'activity_plans#edit'
 
   delete 'activity_plans/:id' => 'activity_plans#destroy'
 
   patch 'activity_plans/:id' => 'activity_plans#update'
+  
+  #activity routes
+  get 'activities/new'
+  post 'activities' => 'activities#create'
   
   #json routes
   get 'json/units'

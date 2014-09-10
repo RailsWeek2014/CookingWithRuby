@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
 
   def create
     if @activity.save
-      render text: 'OK'
+      redirect_to activity_plans_overview_path
     else
       render action: 'new'
     end

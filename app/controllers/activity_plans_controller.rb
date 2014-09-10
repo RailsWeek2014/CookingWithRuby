@@ -3,8 +3,8 @@ class ActivityPlansController < ApplicationController
   end
 
   def create
-    if current_user.meal_plans << @activity_plan
-      redirect_to activity_plans_path
+    if current_user.activity_plans << @activity_plan
+      redirect_to activity_plans_overview_path
     else
       render action: 'new'
     end

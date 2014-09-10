@@ -1,2 +1,10 @@
 <h1>ActivityPlans#new</h1>
 <p>Find me in app/views/activity_plans/new.html.erb</p>
+
+<%= bootstrap_form_for @activity_plan do |f| %>
+	<%= f.select :activity_id, Activity.all.collect { |i| [i.name, i.id]}, {}, prompt: 'Activity' %>
+	<%= render partial: 'date_picker', locals: {field_name: :date, :label => :date, form_helper: f } %>
+	<%= f.number_field :repetitions %>
+	
+	<%= f.submit %>
+<% end %>
