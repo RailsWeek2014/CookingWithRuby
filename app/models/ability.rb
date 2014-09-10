@@ -62,6 +62,8 @@ class Ability
           can :manage, Unit
           
           can :manage, ActivityPlan, user_id: user.id
+          
+          can :manage, Activity
         
         when 'm'
         when 'a'

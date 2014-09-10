@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'activities/new'
+  post 'activities'
+
   get 'comment/new'
 
   get 'comment/create'
