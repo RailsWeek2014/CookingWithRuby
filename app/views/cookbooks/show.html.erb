@@ -1,4 +1,4 @@
-<h1><%= t('cookbook.recipes_in ') + @cookbook.name %></h1>
+<h1><%= t('cookbook.recipes_in') + @cookbook.name %></h1>
 <div>
   <% letter = "A" %>
   <table class="table table-striped table-hover" style="table-layout: fixed">
@@ -14,7 +14,9 @@
           <%= link_to cc[:recipe_name], "/recipes/"+cc[:recipe_id].to_s %>
         </td>
         <td style="text-align: right" style="width: 100px">
-          <%= link_to t('cookbook_entry.remove'), "/cookbooks/entry/" + cc[:entry_id].to_s, data: { confirm: "#{cc[:recipe_name]} wirklich löschen?" }, method: :delete, :class => "btn btn-xs btn-danger" %>
+          <%= link_to t('cookbook_entry.remove'), "/cookbooks/entry/" + cc[:entry_id].to_s, 
+            data: { confirm: t('cookbook_entry.delete_popup', entry: cc[:recipe_name], 
+            cookbook: @cookbook.name)}, method: :delete, :class => "btn btn-xs btn-danger" %>
         </td>
       </tr>
     <%end%>

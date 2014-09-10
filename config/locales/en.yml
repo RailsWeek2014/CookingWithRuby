@@ -61,14 +61,19 @@ en:
     number_of_portions: "Number of portions"
     visibile_for: "Visibility"
     delete_popup: "Do you really want to delete '%{recipe}'?"
+    prep_time_unit: "min"
 
   cookbook:
     my_cookbooks: "My Cookbooks"
     cookbooks_of: "Cookbooks of "
-    edit: "edit"
-    remove: "remove"
-    new: "new"
+    edit: "Edit"
+    remove: "Remove"
+    new: "New"
     recipes_in: "Recipes in: "
+    save: "Save"
+    name: "Name"
+    delete_popup: "Do you relly want to delete '%{name}'?"
+    recipes_in: "Recipes in "
       
   meal_plan:
     plan_your_meals: "Plan Your Meals"
@@ -121,7 +126,12 @@ en:
     forgot_your_password: "Forgot your password?"
     log_off: "Sign off"
     login: "Login"
+    connect_with: "Connect with"
     
   user:
     weight_unit: "kg"
     height_unit: "m" 
+    
+  cookbook_entry:
+    remove: "Delete"
+    delete_popup: "Do you really want to delete '%{entry}' from '%{cookbook}'?'"
