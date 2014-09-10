@@ -11,9 +11,9 @@
   <td style="width: 350px">
     <div class="btn-group">
     <button class="btn btn-xs btn-default" disabled>Grand</button>
-      <a data-method="patch" class="btn btn-xs btn-default btn-success" <%if user.role == 'a'%>disabled<% end %> href="/admin/users/<%=user.id%>/grand/a">Admin</a>
-      <a data-method="patch" class="btn btn-xs btn-default btn-info" <%if user.role == 'm'%>disabled<% end %>  href="/admin/users/<%=user.id%>/grand/m">Moderator</a>    
-      <a data-method="patch" class="btn btn-xs btn-default btn-warning" <%if user.role == 'u'%>disabled <% end %> href="/admin/users/<%=user.id%>/grand/u">User</a>    
+      <a data-method="patch" class="btn btn-xs btn-default btn-success" <%unless can? :grant_admin, User%>disabled<% end %> href="/admin/users/<%=user.id%>/grand/a">Admin</a>
+      <a data-method="patch" class="btn btn-xs btn-default btn-info" <%unless can? :grant_moderator, User%>disabled<% end %>  href="/admin/users/<%=user.id%>/grand/m">Moderator</a>    
+      <a data-method="patch" class="btn btn-xs btn-default btn-warning" <%unless can? :grant_user, User%>disabled <% end %> href="/admin/users/<%=user.id%>/grand/u">User</a>    
     <button class="btn btn-xs btn-default" disabled>Rights</button>
   </td>
 <tr>

@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  skip_load_resource
+  skip_load_and_authorize_resource
   before_action :is_user_admin?
   
   def list
@@ -24,6 +24,6 @@ class Admin::UsersController < ApplicationController
   
   private 
     def is_user_admin?
-      redirect_to root_url, notice: "You don't have permission for that" unless can? :administer, User
+      redirect_to root_url, notice: "You don't have permission for that" unless can? :grant_permissions, User
     end
 end

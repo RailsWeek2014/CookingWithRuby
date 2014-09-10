@@ -49,8 +49,11 @@ class Ability
         cannot :edit, Comment
         can :edit, Comment, user_id: @user.id
         
-        can :manage, User, id: @user.id
-        cannot :administer, User
+        can :create, User, id: @user.id
+        can :update, User, id: @user.id
+        can :edit, User, id: @user.id
+        can :read, User, id: @user.id
+        can :destroy, User, id: @user.id
         
         can :manage, Cookbook, user_id: @user.id
         
@@ -66,9 +69,11 @@ class Ability
         can :manage, Activity
       end
       if apply_role? 'm'
+        can :grant_permissions, User
+        can :grant_user, User
       end
       if apply_role? 'a'
-        can :administer, User
+        can :grant_moderator, User
       end
       
     else
