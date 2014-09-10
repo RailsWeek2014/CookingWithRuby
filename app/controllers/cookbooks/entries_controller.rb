@@ -16,6 +16,13 @@ class Cookbooks::EntriesController < ApplicationController
     end
   end
   
+  def destroy
+    @cookbook_entry = CookbookEntry.find(params[:id])
+    id = @cookbook_entry.cookbook.id
+    @cookbook_entry.destroy
+    redirect_to cookbook_path(id)
+  end
+  
   private
     def cookbook_entry_params
       params.require( 'cookbook_entry' ).permit('recipe_id', 'cookbook_id')

@@ -1,4 +1,22 @@
 <h1><%= t('cookbook.recipes_in ') + @cookbook.name %></h1>
-<ul>
-  <%= render @recipes%>
-</ul>
+<div>
+  <% letter = "A" %>
+  <table class="table table-striped table-hover" style="table-layout: fixed">
+    <%@content.each do |cc|%>
+      <tr>
+        <td style="width: 50px">
+          <% if(cc[:recipe_name][0] != letter)%>
+            <% letter = cc[:recipe_name][0]%>
+            <%= letter%>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to cc[:recipe_name], "/recipes/"+cc[:recipe_id].to_s %>
+        </td>
+        <td style="text-align: right" style="width: 100px">
+          <%= link_to t('cookbook_entry.remove'), "/cookbooks/entry/" + cc[:entry_id].to_s, data: { confirm: "#{cc[:recipe_name]} wirklich löschen?" }, method: :delete, :class => "btn btn-xs btn-danger" %>
+        </td>
+      </tr>
+    <%end%>
+  </table>
+</div>
