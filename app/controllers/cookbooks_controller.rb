@@ -6,8 +6,18 @@ class CookbooksController < ApplicationController
     
   def show
     @cookbook = Cookbook.find(params[:id])
-    @cookbook_entries = @cookbook.cookbook_entries
-    @recipes = @cookbook_entries.collect &:recipe    
+    cookbook_entries = @cookbook.cookbook_entries
+    recipes = cookbook_entries.collect &:recipe
+    @content = []
+    recipes.each do |recipe|
+      cookbook_entries.each do |cookbook_entry|
+        if recipe.id == cookbook_entry.recipe_id
+          @content << {recipe_id: recipe.id, recipe_name: recipe.name, entry_id: cookbook_entry.id}
+          break
+        end
+      end
+    end
+    @content = @content.sort! {|a,b| a[:recipe_name] <=>b[:recipe_name]} 
   end
   
   def new
