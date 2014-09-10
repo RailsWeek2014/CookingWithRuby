@@ -74,9 +74,6 @@ de:
     name: "Name"
     delete_popup: "'%{name}' wirklich löschen?"
     recipes_in: "Rezepte in "
-
-  meal_plan:
-    plan_your_meals: "Essensplaner"
     
   comment:
     at: "am"
@@ -141,6 +138,7 @@ de:
     delete_popup: "'%{entry}' wirklich aus '%{cookbook}' löschen?'"
     
   meal_plan:
+    plan_your_meals: "Essensplaner"
     week_overview_header: "Essensplan"
     breakfast: "Frühstück"
     lunch: "Mittagessen"

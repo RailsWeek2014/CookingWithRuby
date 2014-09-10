@@ -75,9 +75,6 @@ en:
     delete_popup: "Do you relly want to delete '%{name}'?"
     recipes_in: "Recipes in "
       
-  meal_plan:
-    plan_your_meals: "Plan Your Meals"
-    
   comment:
     at: "at"
     answer: "answer"
@@ -142,6 +139,7 @@ en:
     
       
   meal_plan:
+    plan_your_meals: "Plan Your Meals"
     week_overview_header: "Meal plan"
     breakfast: "Breakfast"
     lunch: "Lunch"
