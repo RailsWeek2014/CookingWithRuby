@@ -120,6 +120,10 @@ de:
     new_unit: "Neue Einheit"
     unit: "Einheit"
     new: "Neue"
+    conversion_factor: "Umrechnungsfaktor"
+    name: "Abkürzung"
+    long_name: "Name"
+    submit: "Speichern"
     
   login:
     sign_up: "Anmelden"
@@ -135,3 +139,31 @@ de:
   cookbook_entry:
     remove: "Löschen"
     delete_popup: "'%{entry}' wirklich aus '%{cookbook}' löschen?'"
+    
+  meal_plan:
+    week_overview_header: "Essensplan"
+    breakfast: "Frühstück"
+    lunch: "Mittagessen"
+    dinner: "Abendessen"
+    plan_meal: 'Mahlzeit planen'
+    previous: "Vorherige Woche"
+    calculate_ingredients: "Benötigte Zutaten berechnen"
+    next: "Nächste Woche"
+    new_entry: "Neue Mahlzeit"
+    daytime: "Tageszeit"
+    planned_recipe: "Rezept"
+    save: "Speichern"
+    remove: "Löschen"
+    date: "Datum"
+    update: "Mahlzeit bearbeiten"
+    export_as_pdf: "Als PDF speichern"
+    
+  weekdays_short:
+    monday: "Mo"
+    tuesday: "Di"
+    wednesday: "Mi"
+    thursday: "Do"
+    friday: "Fr"
+    saturday: "Sa"
+    sunday: "So"
+    

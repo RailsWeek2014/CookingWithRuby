@@ -120,6 +120,10 @@ en:
     new_unit: "new unit"
     unit: "unit"
     new: "new"
+    conversion_factor: "Conversion factor"
+    name: "Name"
+    long_name: "Shortcut"
+    submit: "Save"
 
   login:
     sign_up: "Sign Up"
@@ -135,3 +139,33 @@ en:
   cookbook_entry:
     remove: "Delete"
     delete_popup: "Do you really want to delete '%{entry}' from '%{cookbook}'?'"
+    
+      
+  meal_plan:
+    week_overview_header: "Meal plan"
+    breakfast: "Breakfast"
+    lunch: "Lunch"
+    dinner: "Dinner"
+    plan_meal: 'Plan your meal'
+    previous: "Previous week"
+    calculate_ingredients: "Calculate needed ingredients"
+    next: "Next Week"
+    new_entry: "New meal"
+    daytime: "Daytime"
+    planned_recipe: "Recipe"
+    save: "Save"
+    remove: "Delete"
+    date: "Date"
+    update: "Change meal"
+    export_as_pdf: "Save as PDF"
+    
+  weekdays_short:
+    monday: "Mon"
+    tuesday: "Tue"
+    wednesday: "Wed"
+    thursday: "Thu"
+    friday: "Fri"
+    saturday: "Sat"
+    sunday: "Sun"
+    
+
