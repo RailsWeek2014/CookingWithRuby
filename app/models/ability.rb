@@ -37,6 +37,7 @@ class Ability
           can [:list, :show], Recipe, range: ['public', 'registrated']
           can [:list, :show], Recipe, user_id: user.id
           can :create, Recipe
+          can :rate, Recipe
           can :update, Recipe, user_id: user.id
           can :destroy, Recipe, user_id: user.id
           can :specific_list, Recipe

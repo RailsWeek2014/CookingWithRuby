@@ -65,6 +65,16 @@ class RecipesController < ApplicationController
     redirect_to recipes_url
   end
   
+  def rate    
+    @rating = Rating.find_or_initialize_by(user: current_user, recipe_id: params[:id])
+    @rating.rating = params[:rating]
+    if(@rating.save) 
+      render text: "ok"
+    else
+      render text: "nok"
+    end
+  end
+  
   def edit
 #    @recipe = Recipe.find(params[:id])
   end

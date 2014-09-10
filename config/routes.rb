@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # recipe routes
   get 'recipes/list/:id' => 'recipes#specific_list', as: 'own_recipes'
   get 'recipes/list'
+  post 'recipes/:id/rate' => 'recipes#rate'
   
   # ingredient routes
   get 'ingredients/new'

@@ -1,0 +1,12 @@
+<div class="rating" style="right:0px; top: 0px; width: 350px; height: 30px; position: absolute;">
+  <% rating = recipe.average_rating.round %>
+  <div class="rating stars" style="float: right">
+    <% rating.times do %>
+      <span class="glyphicon glyphicon-star" style="font-size: 22px; margin-right: 5px"></span>
+    <% end %>
+    <% (5 -rating).times do %>
+      <span class="glyphicon glyphicon-star-empty" style="font-size: 22px; margin-right: 5px"></span>
+    <% end %>
+  </div>
+  <div class="rating numbers" style="margin-right: 15px; float: right"><%= recipe.average_rating.round(1) %> <%= t('rating.by')%> <%= recipe.ratings.count %> <%= t('rating.user') %> </div>
+</div>
