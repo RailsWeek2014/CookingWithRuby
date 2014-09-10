@@ -33,7 +33,7 @@ class Ability
     
     unless user.new_record?
       case user.role
-        when 'u'
+        when 'u', 'm', 'a'
           can [:list, :show], Recipe, range: ['public', 'registrated']
           can [:list, :show], Recipe, user_id: user.id
           can :create, Recipe
@@ -62,8 +62,7 @@ class Ability
           can :manage, Unit
           
           can :manage, ActivityPlan, user_id: user.id
-        
-        when 'm'
+        when 'm', 'a'
         when 'a'
       end
       
