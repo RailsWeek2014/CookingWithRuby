@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
-  get 'comment/new'
-
-  get 'comment/create'
-
-  get 'comment/edit'
-
-  get 'comment/list'
-
+  
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', 
+    omniauth_callbacks: 'users/omniauth_callbacks' }
+  # admin routes
+  get 'admin/' => 'admin/users#list'
+  get 'admin/users' => 'admin/users#list'
+  patch 'admin/users/:id/grand/:role' => 'admin/users#update'
+  
   # root route
   root 'recipes#list'
 
-  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', 
-    omniauth_callbacks: 'users/omniauth_callbacks' }
-  
   # recipe routes
   get 'recipes/list/:id' => 'recipes#specific_list', as: 'own_recipes'
   get 'recipes/list'
@@ -66,21 +63,20 @@ Rails.application.routes.draw do
   get 'meal_plans/ingredient_requirements_pdf/:date' => 'meal_plans#ingredient_requirements_pdf', as: 'ingredient_requirement_pdf'
   
   patch 'meal_plan/:id' => 'meal_plans#update', as: 'meal_plan'
-  
-  post 'meal_plans' => 'meal_plans#create'
-  
+  post 'meal_plans' => 'meal_plans#create'  
   delete 'meal_plans/:id' => 'meal_plans#destroy', as: 'delete_meal_plan'
   
   #activity_plans routes
   get 'activity_plans/new'
   get 'activity_plans/overview'
+
   get 'activity_plans/:date' => 'activity_plans#overview', as: 'activity_plans_week'
   post 'activity_plans' => 'activity_plans#create'
   
   get 'activity_plans/:id/edit' => 'activity_plans#edit'
 
+  post 'activity_plans/create'
   delete 'activity_plans/:id' => 'activity_plans#destroy'
-
   patch 'activity_plans/:id' => 'activity_plans#update'
   
   #activity routes

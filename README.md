@@ -3,8 +3,8 @@
 ## Features
 - multilingual app (german, english)
 - user administration:
-  - login - ok (omniauth, 2-factor-authentication)
-  - admin area
+  - login - ok (omniauth - ok, 2-factor-authentication)
+  - admin area - ok
 - collection of recipes:
   - different search options selectable
     (choose wantet ingredients, choose name of meal, coose ingredients you don’t want)
@@ -21,7 +21,7 @@
   - export: pdf - ok
 - create your own cookbook
   - own recipes - ok
-  - favorites
+  - favorites - ok
 - Sharing recipes with others
 
 ## Optional Features

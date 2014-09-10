@@ -54,7 +54,7 @@ en:
       Notice: When you decide to make your recipe accessable to others,
       you can't undo it!
     submit: "Save"
-    add_to_cookbook: "Add to cookbook"
+    add_to_cookbook: "Add to a cookbook"
     instructions: "Instructions"
     name: "Name"
     prep_time: "Preparation"
@@ -122,3 +122,6 @@ en:
     log_off: "Sign off"
     login: "Login"
     
+  user:
+    weight_unit: "kg"
+    height_unit: "m" 

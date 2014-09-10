@@ -26,7 +26,11 @@
   <%= render partial: 'date_picker', locals: {field_name: :birth_date, :label => :birth_date, form_helper: f } %>
 
   <div>
-    <%= f.number_field :weight %>
+    <%= f.number_field :weight, append: t('user.weight_unit') %>
+  </div>
+  
+  <div>
+    <%= f.number_field :height, :step => 0.01, append: t('user.height_unit')%>
   </div>
 
   <div><%= f.submit t('login.sign_up') %></div>

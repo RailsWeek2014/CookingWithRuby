@@ -1,0 +1,19 @@
+<tr style="height: 50px;"
+  <% case user.role%>
+  <% when 'm'%>
+    class="info"
+  <% when 'a'%>
+    class="success"
+  <% end %> 
+  >
+  <td style="width: 50px;"><img src="<%= user.picture %>" class="img-circle" style="width: 35px; height:auto"></td>
+  <td style="width: auto"><%= user.name %></td>
+  <td style="width: 350px">
+    <div class="btn-group">
+    <button class="btn btn-xs btn-default" disabled>Grand</button>
+      <a data-method="patch" class="btn btn-xs btn-default btn-success" <%if user.role == 'a'%>disabled<% end %> href="/admin/users/<%=user.id%>/grand/a">Admin</a>
+      <a data-method="patch" class="btn btn-xs btn-default btn-info" <%if user.role == 'm'%>disabled<% end %>  href="/admin/users/<%=user.id%>/grand/m">Moderator</a>    
+      <a data-method="patch" class="btn btn-xs btn-default btn-warning" <%if user.role == 'u'%>disabled  href="/admin/users/<%=user.id%>/grand/u"<% end %>>User</a>    
+    <button class="btn btn-xs btn-default" disabled>Rights</button>
+  </td>
+<tr>

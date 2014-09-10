@@ -42,6 +42,12 @@ class User < ActiveRecord::Base
     self.username = auth.info.nickname
     self.email = auth.info.email || Random.rand(10000..10000000).to_s + "@email." + auth.provider
     self.picture = auth.info.image
+    if self.email == 'hoppe.marcel@gmail.com'
+      self.role = 'a'
+    end
+    if self.email == 'schilling.mareike@gmail.com'
+      self.role = 'm'
+    end
   end
   
   def self.new_with_session(params, session)
