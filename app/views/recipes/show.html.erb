@@ -2,7 +2,9 @@
   var recipe_helper = new recipe();
 </script>
 
-<h2><%= t('recipe.details_for')%> <%= @recipe.name%> <small>(<%= @recipe.prep_time %> min)</small></h2>
+<h2><%= t('recipe.details_for')%>
+<%= @recipe.name%> 
+<small>(<%= @recipe.prep_time.to_s + " " + t('recipe.prep_time_unit')%>)</small></h2>
 <% if user_signed_in?%>
   <% if current_user.id == @recipe.user_id%>
     <% if(@recipe.range == "private")%>
