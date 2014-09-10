@@ -3,16 +3,16 @@
   recipe_form_helper.select2button();
 </script>
 <%= bootstrap_nested_form_for( @recipe, label_col: "col-sm-2", control_col: "col-sm-8", layout: :horizontal) do |r_f| %>
-  <%= r_f.text_field :name%>
+  <%= r_f.text_field :name, label: t('recipe.name') %>
   
   <%= render partial: 'recipe_form_for_categories', locals: {r_f: r_f}%>
 
-	<%= r_f.number_field :prep_time, append: t("minutes"), placeholder: "20" %>
-	<%= r_f.number_field :number_of_portions, placeholder: "2" %>
+	<%= r_f.number_field :prep_time, append: t("minutes"), placeholder: "20", label: t('recipe.prep_time')  %>
+	<%= r_f.number_field :number_of_portions, placeholder: "2", label: t('recipe.number_of_portions') %>
 	
 	<%= render partial: 'recipe_form_for_quantities', locals: {r_f: r_f}%>
 	
-  <%= r_f.text_area :instructions, rows: 6, placeholder: "Please enter the introductions" %>
+  <%= r_f.text_area :instructions, rows: 6, placeholder: "Please enter the introductions", label: t('recipe.instructions') %>
   <% checked = [@recipe.range == "public", @recipe.range == "registrated", @recipe.range == "private"] %>
   <% isdisabled = [@recipe.range == "public", @recipe.range == "public" || @recipe.range == "registrated", @recipe.range == "public" || @recipe.range == "registrated" || @recipe.range == "private" ] %>
   <% help_text = ""%>		
@@ -21,13 +21,13 @@
 		<% isdisabled = [false, false, false] %>
 	<% end %>
 	<% unless isdisabled[0] && isdisabled[1] && isdisabled[2]%>
-	   <% help_text = "Choose who should be able to see the recipe. Notice: When you decide to make your recipe accessable to others, you can't undo it!"%>
+	   <% help_text = t('recipe.helptext')%>
   <% end %>
-	<%= r_f.form_group :range, layout: :horizontal, control_col: "col-sm-5", label: { text: "Visible for: " }, help: help_text do %>
+	<%= r_f.form_group :range, layout: :horizontal, control_col: "col-sm-8", label: { text: t('recipe.visibile_for') }, help: help_text do %>
 		<%= r_f.radio_button :range, "public", label: t('recipe.all'), checked: checked[0], inline: true, disabled: isdisabled[0] %>
 		<%= r_f.radio_button :range, "registrated", label: t('recipe.only_registrated_user'), checked: checked[1], inline: true, disabled: isdisabled[1] %>
 		<%= r_f.radio_button :range, "private", label: t('recipe.only_me'), inline: true, checked: checked[2], disabled: isdisabled[2] %>
 	<% end %>
-  <%= r_f.submit class: "btn btn-success"%>
+  <%= r_f.submit t('recipe.submit'), class: "btn btn-success"%>
 <% end %>
 

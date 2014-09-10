@@ -28,7 +28,12 @@ en:
   edit_user_info: "Edit User Informations"
   male: "male"
   female: "female"
-
+  minutes: "Minutes"
+  delete: "Delete"
+  change: "Change"
+  for: "for"
+  persons: "persons"
+              
   application:
     advanced_search: "advanced search"
     unknown: "unknown"
@@ -44,7 +49,19 @@ en:
     only_me: "only me"
     list_of_all_recipes: "All Recipes"
     list_of_recipes_from: "Recipes of"
-    
+    helptext: >
+      Choose who should be able to see the recipe.
+      Notice: When you decide to make your recipe accessable to others,
+      you can't undo it!
+    submit: "Save"
+    add_to_cookbook: "Add to cookbook"
+    instructions: "Instructions"
+    name: "Name"
+    prep_time: "Preparation"
+    number_of_portions: "Number of portions"
+    visibile_for: "Visibility"
+    delete_popup: "Do you really want to delete '%{recipe}'?"
+
   cookbook:
     my_cookbooks: "My Cookbooks"
     cookbooks_of: "Cookbooks of "
@@ -65,6 +82,7 @@ en:
     new: "new"
     discard: "discard"
     save: "save"
+    Comments: "Comments"
 
   category:
     new_category: "New Category"
@@ -80,6 +98,18 @@ en:
     more: "more"
     new: "new"
     edit: "edit"
+    name: "Name"
+    energy: "Energy content"
+    carbohydrate: "Carbohydrate"
+    protein: "Protein"
+    fat: "Fat"
+    roughage: "Roughage"
+    default_unit: ""
+    default_quantity: ""
+    kj: "kJ"
+    g: "g"
+    submit: "Save"
+    nutrition_facts: "Nutrition facts for "
   
   unit: 
     new_unit: "new unit"
@@ -91,4 +121,4 @@ en:
     forgot_your_password: "Forgot your password?"
     log_off: "Sign off"
     login: "Login"
-
+    
