@@ -21,7 +21,7 @@ function recipe() {
 
 	self.post = function() {
 		var form_data = $('form', modal).serializeArray();
-		$.post('/cookbooks/add', form_data, function() {
+		$.post('/cookbooks/' + form_data[3]['value'] + '/create_entry', form_data, function() {
 			$('button.close', modal).click();
 		});
 	};

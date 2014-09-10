@@ -17,7 +17,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks' }
   
   # recipe routes
-  get 'recipes/:id/add_to_cookbook' => 'cookbooks#add'
   get 'recipes/list/:id' => 'recipes#specific_list', as: 'own_recipes'
   get 'recipes/list'
   
@@ -36,18 +35,21 @@ Rails.application.routes.draw do
   get 'units' => 'recipes#list'
   post 'units' => 'units#create'
   
+  # cookbook-entry routes
+  get 'recipes/:id/add_to_cookbook' => 'cookbooks/entries#new'
+  post 'cookbooks/:id/create_entry' => 'cookbooks/entries#create'
+  delete 'cookbooks/entry/:id' => 'cookbooks/entries#destroy'
+  
   # cookbook routes
-  get 'cookbooks/add'
   get 'cookbooks/new'
   get 'cookbooks/list', as: "cookbook_list"
   get 'cookbooks/:id/edit'=> "cookbooks#edit"
   get 'cookbooks/:id'=> "cookbooks#show", as: "cookbook"
   get 'cookbooks' => "cookbooks#list", as: "cookbooks"
-  post 'cookbooks/add' => 'cookbooks#add_cookbook_entry'
   post 'cookbooks' => 'cookbooks#create'
   patch "cookbooks/:id" => "cookbooks#update"
   delete "cookbooks/:id" => "cookbooks#destroy"
-
+  
   #search routes
   get 'search/fuzzy'
   get 'search/user'
