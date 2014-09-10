@@ -28,6 +28,11 @@ de:
   edit_user_info: "Userinfo ändern"
   male: "männlich"
   female: "weiblich"
+  minutes: "Minuten"
+  delete: "Löschen"
+  change: "Bearbeiten"
+  for: "für"
+  persons: "Personen"
   
   application:
     advanced_search: "Erweiterte Suche"
@@ -39,12 +44,24 @@ de:
     details_for: "Details für"
     new_recipe: "Neues Rezept"
     own_recipes: "Eigene Rezepte"
-    all: "alle"
-    only_registrated_user: "nur angemeldete Benutzer"
-    only_me: "nur für mich"
+    all: "Alle"
+    only_registrated_user: "Nur angemeldete Benutzer"
+    only_me: "Nur ich"
     list_of_all_recipes: "Alle Rezepte"
     list_of_recipes_from: "Rezepte von"
-    
+    helptext: >
+      Wer soll auf das Rezept zugreifen können?
+      Beachte: Wenn du anderen den Zugriff erlaubst,
+      kannst du das nicht rückgängig machen!
+    submit: "Speichern"
+    add_to_cookbook: "Zu Kochbuch hinzufügen"
+    instructions: "Anleitung"
+    name: "Name"
+    prep_time: "Vorbereitung"
+    number_of_portions: "Anzahl der Portionen"
+    visibile_for: "Sichtbarkeit"
+    delete_popup: "Soll '%{recipe}' wirklich gelöscht werden?"
+   
   cookbook:
     my_cookbooks: "Meine Kochbücher"
     cookbooks_of: "Kochbücher von"
@@ -65,6 +82,7 @@ de:
     new: "Neuer"
     discard: "verwerfe"
     save: "speichere"
+    Comments: "Kommentare"
     
   category:
     new_category: "Neue Kategorie"
@@ -80,6 +98,18 @@ de:
     more: "weitere"
     new: "neue"
     edit: "ändere"
+    name: "Name"
+    energy: "Energiegehalt"
+    carbohydrate: "Kohlenhydrate"
+    protein: "Eiweiß"
+    fat: "Fett"
+    roughage: "Ballaststoffe"
+    default_quantity: ""
+    default_unit: ""
+    kj: "kJ"
+    g: "g"
+    submit: "Speichern"
+    nutrition_facts_for: "Nährwertangaben für "
     
   unit:
     new_unit: "Neue Einheit"
@@ -91,3 +121,5 @@ de:
     forgot_your_password: "Passwort vergessen?"
     log_off: "Abmelden"
     login: "Anmeldung"
+    
+    

@@ -6,18 +6,18 @@
 <% if user_signed_in?%>
   <% if current_user.id == @recipe.user_id%>
     <% if(@recipe.range == "private")%>
-      <%= link_to t("delete"), @recipe, data: { confirm: "#{@recipe.name} wirklich löschen?" }, method: :delete %>
+      <%= link_to t("delete"), @recipe, data: { confirm: t('recipe.delete_popup', recipe: @recipe.name) }, method: :delete %>
     <% end%>
     <%= link_to t("change"), edit_recipe_path(@recipe) %>
   <% end %>
-  <%= link_to t("add_to_cookbook"), 'javascript:recipe_helper.add_to_cookbooks();' %>
+  <%= link_to t("recipe.add_to_cookbook"), 'javascript:recipe_helper.add_to_cookbooks();' %>
 <% end %>
 <div class="well" style="display: flex;">
     <br/>
     <% img = @recipe.pictures.first || "/assets/no_image.png"%>
     <img src="<%= img %>" class="img-rounded img-thumbnail" style="float: left; width: auto; height: 150px;" />
   	<div style="margin-left: 20px">
-  		<%= t("ingredients") + " for " + @recipe.number_of_portions.to_s + " " + t("persons") %> <br/>
+  		<%= t('ingredient.ingredients') + ' ' + t('for') + ' ' + @recipe.number_of_portions.to_s + ' ' + t('persons') + ':'%> <br/>
   		<% quantities = @recipe.quantities %>
   		<% quantities.each do |quantity|%>
   			<div class="row">
@@ -27,7 +27,7 @@
   			</div>
 			<% end %>
 			<br />
-			<%= t("instructions") + ":"%><br />
+			<%= t('recipe.instructions') + ":"%><br />
   		<%= @recipe.instructions %> 
   	</div>
 </div>

@@ -3,7 +3,7 @@
   
 </script>
 <div name="comments" id="<%= @recipe.id%>">
-  <h4>Comments</h4>
+  <h4><%= t('comment.Comments') %></h4>
   <%= render @comments.where(answer_to_id: nil) %>
   
   <div class="btn-group" style="margin-top: 10px">
