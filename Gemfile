@@ -30,12 +30,12 @@ gem 'devise'
 gem 'devise-two-factor'
 
 gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-openid'
-gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
-gem 'omniauth-yahoo'
+gem 'omniauth-twitter'
+
+gem 'omniauth-openid'
+
+gem 'omniauth-google-oauth2'
 
 gem 'cancancan'
 
