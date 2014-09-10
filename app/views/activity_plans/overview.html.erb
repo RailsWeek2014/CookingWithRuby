@@ -1,0 +1,27 @@
+<h1>ActivityPlans#overview</h1>
+<p>Find me in app/views/activity_plans/overview.html.erb</p>
+
+<table class="table" style="table-layout: fixed; width: 100%;">
+	<tr>
+		<% d = @week_start %>
+		<th><%= d %><p>Mo</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Di</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Mi</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Do</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Fr</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>Sa</p></th>
+		<% d = d.tomorrow %>
+		<th><%= d %><p>So</p></th>
+	</tr>
+	
+	<%= render partial: 'activity_plans_row' %>
+
+</table>
+
+<%= link_to 'Previous', activity_plans_week_path( @week_start.last_week.to_s ) %>
+<%= link_to 'Next', activity_plans_week_path( @week_end.tomorrow.to_s ), style: 'float: right' %>

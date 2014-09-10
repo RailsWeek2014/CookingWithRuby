@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :meal_plans
   has_many :cookbooks
+  has_many :activity_plans
   has_many :identities
   
   #tutorial from: http://stackoverflow.com/questions/21249749/rails-4-devise-omniauth-with-multiple-providers

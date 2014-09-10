@@ -1,0 +1,2 @@
+module ActivityPlansHelper
+end

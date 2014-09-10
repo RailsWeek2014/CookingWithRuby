@@ -1,0 +1,15 @@
+<tr>
+	<% i = 0 %>
+	<% until @days.join %>
+		<% d = @days[i].pop %>
+		
+		<% if d %>
+			<td><%= d %></td>
+		<% end %>
+		
+		<% i += 1 %>
+		<% if(i > 7) %>
+			<% i = 0 %>
+		<% end %>
+	<% end %>
+</tr>

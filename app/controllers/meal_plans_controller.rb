@@ -27,6 +27,10 @@ class MealPlansController < ApplicationController
 
   def destroy
     @meal_plan.destroy
+    
+    update_meal_plans_of_week
+    
+    render action: 'week_overview'
   end
 
   def edit
