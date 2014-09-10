@@ -1,6 +1,12 @@
+<script>
+  navigation_helper = new Navigation()
+</script>
 <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
   <form class="navbar-form navbar-left" role="search">
     <div class="input-group">
+      <span class="input-group-btn">
+        <button type="button" id="languageButton" class="btn btn-primary" style="width: 50px" onclick="javascript:navigation_helper.changeLanguage()"><%= I18n.locale %></button>
+      </span>
       <input type="text" class="form-control" style="width: 400px" placeholder="Search">
       <span class="input-group-btn">
         <button class="btn btn-primary"><%= t('application.advanced_search')%><!--<%= glyph(:search, {:tag => :span}) %>--></button>

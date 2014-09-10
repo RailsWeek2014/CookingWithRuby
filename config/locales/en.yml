@@ -35,10 +35,10 @@ en:
   persons: "persons"
               
   application:
-    advanced_search: "advanced search"
-    unknown: "unknown"
-    welcome: "welcome"
-    search: "search"
+    advanced_search: "Advanced search"
+    unknown: "Unknown"
+    welcome: "Welcome"
+    search: "Search"
 
   recipe:
     details_for: "Details for"
