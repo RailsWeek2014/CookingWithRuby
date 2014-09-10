@@ -3,7 +3,7 @@
 ## Features
 - multilingual app (german, english)
 - user administration:
-  - login - ok (omniauth, 2-factor-authentication)
+  - login - ok (omniauth - ok, 2-factor-authentication)
   - admin area
 - collection of recipes:
   - different search options selectable

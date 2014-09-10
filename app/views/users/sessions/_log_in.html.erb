@@ -13,4 +13,7 @@
   <br />  
   <%= link_to t('login.forgot_your_password'), new_user_password_path, class: "btn btn-xs btn-danger" %>
 <% end %>
-<%# render %>
+<div style="margin: 10px">
+  <%= t('login.sign_in_with') %>
+  <%= render 'users/shared/sign_in_with'%>
+</div>

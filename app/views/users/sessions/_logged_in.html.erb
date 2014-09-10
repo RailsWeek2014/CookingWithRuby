@@ -3,3 +3,7 @@
   <%= link_to t('edit_user_info'), edit_user_registration_path, class: 'btn btn-xs btn-info' %>
   <%= link_to t('login.log_off'), destroy_user_session_path, method: :delete, class: 'btn btn-xs btn-danger' %>
 </div>
+<div style="margin: 10px">
+  <%= t('login.connect_with') %>
+  <%= render 'users/shared/sign_in_with'%>
+</div>
