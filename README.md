@@ -54,6 +54,7 @@
 - omniauth-google-oauth2
 - omniauth-github
 - omniauth-yahoo
+- rails-i18n
 
 - cancancan
 
