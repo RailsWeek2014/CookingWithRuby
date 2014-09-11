@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root 'recipes#list'
 
   # recipe routes
-  get 'recipes/list/:id' => 'recipes#specific_list', as: 'own_recipes'
+  get 'recipes/list/:user_id' => 'recipes#specific_list', as: 'own_recipes'
   get 'recipes/list'
   post 'recipes/:id/rate' => 'recipes#rate'
   
@@ -46,11 +46,8 @@ Rails.application.routes.draw do
   delete "cookbooks/:id" => "cookbooks#destroy"
   
   #search routes
-  get 'search/fuzzy'
-  get 'search/user'
-  get 'search/recipe'
-  get 'search/ingredient'
-  get 'search/category'
+  get 'search/search'
+  get 'search/advanced_search'
   
   #meal_plans routes
   get 'meal_plans/' => 'meal_plans#week_overview'
