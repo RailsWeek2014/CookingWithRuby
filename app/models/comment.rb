@@ -5,4 +5,6 @@ class Comment < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :user
   
+  validates :message , presence: true
+  
 end

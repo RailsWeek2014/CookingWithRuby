@@ -1,0 +1,29 @@
+<% i = 0 %>
+<% days = @days.clone %>
+<% until is_empty? days %>
+	<% d = days[i].pop %>
+	
+	<% if i == 0 %>
+		<tr>
+	<% end %>
+	
+	<% if d %>
+		<td>
+			<p><%= d.activity.name %></p>
+			<p><%= "#{d.repetitions} #{ t( 'activity_plans.repetitions' )}" %></p>
+			<p><%= "#{d.repetitions} * #{ d.activity.kj } = #{d.repetitions * d.activity.kj } kj" %></p>
+		</td>
+	<% else %>
+		<td></td>
+	<% end %>
+	
+	<% i += 1 %>
+	<% if(i >= 7) %>
+		<% i = 0 %>
+		</tr>
+	<% end %>
+<% end %>
+
+<% if(i < 7) %>
+	</tr>
+<% end %>

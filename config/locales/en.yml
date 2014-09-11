@@ -40,6 +40,18 @@ en:
     welcome: "Welcome"
     search: "Search"
 
+  activity_plans:
+    previous: "Previous week"
+    next: "Next Week"
+    repetitions: "repetitions"
+    new: "plan an activity"
+    plan_your_activities: "Plan an activity"
+    energy_day_need: "Total energy need: "
+
+  activity:
+    name: "Name"
+    kj: "kJ"
+
   recipe:
     details_for: "Details for"
     new_recipe: "New Recipe"
@@ -62,7 +74,7 @@ en:
     visibile_for: "Visibility"
     delete_popup: "Do you really want to delete '%{recipe}'?"
     prep_time_unit: "min"
-    autor: "author"
+    autor: "Author"
 
   cookbook:
     my_cookbooks: "My Cookbooks"
@@ -137,7 +149,6 @@ en:
   cookbook_entry:
     remove: "Delete"
     delete_popup: "Do you really want to delete '%{entry}' from '%{cookbook}'?'"
-    
       
   meal_plan:
     plan_your_meals: "Plan Your Meals"
@@ -167,4 +178,8 @@ en:
     saturday: "Sat"
     sunday: "Sun"
     
+  rating:
+    my_rating: "My rating"
+    click_to_rate: "Click to rate"
+    user: "%{num} ratings"
 

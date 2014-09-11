@@ -39,6 +39,18 @@ de:
     unknown: "Ubekannt"
     welcome: "Willkommen"
     search: "Suche"
+    
+  activity_plans:
+    previous: "Nächste Woche"
+    next: "Vorherige Woche"
+    repetitions: "Wiederholungen"
+    new: "Erstelle eine Aktivität"
+    plan_your_activities: "Plane eine Aktivität"
+    energy_day_need: "Gesamt Energiebedarf: "
+    
+  activity:
+    name: "Name"
+    kj: "kJ"  
   
   recipe:
     details_for: "Details für"
@@ -166,3 +178,7 @@ de:
     saturday: "Sa"
     sunday: "So"
     
+  rating:
+    my_rating: "Meine Wertung"
+    click_to_rate: "Zum Bewerten klicken"
+    user: "%{num} Wertungen"

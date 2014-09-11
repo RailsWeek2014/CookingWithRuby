@@ -4,24 +4,39 @@
 <table class="table" style="table-layout: fixed; width: 100%;">
 	<tr>
 		<% d = @week_start %>
-		<th><%= d %><p>Mo</p></th>
+		<th><%= d %><p><%= t('weekdays_short.monday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>Di</p></th>
+		<th><%= d %><p><%= t('weekdays_short.tuesday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>Mi</p></th>
+		<th><%= d %><p><%= t('weekdays_short.wednesday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>Do</p></th>
+		<th><%= d %><p><%= t('weekdays_short.thursday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>Fr</p></th>
+		<th><%= d %><p><%= t('weekdays_short.friday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>Sa</p></th>
+		<th><%= d %><p><%= t('weekdays_short.saturday')%></p></th>
 		<% d = d.tomorrow %>
-		<th><%= d %><p>So</p></th>
+		<th><%= d %><p><%= t('weekdays_short.sunday')%></p></th>
+	</tr>
+		
+	<tr>
+		<% d = @week_start %>
+		<% 7.times do %>
+			<td><%= link_to t('activity_plans.new'), new_activity_plan_week_path( d.to_s ) %></td>
+			<% d = d.tomorrow %>
+		<% end %>
 	</tr>
 	
-	<%= render partial: 'activity_plans_row' %>
+	<tr>
+		<% base_need = getBasalMetabolism || 0 %>
+		<% 7.times do |i| %>
+			<td><%= "#{t( 'activity_plans.energy_day_need' )} #{(@days[i].inject(0) { |sum, n| sum + n.repetitions * n.activity.kj}) + base_need }" %></td>
+		<% end %>
+	</tr>
+	
+	<%= render partial: 'activity_plans_rows' %>
 
 </table>
 
-<%= link_to 'Previous', activity_plans_week_path( @week_start.last_week.to_s ) %>
-<%= link_to 'Next', activity_plans_week_path( @week_end.tomorrow.to_s ), style: 'float: right' %>
+<%= link_to t( 'activity_plans.previous' ), activity_plans_week_path( @week_start.last_week.to_s ) %>
+<%= link_to t( 'activity_plans.next' ), activity_plans_week_path( @week_end.tomorrow.to_s ), style: 'float: right' %>

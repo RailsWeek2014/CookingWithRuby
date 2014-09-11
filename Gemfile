@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'devise-two-factor'
+gem 'devise-i18n'
 
 gem 'omniauth'
 gem 'omniauth-github'

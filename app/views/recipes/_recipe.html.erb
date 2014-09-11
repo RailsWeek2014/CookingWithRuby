@@ -5,7 +5,7 @@
     <img src="<%= img %>" class="img-rounded img-thumbnail" style="width: 250px; height: 135px;" />
   	<div style="padding-left: 20px; flex-grow: 100; position: relative">
   	  <%= render partial: 'rating', locals: {recipe: recipe} %>
-  		<h4><%= link_to recipe.name, recipe_path(recipe) %> <small>(<%= recipe.prep_time %> min)</small></h4>
+  		<h4><%= link_to recipe.name, recipe_path(recipe) %> <small>(<%= recipe.prep_time.to_s + " " + t('recipe.prep_time_unit') %>)</small></h4>
   		<%= recipe.instructions %> 
   	</div>
 	</div>
