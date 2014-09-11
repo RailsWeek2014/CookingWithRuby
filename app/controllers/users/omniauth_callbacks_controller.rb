@@ -18,6 +18,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   
   private 
     def omniauth(auth, provider)
+      if auth.info.name.nil?
+        auth.info.name = auth.info.nickname
+      end
+
       @user = User.from_omniauth(auth, current_user) 
       if @user.persisted?
         sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated

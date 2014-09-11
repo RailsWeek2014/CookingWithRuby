@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   def fetch_details(auth)
     self.name = auth.info.name
     self.username = auth.info.nickname
-    self.email = auth.info.email || Random.rand(10000..10000000).to_s + "@email." + auth.provider
+    self.email = auth.info.email || auth.info.nickname + '@change.me' 
     self.picture = auth.info.image
     if self.email == 'hoppe.marcel@gmail.com'
       self.role = 'a'
