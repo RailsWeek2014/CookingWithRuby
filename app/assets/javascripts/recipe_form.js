@@ -17,7 +17,10 @@ function recipe_form() {
 		caller = $(caller);
 		var categories = $('.categories', caller.parent().parent());
 		console.log(categories);
-		categories.append($('.category', categories).last().clone(true));
+		var options = $('option', $('.category').first()).clone();
+		category = $('#category_field_blueprint > div').clone();
+		$('select', category).append(options);
+		categories.append(category);
 	};
 	
 	self.remove_category = function(caller) {

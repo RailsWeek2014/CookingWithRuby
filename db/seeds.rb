@@ -9,12 +9,12 @@ password = "12345678"
 
 u1 = User.create name: "Test User", username: "test_user", picture: nil, sex: "m", birth_date: nil, weight: nil, role: 'a', email: "test@awesome.com", password: password, password_confirmation: password
     
-iw = Ingredient.create name: "Wasser"
-iz = Ingredient.create name: "Zucker"
-
 um = Unit.create long_name: "Milliliter", name: "ml"
 ug = Unit.create long_name: "Gramm", name: "g"
 us = Unit.create long_name: "Stück", name: "St"
+
+iw = Ingredient.create name: "Wasser", kj: 0, carbohydrate: 0.0, protein: 0.0, fat: 0.0, roughage: 0.0, default_quantity: 100.0, unit: um
+iz = Ingredient.create name: "Zucker", kj: 168, carbohydrate: 100.0, protein: 0.0, fat: 0.0, roughage: 0.0, default_quantity: 100.0, unit: ug
 
 ck = Category.create name: "Kuchen"
 ckk = Category.create name: "KeinKuchen"

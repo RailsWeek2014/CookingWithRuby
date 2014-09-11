@@ -4,12 +4,17 @@ class CategoriesController < ApplicationController
   end
     
   def create
-#    @category = Category.new category_params
-    
-    if @category.save
-      redirect_to recipes_path
-    else
-      render action: 'new'
+    respond_to do |format|      
+      if @category.save
+        format.html { 
+          redirect_to @user, notice: 'User was successfully created.' 
+        }
+        format.js {
+          @categories = Category.all.select(:id, :name).to_json.html_safe
+        }
+      else
+        render action: 'new'
+      end
     end
   end
   

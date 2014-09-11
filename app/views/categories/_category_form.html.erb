@@ -1,6 +1,6 @@
-<%= bootstrap_form_for( @category, url: 'javascript: recipe_form_helper.post();', layout: :horizontal) do |i_f| %>
+<%= bootstrap_form_for( @category, url: '/categories', remote: true, layout: :horizontal) do |i_f| %>
   <p>
-  	<%= i_f.text_field :name, control_col: "col-sm-5"%>
+  	<%= i_f.text_field :name%>
   </p>
   <%= i_f.submit class: "btn btn-success"%>
 <% end %>
