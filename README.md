@@ -46,6 +46,7 @@
 - Ransack
 - Devise
 - Devise-Two-Factor
+- Devise-i18n
 - omniauth
 - omniauth-facebook
 - omniauth-twitter
