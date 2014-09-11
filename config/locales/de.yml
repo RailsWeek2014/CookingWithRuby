@@ -75,6 +75,7 @@ de:
     delete_popup: "Soll '%{recipe}' wirklich gelöscht werden?"
     prep_time_unit: "Min"
     autor: "Autor"
+    all_recipes: "Alle Rezepte"
    
   cookbook:
     my_cookbooks: "Meine Kochbücher"
