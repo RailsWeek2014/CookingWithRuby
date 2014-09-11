@@ -5,7 +5,9 @@
 <h2><%= t('recipe.details_for')%>
   <%= @recipe.name%> 
   <small>
-    (<%= @recipe.prep_time.to_s + " " + t('recipe.prep_time_unit')%>)
+    <% unless @recipe.prep_time.nil? %>
+      (<%= @recipe.prep_time.to_s + " " + t('recipe.prep_time_unit')%>)
+    <% end %>
   </small>
   <div style = "float: right; font-size: 14px"><%= t('recipe.autor') + ": " + @recipe.user.name%></div>
 </h2>
@@ -27,17 +29,16 @@
     <%= render partial: 'rating', locals: {recipe: @recipe} %>
     <%= render partial: 'my_rating', locals: {recipe: @recipe} %>
 
- 		<%= t('ingredient.ingredients') + ' ' + t('for') + ' ' + @recipe.number_of_portions.to_s + ' ' + t('persons') + ':'%> <br/>
+    <h4>
+      <%= t('ingredient.ingredients') + ' ' + t('for') + ' ' + @recipe.number_of_portions.to_s + ' ' + t('persons') + ':'%> <br/>      
+    </h4>
 		<% quantities = @recipe.quantities %>
-		<% quantities.each do |quantity|%>
-			<div class="row">
-  			<div class = "col-sm-2"><%= quantity.quantity.to_s %></div>
-  			<div class = "col-sm-4"><%= quantity.unit.name %></div>
-  			<div class = "col-sm-6"><%= quantity.ingredient.name %></div>
-			</div>
-		<% end %>
+		<%= render quantities %>
 		<br />
-		<%= t('recipe.instructions') + ":"%><br />
+		
+    <h4>
+  		<%= t('recipe.instructions') + ":"%><br />
+    </h4>
 		<%= @recipe.instructions %> 
 	</div>
 </div>
