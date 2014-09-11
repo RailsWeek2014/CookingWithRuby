@@ -1,22 +1,22 @@
 # Cooking with Ruby
 
 ## Features
-- multilingual app (german, english)
+- multilingual app (german, english) - ok
 - user administration: -ok
   - login - ok (omniauth - ok, 2-factor-authentication)
   - admin area - ok
 - collection of recipes:
-  - different search options selectable
-    (choose wantet ingredients, choose name of meal, coose ingredients you don’t want)
-  - different sorting of results
+  - different search options selectable -ok
+    (type in wantet ingredients, name of meal)
+  - different sorting of results (shifted)
     (rating, preparation time, ...)
   - insert new recipe - ok
     (description, ingredients, nutrients, picture(s))
   - valuation function for recipe -ok
-- Food-planner
+- Food-planner - ok
   - meals for the next week - ok
   - activities today - ok
-  - show required & consumed nutrients (if the user wants it)
+  - show required & consumed nutrients (if the user wants it) - ok
 - Generate shopping list from planner - ok
   - export: pdf - ok
 - create your own cookbook -ok
