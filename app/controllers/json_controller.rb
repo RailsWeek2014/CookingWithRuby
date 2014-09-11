@@ -24,4 +24,12 @@ class JsonController < ApplicationController
     
     render 'list'
   end
+  
+  def activities
+    @type = "activity"
+    @list = Activity.all
+    @i = 0
+    
+    render 'list'
+  end
 end

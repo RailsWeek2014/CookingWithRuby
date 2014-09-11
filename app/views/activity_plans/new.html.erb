@@ -1,8 +1,19 @@
 <h1>ActivityPlans#new</h1>
 <p>Find me in app/views/activity_plans/new.html.erb</p>
 
+<script>
+  var activity_form_helper = new recipe_form();
+  activity_form_helper.select2button();
+</script>
+
 <%= bootstrap_form_for @activity_plan do |f| %>
-	<%= f.select :activity_id, Activity.all.collect { |i| [i.name, i.id]}, {}, prompt: 'Activity' %>
+
+	<div class="btn-group" style="float: right; margin: 10px; 0px;">
+      <%= link_to t('ingredient.new'), "javascript:activity_form_helper.new_activity();", :class => "btn btn-xs btn-success" %>
+      <button class="btn btn-xs btn-default" disabled><%= t('ingredient.ingredients') %></button>
+    </div>
+
+	<%= f.select_without_bootstrap :activity_id, Activity.all.collect { |i| [i.name, i.id]}, {}, prompt: true, class: 'form-control' %>
 	<%= render partial: 'date_picker', locals: {field_name: :date, :label => :date, form_helper: f } %>
 	<%= f.number_field :repetitions %>
 	

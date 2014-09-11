@@ -69,6 +69,7 @@ Rails.application.routes.draw do
   
   #activity_plans routes
   get 'activity_plans/new'
+  get 'activity_plans/new/:date' => 'activity_plans#new', as: 'new_activity_plan_week'
   get 'activity_plans/overview'
 
   get 'activity_plans/:date' => 'activity_plans#overview', as: 'activity_plans_week'
@@ -88,6 +89,7 @@ Rails.application.routes.draw do
   get 'json/units'
   get 'json/categories'
   get 'json/ingredients'
+  get 'json/activities'
   
   #comments routes
   get 'comments/new/:id' => 'comments#new'

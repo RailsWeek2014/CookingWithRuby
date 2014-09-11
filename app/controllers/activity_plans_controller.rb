@@ -1,5 +1,8 @@
 class ActivityPlansController < ApplicationController
   def new
+    if params[:date]
+      @activity_plan.date = params[:date]
+    end
   end
 
   def create
@@ -53,6 +56,10 @@ class ActivityPlansController < ApplicationController
         
         d = d.tomorrow
       end
+      
+      7.times do |i|
+          @days[i] = @days[i].to_a
+        end
     end
     
     def activity_plan_params

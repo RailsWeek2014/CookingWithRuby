@@ -18,6 +18,14 @@
 		<% d = d.tomorrow %>
 		<th><%= d %><p><%= t('weekdays_short.sunday')%></p></th>
 	</tr>
+		
+	<tr>
+		<% d = @week_start %>
+		<% 7.times do %>
+			<td><%= link_to t('activity_plans.new'), new_activity_plan_week_path( d.to_s ) %></td>
+			<% d = d.tomorrow %>
+		<% end %>
+	</tr>
 	
 	<%= render partial: 'activity_plans_row' %>
 

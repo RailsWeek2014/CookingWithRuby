@@ -1,18 +1,24 @@
 <ul class="nav nav-pills nav-stacked">
   <li>
+    <%= link_to t('recipe.all_recipes'), recipes_list_path %>
+  </li>
+  <li>
     <%= link_to t('recipe.new_recipe'), new_recipe_path %>
   </li>
   <% if user_signed_in? %>
-  <li class="active">
-    <%= link_to t('recipe.own_recipes'), own_recipes_path( current_user ) %>
-  </li>
-  <li>
-    <%= link_to t('cookbook.my_cookbooks'), "/cookbooks/list" %>
-  </li>
-  <li>
-    <%= link_to t('meal_plan.plan_your_meals'), meal_plans_path %>
-  </li>
-  <li/>
+	  <li class="active">
+	    <%= link_to t('recipe.own_recipes'), own_recipes_path( current_user ) %>
+	  </li>
+	  <li>
+	    <%= link_to t('cookbook.my_cookbooks'), "/cookbooks/list" %>
+	  </li>
+	  <li>
+	    <%= link_to t('meal_plan.plan_your_meals'), meal_plans_path %>
+	  </li>
+	  <li>
+	    <%= link_to t('activity_plans.plan_your_activities'), activity_plans_overview_path %>
+	  </li>
+	  <li/>
   <% end %>
 <!--      <span class="badge pull-right">3</span>-->
 </ul>

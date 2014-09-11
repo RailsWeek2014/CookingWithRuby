@@ -16,6 +16,10 @@ function recipe_form() {
 	self.new_unit = function() {
 		create('/units/');
 	};
+	
+	self.new_activity = function() {
+		create('/activities/');
+	};
 
 	function create(path) {
 		var window = null;
@@ -56,7 +60,8 @@ function recipe_form() {
 			});	
 		} else {
 			var selects = $("select").filter(function() {
-				return this.id.match("recipe_.*_attributes_.+_"+type+"_id");
+				b = this.id.match("activity_plan_.*_id") != null;
+				return (this.id.match("recipe_.*_attributes_.+_"+type+"_id") != null) || b;
 			});
 			$('option', selects).filter(function() {
 				return this.value.match(".+"); 
