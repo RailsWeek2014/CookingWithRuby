@@ -12,6 +12,9 @@ class Recipe < ActiveRecord::Base
   
   validates :name, presence: true
   validates :instructions, presence: true
+  validates :number_of_portions, presence: true, numericality: { greater_than: 0 }
+  validates :food_value, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :range, presence: true
   
   accepts_nested_attributes_for :quantities, :categories, allow_destroy: true
   

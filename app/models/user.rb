@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, 
          :validatable, :omniauthable, omniauth_providers: [:github, :twitter, :google_oauth2]
          
-  validates :name, presence: true       
+  validates :name, presence: true  
+  validates :weight, numericality: { greater_than: 0 }     
+  validates :height, numericality: { greater_than: 0 }     
   
   has_many :recipes
   has_many :ratings
