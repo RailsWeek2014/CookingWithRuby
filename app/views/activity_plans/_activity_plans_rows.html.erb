@@ -11,7 +11,8 @@
 		<td>
 			<p><%= d.activity.name %></p>
 			<p><%= "#{d.repetitions} #{ t( 'activity_plans.repetitions' )}" %></p>
-			<p><%= "#{d.repetitions} * #{ d.activity.kj } kj/min / 60 = #{d.repetitions * d.activity.kj / 60 } kj/h" %></p>
+			<p><%= "#{d.repetitions} * #{ d.activity.kj } / 60 = #{d.repetitions * d.activity.kj / 60 }" %></p>
+			<p><%= link_to t( 'activity_plans.delete' ), delete_activity_plan_path( d ), method: :delete %></p>
 		</td>
 	<% else %>
 		<td></td>

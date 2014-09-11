@@ -41,16 +41,27 @@ de:
     search: "Suche"
     
   activity_plans:
-    previous: "Nächste Woche"
-    next: "Vorherige Woche"
-    repetitions: "Wiederholungen"
+    previous: "Vorherige Woche"
+    next: "Nächste Woche"
+    repetitions: "Minuten"
     new: "Erstelle eine Aktivität"
     plan_your_activities: "Plane eine Aktivität"
     energy_day_need: "Gesamt Energiebedarf: "
+    delete: "entfernen"
+    overview_header: "Aktivitäten Überblick"
+    new_header: "Aktivität planen"
+    submit: "Ok"
+    new_Button: "Neue"
+    activity: "Aktivität"
+    date: "Datum"
+    duration: "Dauer"
+    minutes: "Minuten"
+    new_activity: "Neue Aktivität"
     
   activity:
     name: "Name"
-    kj: "kJ"  
+    kj: "kJ"
+    submit: "Ok"
   
   recipe:
     details_for: "Details für"
@@ -75,6 +86,7 @@ de:
     delete_popup: "Soll '%{recipe}' wirklich gelöscht werden?"
     prep_time_unit: "Min"
     autor: "Autor"
+    all_recipes: "Alle Rezepte"
    
   cookbook:
     my_cookbooks: "Meine Kochbücher"
@@ -87,6 +99,7 @@ de:
     name: "Name"
     delete_popup: "'%{name}' wirklich löschen?"
     recipes_in: "Rezepte in "
+    alert_please_insert_a_name: "Bitte gebe einen Namen für dein Kochbuch an."
     
   comment:
     at: "am"
@@ -141,6 +154,8 @@ de:
     log_off: "Abmelden"
     login: "Anmeldung"
     connect_with: "Verbinden mit"
+    edit:
+      submit: "Übernehme Änderungen"
     
   user:
     weight_unit: "kg"

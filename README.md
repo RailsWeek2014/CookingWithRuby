@@ -15,7 +15,7 @@
   - valuation function for recipe -ok
 - Food-planner
   - meals for the next week - ok
-  - activities today
+  - activities today - ok
   - show required & consumed nutrients (if the user wants it)
 - Generate shopping list from planner - ok
   - export: pdf - ok
@@ -54,6 +54,7 @@
 - omniauth-google-oauth2
 - omniauth-github
 - omniauth-yahoo
+- rails-i18n
 
 - cancancan
 

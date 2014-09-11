@@ -1,5 +1,4 @@
-<h1>ActivityPlans#overview</h1>
-<p>Find me in app/views/activity_plans/overview.html.erb</p>
+<h1><%= t('activity_plans.overview_header') %></h1>
 
 <table class="table" style="table-layout: fixed; width: 100%;">
 	<tr>
@@ -30,7 +29,7 @@
 	<tr>
 		<% base_need = getBasalMetabolism || 0 %>
 		<% 7.times do |i| %>
-			<td><%= "#{t( 'activity_plans.energy_day_need' )} #{(@days[i].inject(0) { |sum, n| sum + n.repetitions * n.activity.kj} + base_need ).round 2 }" %></td>
+			<td><%= "#{t( 'activity_plans.energy_day_need' )} #{(@days[i].inject(0) { |sum, n| sum + n.repetitions * n.activity.kj} / 60 + base_need ).round 2 }kJ" %></td>
 		<% end %>
 	</tr>
 	

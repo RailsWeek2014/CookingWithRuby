@@ -31,7 +31,8 @@ class CookbooksController < ApplicationController
     if @cookbook.save
       redirect_to cookbook_list_path
     else
-      render text: "nok"
+      flash[:alert] = t('cookbook.alert_please_insert_a_name')
+      redirect_to cookbook_list_path
     end
   end
   

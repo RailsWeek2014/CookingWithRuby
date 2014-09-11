@@ -3,7 +3,7 @@ class CreateUnits < ActiveRecord::Migration
     create_table :units do |t|
       t.string :long_name
       t.string :name
-      t.integer :conversion_factor
+      t.float :conversion_factor
       t.references :conversion_unit
             
       t.timestamps

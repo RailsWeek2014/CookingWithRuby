@@ -43,14 +43,25 @@ en:
   activity_plans:
     previous: "Previous week"
     next: "Next Week"
-    repetitions: "repetitions"
+    repetitions: "minutes"
     new: "plan an activity"
     plan_your_activities: "Plan an activity"
     energy_day_need: "Total energy need: "
+    delete: "remove"
+    overview_header: "Activity overview"
+    new_header: "Plan an Activity"
+    submit: "Submit"
+    new_Button: "New"
+    activity: "Activity"
+    date: "Date"
+    duration: "Duration"
+    minutes: "Minutes"
+    new_activity: "New Activity"
 
   activity:
     name: "Name"
     kj: "kJ"
+    submit: "submit"
 
   recipe:
     details_for: "Details for"
@@ -75,6 +86,7 @@ en:
     delete_popup: "Do you really want to delete '%{recipe}'?"
     prep_time_unit: "min"
     autor: "Author"
+    all_recipes: "All Recipes"
 
   cookbook:
     my_cookbooks: "My Cookbooks"
@@ -87,6 +99,7 @@ en:
     name: "Name"
     delete_popup: "Do you relly want to delete '%{name}'?"
     recipes_in: "Recipes in "
+    alert_please_insert_a_name: "Please name you cookbook."
       
   comment:
     at: "at"
@@ -141,6 +154,8 @@ en:
     log_off: "Sign off"
     login: "Login"
     connect_with: "Connect with"
+    edit:
+      submit: "accept changes"
     
   user:
     weight_unit: "kg"

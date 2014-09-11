@@ -72,6 +72,7 @@ class Ability
       if apply_role? 'm'
         can :grant_permissions, User
         can :grant_user, User
+        can :destroy, Comment
       end
       if apply_role? 'a'
         can :grant_moderator, User

@@ -1,5 +1,4 @@
-<h1>ActivityPlans#new</h1>
-<p>Find me in app/views/activity_plans/new.html.erb</p>
+<h1><%= t( 'activity_plans.new_header' ) %></h1>
 
 <script>
   var activity_form_helper = new recipe_form();
@@ -9,13 +8,15 @@
 <%= bootstrap_form_for @activity_plan do |f| %>
 
 	<div class="btn-group" style="float: right; margin: 10px; 0px;">
-      <%= link_to t('ingredient.new'), "javascript:activity_form_helper.new_activity();", :class => "btn btn-xs btn-success" %>
-      <button class="btn btn-xs btn-default" disabled><%= t('ingredient.ingredients') %></button>
-    </div>
+    <%= link_to t('activity_plans.new_Button'), "javascript:activity_form_helper.new_activity();", :class => "btn btn-xs btn-success" %>
+    <button class="btn btn-xs btn-default" disabled>
+      <%= t('activity_plans.activity') %>
+    </button>
+  </div>
 
 	<%= f.select_without_bootstrap :activity_id, Activity.all.collect { |i| [i.name, i.id]}, {}, prompt: true, class: 'form-control' %>
-	<%= render partial: 'date_picker', locals: {field_name: :date, :label => :date, form_helper: f } %>
-	<%= f.number_field :repetitions %>
+	<%= render partial: 'date_picker', locals: {field_name: :date, :label => t('activity_plans.date'), form_helper: f } %>
+	<%= f.number_field :repetitions, label: t('activity_plans.duration'), append: t("activity_plans.minutes")%>
 	
-	<%= f.submit %>
+	<%= f.submit t( 'activity_plans.submit' ) %>
 <% end %>
