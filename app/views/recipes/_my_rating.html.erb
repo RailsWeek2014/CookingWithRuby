@@ -1,6 +1,6 @@
   <div class="rating" style="right:0px; top: 30px; width: 350px; height: 30px; position: absolute;z-index: 1">
-    <% r = recipe.ratings.where( user: current_user) %>
-    <% if(r.count > 0); r = r[0][:rating] else r = 0 end%>
+    <% r = recipe.ratings.find_by( user: current_user) %>
+    <% unless(r.nil?); r = r.rating else r = 0 end%>
     <div id="my_rating" class="rating stars" style="float: right">
       <% i = 1 %>
       <% r.to_i.times do %>
@@ -24,5 +24,8 @@
         });
       </script>
     </div>
-    <div class="rating numbers" style="margin-right: 15px; float: right"><%= t('rating.my_rating')%><small>(<%= t('rating.click_to_rate')%>)</small></div>
+    <div class="rating numbers" style="margin-right: 15px; float: right">
+      <%= t('rating.my_rating') + " "%><br />
+      <small>(<%= t('rating.click_to_rate')%>)</small>
+    </div>
   </div>
