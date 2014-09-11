@@ -51,6 +51,12 @@ en:
     overview_header: "Activity overview"
     new_header: "Plan an Activity"
     submit: "Submit"
+    new_Button: "New"
+    activity: "Activity"
+    date: "Date"
+    duration: "Duration"
+    minutes: "Minutes"
+    new_activity: "New Activity"
 
   activity:
     name: "Name"
@@ -93,6 +99,7 @@ en:
     name: "Name"
     delete_popup: "Do you relly want to delete '%{name}'?"
     recipes_in: "Recipes in "
+    alert_please_insert_a_name: "Please name you cookbook."
       
   comment:
     at: "at"

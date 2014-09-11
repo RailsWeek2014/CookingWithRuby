@@ -41,16 +41,22 @@ de:
     search: "Suche"
     
   activity_plans:
-    previous: "Nächste Woche"
-    next: "Vorherige Woche"
+    previous: "Vorherige Woche"
+    next: "Nächste Woche"
     repetitions: "Minuten"
     new: "Erstelle eine Aktivität"
     plan_your_activities: "Plane eine Aktivität"
     energy_day_need: "Gesamt Energiebedarf: "
     delete: "entfernen"
-    overview_header: "Aktivitäten überblick"
+    overview_header: "Aktivitäten Überblick"
     new_header: "Aktivität planen"
     submit: "Ok"
+    new_Button: "Neue"
+    activity: "Aktivität"
+    date: "Datum"
+    duration: "Dauer"
+    minutes: "Minuten"
+    new_activity: "Neue Aktivität"
     
   activity:
     name: "Name"
@@ -93,6 +99,7 @@ de:
     name: "Name"
     delete_popup: "'%{name}' wirklich löschen?"
     recipes_in: "Rezepte in "
+    alert_please_insert_a_name: "Bitte gebe einen Namen für dein Kochbuch an."
     
   comment:
     at: "am"

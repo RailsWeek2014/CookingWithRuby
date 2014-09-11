@@ -1,7 +1,8 @@
 <%= bootstrap_form_for( @unit, url: 'javascript: recipe_form_helper.post();', layout: :horizontal, control_col: "col-sm-7", label_col: "col-sm-5") do |i_f| %>
-  	<%= i_f.text_field :long_name, label: t('unit.long_name')%>
-    <%= i_f.text_field :name, label: t('unit.name')%>
-    <%= i_f.text_field :conversion_factor, label: t('unit.conversion_faktor')%>
-    <%= i_f.select :conversion_unit_id, Unit.where(conversion_unit_id: nil).collect { |u| [u.name, u.id]}, {}, prompt: t('unit.unit') %>
+  <%= render 'error_field' %>
+	<%= i_f.text_field :long_name, label: t('unit.long_name'), validation: "notBlank"%>
+  <%= i_f.text_field :name, label: t('unit.name'), validation: "notBlank"%>
+  <%= i_f.number_field :conversion_factor, label: t('unit.conversion_faktor'), step: 0.1, min: 0, validation: "notBlank"%>
+  <%= i_f.select :conversion_unit_id, Unit.where(conversion_unit_id: nil).collect { |u| [u.name, u.id]}, {}, prompt: t('unit.unit') %>
   <%= i_f.submit t('unit.submit'), class: "btn btn-success"%>
 <% end %>

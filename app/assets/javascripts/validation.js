@@ -13,10 +13,14 @@ function Validation() {
 				ret = false;
 				if(elem.parent().siblings('label').text() != "")
 					errorMessage += elem.parent().siblings('label').text();
-				else
-					errorMessage += elem.parent().parent().siblings('label').text();
+				else{
+					if(elem.parent().parent().siblings('label').text() != "")
+						errorMessage += elem.parent().parent().siblings('label').text();
+					else
+						errorMessage += elem.siblings('label').text()
+				}
 				if(i < elements.length - 1){
-					errorMessage += ", "
+					errorMessage += ", ";
 				}
 				i++;
 			}
