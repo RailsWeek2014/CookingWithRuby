@@ -183,3 +183,7 @@ en:
     click_to_rate: "Click to rate"
     user: "%{num} ratings"
 
+  mail:
+    meal_plans_for_week: "The meals you planned for this week!"
+    meal_plans_week:
+      content: "A shopping list and the recipes are attached."

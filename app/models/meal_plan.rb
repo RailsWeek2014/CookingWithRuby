@@ -7,8 +7,8 @@ class MealPlan < ActiveRecord::Base
   validates :date, presence: true
   validates :daytime, presence: true
   
-  validates :user_id, presence: true, numericality: { greater_than_or_equal: 0 }
-  validates :recipe_id, presence: true, numericality: { greater_than_or_equal: 0 }
+  validates :user_id, presence: true #, numericality: { greater_than_or_equal: 0 }
+  validates :recipe_id, presence: true #, numericality: { greater_than_or_equal: 0 }
   
   validates :daytime, inclusion: { in: %w(breakfast lunch dinner) }
   validates :date, uniqueness: { scope: [:daytime, :user_id] }
