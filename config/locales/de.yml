@@ -56,12 +56,12 @@ de:
     date: "Datum"
     duration: "Dauer"
     minutes: "Minuten"
-    new_activity: "Neue Aktivität"
     
   activity:
     name: "Name"
     kj: "kJ"
     submit: "Ok"
+    new_activity: "Neue Aktivität"
   
   recipe:
     details_for: "Details für"
