@@ -1,0 +1,11 @@
+<div data-blueprint="" id="category_field_blueprint" style="display: none">
+  <div class="category" style="display: inline-block; float: left">
+    <div class="input-group">
+      <div class="input-group-btn">
+        <%= link_to 'X', "#", :class => "btn btn-danger", onclick: 'javascript:recipe_form_helper.remove_category(this); return false;' %>
+      </div>
+      <select class="form-control" id="recipe_category_ids" name="recipe[category_ids][]" prompt="category" style="width: initial"></select>
+    </div>
+  </div>
+</div>
+

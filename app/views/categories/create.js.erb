@@ -1,0 +1,28 @@
+var modal = $('#modal');
+$('button.close', modal).click();
+
+var cats = <%= raw @categories %>
+
+var selects = $('select', $('.categories'));
+var opts = $('option', selects.first());
+
+for(var j = 0; j < opts.length;j++) {
+	var opt = $(opts[j]);
+	for(var i = 0; i < cats.length; i++) {
+		if(cats[i] != undefined) {
+			if(cats[i].id == opt.val()) {
+				console.log('cats.id: ' + cats[i].id + ' val: ' + opt.val() );
+				cats[i] = undefined;
+				break;
+			}
+		}
+	}
+};
+
+for(var i = 0; i < cats.length; i++) {
+	if(cats[i] != undefined) {
+		selects.each(function() {
+			$(this).append('<option value="'+cats[i].id+'">' + cats[i].name + '</option>')
+		});
+	}
+}
