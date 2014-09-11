@@ -12,6 +12,18 @@ function recipe_form() {
 	self.new_category = function() {
 		create('/categories/');
 	};
+	
+	self.add_category = function(caller) {
+		caller = $(caller);
+		var categories = $('.categories', caller.parent().parent());
+		console.log(categories);
+		categories.append($('.category', categories).last().clone(true));
+	};
+	
+	self.remove_category = function(caller) {
+		caller = $(caller);
+		caller.closest('.category').remove();
+	};
 
 	self.new_unit = function() {
 		create('/units/');

@@ -33,22 +33,22 @@ class Ability
     
     unless @user.new_record?
       if apply_role? 'u'
-        can [:list, :show], Recipe, range: ['public', 'registrated']
-        can [:list, :show], Recipe, user_id: @user.id
+        can [:index, :list, :show], Recipe, range: ['public', 'registrated']
+        can [:list, :show], Recipe, user: @user
         can :create, Recipe
         can :rate, Recipe
-        can :update, Recipe, user_id: @user.id
-        can :destroy, Recipe, user_id: @user.id
+        can :update, Recipe, user: @user
+        can :destroy, Recipe, user: @user
         can :specific_list, Recipe
         
         can :manage, Category
         
         can :manage, Comment
         cannot :destroy, Comment
-        can :destroy, Comment, user_id: @user.id
+        can :destroy, Comment, user: @user
         
         cannot :edit, Comment
-        can :edit, Comment, user_id: @user.id
+        can :edit, Comment, user: @user
         
         can :create, User, id: @user.id
         can :update, User, id: @user.id
@@ -56,16 +56,16 @@ class Ability
         can :read, User, id: @user.id
         can :destroy, User, id: @user.id
         
-        can :manage, Cookbook, user_id: @user.id
+        can :manage, Cookbook, user: @user
         
         can :manage, Ingredient
         cannot :destroy, Ingredient
         
-        can :manage, MealPlan, user_id: @user.id
+        can :manage, MealPlan, user: @user
         
         can :manage, Unit
         
-        can :manage, ActivityPlan, user_id: @user.id
+        can :manage, ActivityPlan, user: @user
 
         can :manage, Activity
       end
@@ -78,9 +78,7 @@ class Ability
       end
       
     else
-      can :list, Recipe, range: 'public'
-      can :show, Recipe, range: 'public'
-      
+      can [:index, :list, :show], Recipe, range: 'public'      
       cannot :create, Recipe
       
       can :create, User
