@@ -118,6 +118,7 @@ en:
     category: "Category"
     more: "More"
     new: "New"
+    create_new: "Create Category"
     
   ingredient:
     new_ingredient: "New Ingredient"
@@ -132,8 +133,8 @@ en:
     protein: "Protein"
     fat: "Fat"
     roughage: "Roughage"
-    default_unit: ""
-    default_quantity: ""
+    default_unit: "Default unit"
+    default_quantity: "Default Quantity"
     kj: "kJ"
     g: "g"
     submit: "Save"

@@ -1,4 +1,4 @@
 <%= bootstrap_form_for( @category, url: '/categories', remote: true, layout: :horizontal) do |i_f| %>
   <%= i_f.text_field :name%>
-  <%= i_f.submit class: "btn btn-success"%>
+  <%= i_f.submit t('category.create_new'), class: "btn btn-success"%>
 <% end %>

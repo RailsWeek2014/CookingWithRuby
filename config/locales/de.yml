@@ -118,6 +118,7 @@ de:
     category: "Kategorie"
     more: "weitere"
     new: "neue"
+    create_new: "Kategorie erstellen"
     
   ingredient:
     new_ingredient: "Neue Zutat"
@@ -132,8 +133,8 @@ de:
     protein: "Eiweiß"
     fat: "Fett"
     roughage: "Ballaststoffe"
-    default_quantity: ""
-    default_unit: ""
+    default_quantity: "Standardmenge"
+    default_unit: "Standardeinheit"
     kj: "kJ"
     g: "g"
     submit: "Speichern"

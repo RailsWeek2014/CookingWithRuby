@@ -23,6 +23,18 @@ class Recipe < ActiveRecord::Base
   
   accepts_nested_attributes_for :quantities, :categories, allow_destroy: true
   
+  #aus zeitmangel noch nicht komplett
+  #umrechnen in gleiche einheiten fehlt noch
+  def foodvalue
+    quantities = self.quantities
+    foodvalue = 0
+    
+    quantities.each { |quantity|
+      ingredient = quantity.ingredient
+      foodvalue += quantity.quantity * (ingredient.kj / ingredient.default_quantity)
+    }
+    self.food_value = foodvalue / self.number_of_portions
+  end
   
   def average_rating
     unless self.ratings.count == 0
