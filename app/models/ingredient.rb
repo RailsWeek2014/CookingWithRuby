@@ -8,6 +8,7 @@ class Ingredient < ActiveRecord::Base
   validates :protein, presence: true, numericality: { greater_than_or_equal: 0 }
   validates :fat, presence: true, numericality: { greater_than_or_equal: 0 }
   validates :roughage, presence: true, numericality: { greater_than_or_equal: 0 }
-  validates :default_quantity, presence: true
+  validates :default_quantity, presence: true, numericality: { greater_than_or_equal: 0 }
+  validates :unit_id, presence: true
 
 end

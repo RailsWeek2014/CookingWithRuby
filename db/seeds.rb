@@ -21,13 +21,13 @@ ckk = Category.create name: "KeinKuchen"
 
 r1 = Recipe.create name: "Heißes Zuckerwasser", prep_time: 15, 
   instructions: "Wasser zum Kochen bringen & Zucker einrühren",
-  range: "public", user: u1
+  range: "public", number_of_portions: 2, user: u1
   
 r1.categories << ck << ckk
 
 Quantity.create quantity: 1.0, unit: um, ingredient: iw, recipe: r1
 Quantity.create quantity: 100.0, unit: ug, ingredient: iz, recipe: r1
 
-Recipe.create name: "Registrated Test", prep_time: 1, instructions: "a", range: "registrated", user: u1
-Recipe.create name: "Private Test", prep_time: 1, instructions: "b", range: "private", user: u1
-Recipe.create name: "Public Test", prep_time: 1, instructions: "c", range: "public", user: u1
+Recipe.create name: "Registrated Test", prep_time: 1, instructions: "a", range: "registrated", user: u1, number_of_portions: 2
+Recipe.create name: "Private Test", prep_time: 1, instructions: "b", range: "private", user: u1, number_of_portions: 2
+Recipe.create name: "Public Test", prep_time: 1, instructions: "c", range: "public", user: u1, number_of_portions: 2
