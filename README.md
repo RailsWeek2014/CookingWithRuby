@@ -39,22 +39,19 @@
 
 ##Used Gems
 
+- rails-i18n
 - Twitter Bootstrap
 - nested form
 - Rails Bootstrap Forms
 - Prawn
-- Ransack
 - Devise
 - Devise-Two-Factor
 - Devise-i18n
 - omniauth
-- omniauth-facebook
 - omniauth-twitter
-- omniauth-openid
 - omniauth-google-oauth2
 - omniauth-github
-- omniauth-yahoo
-- rails-i18n
+- fuzzily
 
 - cancancan
 
