@@ -1,4 +1,7 @@
 class Recipe < ActiveRecord::Base
+  fuzzily_searchable :name, :instructions
+  
+  
   belongs_to :user
   
   has_many :pictures, dependent: :destroy
@@ -7,6 +10,8 @@ class Recipe < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :cookbooks, through: :cookbook_entries
   has_many :cookbook_entries, dependent: :destroy
+
+  has_many :ingredients, through: :quantities 
   
   has_and_belongs_to_many :categories, autosave: true
   

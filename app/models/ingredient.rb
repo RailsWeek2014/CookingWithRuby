@@ -1,6 +1,8 @@
 class Ingredient < ActiveRecord::Base
   has_many :quantities
   belongs_to :unit
+
+  has_many :recipes, through: :quantities 
   
   validates :name, presence: true
   validates :kj, presence: true, numericality: { greater_than_or_equal: 0 }

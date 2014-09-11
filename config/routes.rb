@@ -46,8 +46,8 @@ Rails.application.routes.draw do
   delete "cookbooks/:id" => "cookbooks#destroy"
   
   #search routes
-  get 'search/search'
-  get 'search/advanced_search'
+  post 'search/search'
+  post 'search/advanced_search'
   
   #meal_plans routes
   get 'meal_plans/' => 'meal_plans#week_overview'

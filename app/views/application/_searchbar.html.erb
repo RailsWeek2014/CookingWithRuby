@@ -1,0 +1,15 @@
+<%= form_tag '/search/search', class: 'navbar-form navbar-left' do%>
+<form class="navbar-form navbar-left" role="search" action="/search/search" method="post">
+  <div class="input-group">
+    <div class="input-group-btn">
+      <button type="button" id="languageButton" class="btn btn-primary" style="width: 50px" onclick="javascript:navigation_helper.changeLanguage()"><%= I18n.locale %></button>
+    </div>
+    <%= text_field_tag 'keywords', nil, placeholder: t('application.search'), class: "form-control" %>
+    <div class="input-group-btn">
+      <%= submit_tag t('application.search'), class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>
+<script>
+  var search_helper = new Search();
+</script>
