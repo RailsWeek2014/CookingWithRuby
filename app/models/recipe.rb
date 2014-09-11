@@ -12,8 +12,8 @@ class Recipe < ActiveRecord::Base
   
   validates :name, presence: true
   validates :instructions, presence: true
-  validates :number_of_portions, presence: true, numericality: { greater_than: 0 } # <- macht noch probleme
-  validates :food_value, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true #, presence: true
+  validates :number_of_portions, presence: true, numericality: { greater_than: 0 }
+  validates :food_value, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
   validates :range, inclusion: {in: ['public', 'registrated', 'private']}
   
   accepts_nested_attributes_for :quantities, :categories, allow_destroy: true

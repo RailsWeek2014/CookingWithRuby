@@ -144,7 +144,7 @@ de:
     
   user:
     weight_unit: "kg"
-    height_unit: "m"
+    height_unit: "cm"
     
   cookbook_entry:
     remove: "Löschen"
