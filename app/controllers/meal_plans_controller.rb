@@ -48,13 +48,19 @@ class MealPlansController < ApplicationController
   def ingredient_requirements
     update_meal_plans_of_week
     
-    @quantities = @meal_plans.first.quantities
-    
+    #    @quantities = @meal_plans.first.quantities
+            
     @meal_plans.each do |m|
+      @quantities = m.quantities unless @quantities
       @quantities.merge m.quantities
     end
     
-    @quantities = @quantities.group( :unit_id, :ingredient_id ).sum :quantity
+    if @quantities
+      @quantities = @quantities.group( :unit_id, :ingredient_id ).sum :quantity
+    else
+      @quantities = {}
+    end
+    
     @counts = @meal_plans.group( :recipe_id ).count
   end
     
@@ -64,9 +70,10 @@ class MealPlansController < ApplicationController
     recipe_ids = @meal_plans.collect &:recipe_id 
     @recipes = Recipe.where ["id in (?)", recipe_ids]
 
-    @quantities = @meal_plans.first.quantities
+#    @quantities = @meal_plans.first.quantities
         
     @meal_plans.each do |m|
+      @quantities = m.quantities unless @quantities
       @quantities.merge m.quantities
     end
     
@@ -113,7 +120,11 @@ class MealPlansController < ApplicationController
       end
     end
     
-    send_data pdf.render,
+    content = pdf.render
+    
+    MealPlanMailer.meal_week_plan( current_user, content ).deliver
+    
+    send_data content,
         :filename => "#{current_user.name}_shop_list.pdf",
         :type => "application/pdf"
     

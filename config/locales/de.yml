@@ -182,3 +182,8 @@ de:
     my_rating: "Meine Wertung"
     click_to_rate: "Zum Bewerten klicken"
     user: "%{num} Wertungen"
+    
+  mail:
+    meal_plans_for_week: "Die Gerichte, die sie diese Woche essen wollen!"
+    meal_plans_week:
+      content: "Eine Einkaufsliste und die Rezepte die sie wollten, sind im Anhang."
