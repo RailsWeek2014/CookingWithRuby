@@ -1,5 +1,7 @@
 <%= r_f.form_group :categories, layout: :horizontal, label_col: "col-sm-0", control_col: "col-sm-11" do %>
-  <label class="control-label col-sm-2" for="categories"><%= t('category.categories')%></label>
+  <label class="control-label col-sm-2" for="categories">
+    <%= t('category.categories')%>
+  </label>
   <div class="col-sm-9">
     <div class="categories">
     <% @recipe.categories.each do |category| %>
@@ -18,7 +20,7 @@
       <%# r_f.link_to_add '', :categories, class: 'hide'%> <!-- Hidden anchor to create the new form part at the right position -->
       <%= link_to t('category.more'), "#", class: 'btn btn-xs btn-info', onclick: 'javascript:recipe_form_helper.add_category(this); return false;'%> <!-- button to click on the hidden anchor with javascript -->
       <%= link_to t('category.new'), "#", :class => "btn btn-xs btn-success", onclick: 'javascript:recipe_form_helper.new_category(); return false;' %>
-      <button class="btn btn-xs btn-default" disabled><%= t('category.categories') %></button>
+      <button class="btn btn-xs btn-default" disabled><%= t('category.category') %></button>
     </div>
   </div>
   <div style="display: none; clear:both"></div>

@@ -55,11 +55,15 @@ function recipe_form() {
 	};
 
 	self.post = function() {
-		var form_data = $('form', modal).serializeArray();
-		$.post(modal_path, form_data, function() {
-			self.update(true);
-			$('button.close', modal).click();
-		});
+		form = $('form', modal);
+		var validation = new Validation();
+		validation.isValid(form, function() {
+			var form_data = form.serializeArray();
+			$.post(modal_path, form_data, function() {
+				self.update(true);
+				$('button.close', modal).click();
+			});
+		});		
 	};
 
 	self.update = function(reload, type) {
