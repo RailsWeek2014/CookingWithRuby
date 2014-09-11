@@ -1,15 +1,23 @@
-<tr>
-	<% i = 0 %>
-	<% until @days.join %>
-		<% d = @days[i].pop %>
-		
-		<% if d %>
-			<td><%= d %></td>
-		<% end %>
-		
-		<% i += 1 %>
-		<% if(i > 7) %>
-			<% i = 0 %>
-		<% end %>
+<% i = 0 %>
+<% until is_empty? @days %>
+	<% d = @days[i].pop %>
+	
+	<% if i == 0 %>
+		<tr>
 	<% end %>
-</tr>
+	
+	<% if d %>
+		<td>
+			<p><%= d.activity.name %></p>
+			<p><%= "#{d.repetitions} #{ t( 'activity_plans.repetitions' )}" %></p>
+		</td>
+	<% else %>
+		<td></td>
+	<% end %>
+	
+	<% i += 1 %>
+	<% if(i >= 7) %>
+		<% i = 0 %>
+		</tr>
+	<% end %>
+<% end %>

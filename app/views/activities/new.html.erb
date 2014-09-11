@@ -1,6 +1,6 @@
-<%= bootstrap_form_for @activity do |f| %>
-	<%= f.text_field :name %>
-	<%= f.number_field :kj %>
+<%= bootstrap_form_for @activity, url: 'javascript: activity_form_helper.post();' do |f| %>
+	<%= f.text_field :name, label: t( 'activity.name' ) %>
+	<%= f.number_field :kj, label: t( 'activity.kj' ) %>
 	
-	<%= f.submit class: "btn btn-success" %>
+	<%= f.submit t('activity.submit'), class: "btn btn-success" %>
 <% end %>

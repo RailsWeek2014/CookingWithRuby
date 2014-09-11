@@ -40,6 +40,17 @@ en:
     welcome: "Welcome"
     search: "Search"
 
+  activity_plans:
+    previous: "Previous week"
+    next: "Next Week"
+    repetitions: "repetitions"
+    new: "plan an activity"
+    plan_your_activities: "Plan an activity"
+
+  activity:
+    name: "Name"
+    kj: "kJ"
+
   recipe:
     details_for: "Details for"
     new_recipe: "New Recipe"
