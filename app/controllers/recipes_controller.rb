@@ -38,7 +38,9 @@ class RecipesController < ApplicationController
   end
   
   def create
-    params[:recipe][:category_ids].uniq!
+    unless params[:recipe][:category_ids].nil?
+      params[:recipe][:category_ids].uniq!
+    end
     
     if @recipe.save
       current_user.recipes << @recipe
@@ -49,7 +51,9 @@ class RecipesController < ApplicationController
   end
   
   def update
-    params[:recipe][:category_ids].uniq!
+    unless params[:recipe][:category_ids].nil?
+          params[:recipe][:category_ids].uniq!
+    end
     if @recipe.update_attributes(recipe_params)
       redirect_to recipes_path
     else
