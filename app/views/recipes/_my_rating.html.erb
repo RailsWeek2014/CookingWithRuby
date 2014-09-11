@@ -1,0 +1,28 @@
+  <div class="rating" style="right:0px; top: 30px; width: 350px; height: 30px; position: absolute;z-index: 1">
+    <% r = recipe.ratings.where( user: current_user) %>
+    <% if(r.count > 0); r = r[0][:rating] else r = 0 end%>
+    <div id="my_rating" class="rating stars" style="float: right">
+      <% i = 1 %>
+      <% r.to_i.times do %>
+        <span data-rating="<%= i %>" class="glyphicon glyphicon-star" style="font-size: 22px; margin-right: 5px"></span>
+        <% i += 1 %>
+      <% end %>
+      <% (5 -r).to_i.times do %>
+        <span data-rating="<%= i %>" class="glyphicon glyphicon-star-empty" style="font-size: 22px; margin-right: 5px"></span>
+        <% i += 1 %>
+      <% end %>
+      <script>
+        rate_buttons = $('span[data-rating]');
+        rate_buttons.hover(function() {
+          $(this).toggleClass('glyphicon-star-empty glyphicon-star');
+        });
+        rate_buttons.click(function() {
+          console.log($(this).data('rating'));
+          $.post('/recipes/' + <%= recipe.id %> + '/rate', {rating: $(this).data('rating')}, function() {
+            location.reload();
+          });
+        });
+      </script>
+    </div>
+    <div class="rating numbers" style="margin-right: 15px; float: right"><%= t('rating.my_rating')%><small>(<%= t('rating.click_to_rate')%>)</small></div>
+  </div>

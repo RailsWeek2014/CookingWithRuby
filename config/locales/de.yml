@@ -36,7 +36,7 @@ de:
   
   application:
     advanced_search: "Erweiterte Suche"
-    unknown: "ubekannt"
+    unknown: "Ubekannt"
     welcome: "Willkommen"
     search: "Suche"
     
@@ -70,6 +70,7 @@ de:
     visibile_for: "Sichtbarkeit"
     delete_popup: "Soll '%{recipe}' wirklich gelöscht werden?"
     prep_time_unit: "Min"
+    autor: "Autor"
    
   cookbook:
     my_cookbooks: "Meine Kochbücher"
@@ -82,9 +83,6 @@ de:
     name: "Name"
     delete_popup: "'%{name}' wirklich löschen?"
     recipes_in: "Rezepte in "
-
-  meal_plan:
-    plan_your_meals: "Essensplaner"
     
   comment:
     at: "am"
@@ -149,6 +147,7 @@ de:
     delete_popup: "'%{entry}' wirklich aus '%{cookbook}' löschen?'"
     
   meal_plan:
+    plan_your_meals: "Essensplaner"
     week_overview_header: "Essensplan"
     breakfast: "Frühstück"
     lunch: "Mittagessen"
