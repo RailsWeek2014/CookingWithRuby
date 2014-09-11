@@ -31,3 +31,9 @@ Quantity.create quantity: 100.0, unit: ug, ingredient: iz, recipe: r1
 Recipe.create name: "Registrated Test", prep_time: 1, instructions: "a", range: "registrated", user: u1, number_of_portions: 2
 Recipe.create name: "Private Test", prep_time: 1, instructions: "b", range: "private", user: u1, number_of_portions: 2
 Recipe.create name: "Public Test", prep_time: 1, instructions: "c", range: "public", user: u1, number_of_portions: 2
+
+Activity.create name: "Radfahren", kj: 1040
+Activity.create name: "Fußball spielen", kj: 2240
+Activity.create name: "Liegen", kj: 300
+Activity.create name: "Sitzen", kj: 300
+Activity.create name: "Laufen (langsam - 5 km/h)", kj: 1532

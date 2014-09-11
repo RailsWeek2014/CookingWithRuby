@@ -43,7 +43,7 @@ de:
   activity_plans:
     previous: "Nächste Woche"
     next: "Vorherige Woche"
-    repetitions: "Wiederholungen"
+    repetitions: "Minuten"
     new: "Erstelle eine Aktivität"
     plan_your_activities: "Plane eine Aktivität"
     energy_day_need: "Gesamt Energiebedarf: "
