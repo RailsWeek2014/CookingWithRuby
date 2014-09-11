@@ -27,7 +27,14 @@
 		<% end %>
 	</tr>
 	
-	<%= render partial: 'activity_plans_row' %>
+	<tr>
+		<% base_need = getBasalMetabolism || 0 %>
+		<% 7.times do |i| %>
+			<td><%= "#{t( 'activity_plans.energy_day_need' )} #{(@days[i].inject(0) { |sum, n| sum + n.repetitions * n.activity.kj}) + base_need }" %></td>
+		<% end %>
+	</tr>
+	
+	<%= render partial: 'activity_plans_rows' %>
 
 </table>
 

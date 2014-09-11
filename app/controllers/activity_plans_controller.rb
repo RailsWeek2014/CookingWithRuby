@@ -29,11 +29,19 @@ class ActivityPlansController < ApplicationController
     
     update_activity_plans_of_week
     
+    7.times do |i|
+      @days[i] = @days[i].to_a
+    end
+    
     render action: 'overview'
   end
 
   def overview
     update_activity_plans_of_week
+    
+    7.times do |i|
+      @days[i] = @days[i].to_a
+    end
   end
   
   private
@@ -56,10 +64,6 @@ class ActivityPlansController < ApplicationController
         
         d = d.tomorrow
       end
-      
-      7.times do |i|
-          @days[i] = @days[i].to_a
-        end
     end
     
     def activity_plan_params
