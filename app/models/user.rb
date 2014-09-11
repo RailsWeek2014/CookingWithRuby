@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
          :validatable, :omniauthable, omniauth_providers: [:github, :twitter, :google_oauth2]
          
   validates :name, presence: true  
-  validates :weight, numericality: { greater_than: 0 }     
-  validates :height, numericality: { greater_than: 0 }     
+  validates :weight, numericality: { greater_than: 0 }, allow_nil: true    
+  validates :height, numericality: { greater_than: 0 }, allow_nil: true
   
   has_many :recipes
   has_many :ratings
