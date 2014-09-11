@@ -48,10 +48,14 @@ de:
     plan_your_activities: "Plane eine Aktivität"
     energy_day_need: "Gesamt Energiebedarf: "
     delete: "entfernen"
+    overview_header: "Aktivitäten überblick"
+    new_header: "Aktivität planen"
+    submit: "Ok"
     
   activity:
     name: "Name"
-    kj: "kJ"  
+    kj: "kJ"
+    submit: "Ok"
   
   recipe:
     details_for: "Details für"
