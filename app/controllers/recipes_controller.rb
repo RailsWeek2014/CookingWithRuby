@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
   def new
     @recipe.quantities.build
     @recipe.quantities.first.build_unit
+    @recipe.categories.build
   end
   
   def show
