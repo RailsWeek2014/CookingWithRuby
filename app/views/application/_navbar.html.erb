@@ -7,7 +7,7 @@
       <span class="input-group-btn">
         <button type="button" id="languageButton" class="btn btn-primary" style="width: 50px" onclick="javascript:navigation_helper.changeLanguage()"><%= I18n.locale %></button>
       </span>
-      <input type="text" class="form-control" style="width: 400px" placeholder="Search">
+      <input type="text" class="form-control" style="width: 400px" placeholder=<%= t('application.search')%>>
       <span class="input-group-btn">
         <button class="btn btn-primary"><%= t('application.advanced_search')%><!--<%= glyph(:search, {:tag => :span}) %>--></button>
         <button type="submit" class="btn btn-success"><%= t('application.search')%><!--<%= glyph(:search, {:tag => :span}) %>--></button>

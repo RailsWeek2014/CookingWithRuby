@@ -166,3 +166,7 @@ de:
     saturday: "Sa"
     sunday: "So"
     
+  rating:
+    my_rating: "Meine Wertung"
+    click_to_rate: "Zum Bewerten klicken"
+    user: "%{num} Wertungen"

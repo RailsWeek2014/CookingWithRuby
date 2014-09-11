@@ -62,7 +62,7 @@ en:
     visibile_for: "Visibility"
     delete_popup: "Do you really want to delete '%{recipe}'?"
     prep_time_unit: "min"
-    autor: "author"
+    autor: "Author"
 
   cookbook:
     my_cookbooks: "My Cookbooks"
@@ -137,7 +137,6 @@ en:
   cookbook_entry:
     remove: "Delete"
     delete_popup: "Do you really want to delete '%{entry}' from '%{cookbook}'?'"
-    
       
   meal_plan:
     plan_your_meals: "Plan Your Meals"
@@ -167,4 +166,8 @@ en:
     saturday: "Sat"
     sunday: "Sun"
     
+  rating:
+    my_rating: "My rating"
+    click_to_rate: "Click to rate"
+    user: "%{num} ratings"
 
