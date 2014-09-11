@@ -205,4 +205,4 @@ de:
       content: "Eine Einkaufsliste und die Rezepte die sie wollten, sind im Anhang."
   
   search:
-    result_for: "Ergebnis für \"%{search}\"""
+    results_for: "Ergebnis für \"%{search}\""

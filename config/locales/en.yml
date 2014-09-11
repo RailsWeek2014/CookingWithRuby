@@ -205,4 +205,4 @@ en:
       content: "A shopping list and the recipes are attached."
   
   search:
-    result_for: "Result for \"%{search}\"""
+    results_for: "Result for \"%{search}\""
