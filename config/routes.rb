@@ -73,6 +73,7 @@ Rails.application.routes.draw do
   get 'activity_plans/overview'
 
   get 'activity_plans/:date' => 'activity_plans#overview', as: 'activity_plans_week'
+  
   post 'activity_plans' => 'activity_plans#create'
   
   get 'activity_plans/:id/edit' => 'activity_plans#edit'

@@ -46,6 +46,7 @@ de:
     repetitions: "Wiederholungen"
     new: "Erstelle eine Aktivität"
     plan_your_activities: "Plane eine Aktivität"
+    energy_day_need: "Gesamt Energiebedarf: "
     
   activity:
     name: "Name"
