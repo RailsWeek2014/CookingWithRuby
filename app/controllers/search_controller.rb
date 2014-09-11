@@ -2,11 +2,15 @@ class SearchController < ApplicationController
   skip_load_and_authorize_resource
   
   def search
-    @recipes = Recipe.find_by_fuzzy_name(params[:keywords], limit: 20)
+    @recipes = []
+    @recipes |= Recipe.find_by_fuzzy_name(params[:keywords], limit: 20)
     @recipes |= Recipe.find_by_fuzzy_instructions(params[:keywords], limit: 20) 
     keywords = params[:keywords].split(" ")
     search_in_recipe(keywords)
     search_in_ingredient(keywords)
+    
+    @recipes &= visible_recipes()
+    
     respond_to do |format|      
       format.html {
         @headline = t('search.results_for', search: params[:keywords])
@@ -62,5 +66,14 @@ class SearchController < ApplicationController
         recipes &= i.recipes
       end
       @recipes |= recipes
+    end
+    
+    def visible_recipes
+      recipes = Recipe.all.where range: 'public'
+      
+      if user_signed_in?
+        recipes = recipes | (Recipe.all.where range: 'registrated')
+        recipes = recipes | current_user.recipes
+      end
     end
 end
