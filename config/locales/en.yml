@@ -141,6 +141,8 @@ en:
     log_off: "Sign off"
     login: "Login"
     connect_with: "Connect with"
+    edit:
+      submit: "accept changes"
     
   user:
     weight_unit: "kg"

@@ -141,6 +141,8 @@ de:
     log_off: "Abmelden"
     login: "Anmeldung"
     connect_with: "Verbinden mit"
+    edit:
+      submit: "Übernehme Änderungen"
     
   user:
     weight_unit: "kg"
