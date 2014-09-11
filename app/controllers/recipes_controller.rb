@@ -4,15 +4,10 @@ class RecipesController < ApplicationController
   end
   
   def list
-#    unless user_signed_in?
-#      @recipes = Recipe.where(range: ["public"])
-#    else
-#      @recipes = Recipe.where("range in ('registrated', 'public') or user_id = '#{ current_user.id }'")
-#    end
   end
   
   def specific_list
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     where = {range: ["public"]}
     
     if user_signed_in?
@@ -22,14 +17,10 @@ class RecipesController < ApplicationController
         where = {range: ["public", "registrated", "private"]}
       end 
     end
-    @recipes = @user.recipes.where(where)    
+    @recipes = @user.recipes.where(where) 
   end
   
   def new
-#    unless user_signed_in?
-#      redirect_to new_user_session_path
-#    end
-#    @recipe = Recipe.new
     @recipe.quantities.build
     @recipe.quantities.first.build_unit
   end
@@ -52,7 +43,7 @@ class RecipesController < ApplicationController
   
   def update
     unless params[:recipe][:category_ids].nil?
-          params[:recipe][:category_ids].uniq!
+      params[:recipe][:category_ids].uniq!
     end
     if @recipe.update_attributes(recipe_params)
       redirect_to recipes_path

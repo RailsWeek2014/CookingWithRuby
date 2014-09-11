@@ -1,18 +1,10 @@
 class SearchController < ApplicationController
   skip_load_and_authorize_resource
   
-  def fuzzy
+  def search
   end
 
-  def user
+  def advanced_search
   end
 
-  def recipe
-  end
-
-  def ingredient
-  end
-
-  def category
-  end
 end
