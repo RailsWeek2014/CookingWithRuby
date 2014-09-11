@@ -47,6 +47,7 @@ de:
     new: "Erstelle eine Aktivität"
     plan_your_activities: "Plane eine Aktivität"
     energy_day_need: "Gesamt Energiebedarf: "
+    delete: "entfernen"
     
   activity:
     name: "Name"

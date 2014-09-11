@@ -76,7 +76,7 @@ Rails.application.routes.draw do
   get 'activity_plans/:id/edit' => 'activity_plans#edit'
 
   post 'activity_plans/create'
-  delete 'activity_plans/:id' => 'activity_plans#destroy'
+  delete 'activity_plans/:id' => 'activity_plans#destroy', as: 'delete_activity_plan'
   patch 'activity_plans/:id' => 'activity_plans#update'
   
   #activity routes
