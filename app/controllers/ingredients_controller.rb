@@ -14,6 +14,6 @@ class IngredientsController < ApplicationController
   
   private
     def ingredient_params
-      params.require( 'ingredient' ).permit( 'name', 'kj', 'corbohydrate', 'protein', 'fat', 'roughage', 'default_quantity', 'unit_id')
+      params.require( 'ingredient' ).permit( 'name', 'kj', 'carbohydrate', 'protein', 'fat', 'roughage', 'default_quantity', 'unit_id')
     end
 end

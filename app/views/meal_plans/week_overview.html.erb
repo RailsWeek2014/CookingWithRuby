@@ -22,6 +22,17 @@
 	<%= render partial: 'daytime', locals: { daytime: 'breakfast', header: t('meal_plan.breakfast') } %>
 	<%= render partial: 'daytime', locals: { daytime: 'lunch', header: t('meal_plan.lunch') } %>
 	<%= render partial: 'daytime', locals: { daytime: 'dinner', header: t('meal_plan.dinner') } %>
+	
+	<tr>
+		<% d = @week_start %>
+		<% 7.times do %>
+			<td>
+				<%= "#{t( 'meal_plan.total_food_value' )} #{@meal_plans.where( date: d ).collect( &:recipe ).inject(0){ |sum, r| sum + (r.food_value || 0) } }"%>
+				<% d = d.tomorrow %>
+			</td>
+		<% end %>		
+	</tr>
+	
 
 </table>
 

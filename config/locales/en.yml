@@ -168,6 +168,7 @@ en:
     date: "Date"
     update: "Change meal"
     export_as_pdf: "Save as PDF"
+    total_food_value: "Total food value"
     
   weekdays_short:
     monday: "Mon"
