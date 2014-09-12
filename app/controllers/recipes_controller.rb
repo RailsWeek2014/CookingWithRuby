@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
     where = {range: ["public"]}
     
     if user_signed_in?
-      unless current_user.id.to_s == params[:id]
+      unless current_user.id.to_s == params[:user_id]
         where = {range: ["public", "registrated"]}
       else
         where = {range: ["public", "registrated", "private"]}
