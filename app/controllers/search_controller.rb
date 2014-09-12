@@ -3,12 +3,12 @@ class SearchController < ApplicationController
   
   def search
     @recipes = []
-    @recipes |= Recipe.find_by_fuzzy_name(params[:keywords], limit: 20)
-    @recipes |= Recipe.find_by_fuzzy_instructions(params[:keywords], limit: 20) 
+#    @recipes |= Recipe.find_by_fuzzy_name(params[:keywords], limit: 20)
+#    @recipes |= Recipe.find_by_fuzzy_instructions(params[:keywords], limit: 20)
+
     keywords = params[:keywords].split(" ")
-    search_in_recipe(keywords)
-    search_in_ingredient(keywords)
-    
+    @recipes |= search_in_recipe(keywords)
+    @recipes |= search_in_ingredient(keywords)
     @recipes &= visible_recipes()
     
     respond_to do |format|      
@@ -35,14 +35,14 @@ class SearchController < ApplicationController
           query = "%#{keyword}%"
           if(where.nil?)
             where = recipes[:name].matches(query)\
-              .or(recipes[:instructions]).matches(query)
+              .or(recipes[:instructions].matches(query))
           else
             where = where.or(recipes[:name].matches(query)\
-              .or(recipes[:instructions]).matches(query))
+              .or(recipes[:instructions].matches(query)))
           end
         end
       }
-      @recipes |= Recipe.where(where)
+      Recipe.where(where)
     end
 
 
@@ -65,7 +65,10 @@ class SearchController < ApplicationController
         ingredients.each do |i|
         recipes &= i.recipes
       end
-      @recipes |= recipes
+      if(ingredients.empty?)
+        recipes = []
+      end
+     recipes
     end
     
     def visible_recipes
